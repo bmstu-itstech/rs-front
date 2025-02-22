@@ -1,0 +1,65 @@
+.carousel {
+  --carousel-dot-size: 0.5rem;
+  --carousel-dot-spacing: 0.2rem;
+  --carousel-padding-bottom: 2rem;
+  --carousel-margin-bottom: 2rem;
+  --news-item-padding: 40px;
+  --border-radius: 10px;
+
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: var(--carousel-padding-bottom);
+    margin-bottom: var(--carousel-margin-bottom);
+}
+
+.carousel__dots {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel__dot {
+    border: none;
+    border-radius: 100%;
+    height: var(--carousel-dot-size);
+    width: var(--carousel-dot-size);
+    background-color: #ccc;
+    margin-left: var(--carousel-dot-spacing);
+    margin-right: var(--carousel-dot-spacing);
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .2s ease-in-out;
+}
+
+.carousel__dot:hover, .carousel__dot--selected {
+    opacity: 1;
+}
+
+.embla {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+}
+
+.embla__slide {
+    position: relative;
+    min-width: 100%;
+    flex: 0 0 auto;
+    padding: 10px;
+}
+
+.embla__slide-container{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.embla__slide > div {
+    padding: var(--news-item-padding);
+}

@@ -1,0 +1,23 @@
+.achievements .list {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievements .subcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 80vh;
+  margin-top: 5vh;
+}
+
+@media (max-width: 950px) {
+  
+  .achievements .list {
+    flex-direction: column;
+    align-items: normal;
+  }
+
+}

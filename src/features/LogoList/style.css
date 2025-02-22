@@ -1,0 +1,12 @@
+.logo-list {
+    display: flex;
+    gap: 40px;
+}
+
+@media (max-width: 950px) {
+
+    .logo-list .logo:not(:last-child) {
+        display: none;
+    }
+
+}

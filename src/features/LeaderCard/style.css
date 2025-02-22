@@ -1,0 +1,42 @@
+.leader-card {
+    margin-top: 20px;
+    border: 3px solid var(--primary-color);
+    border-radius: 35px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 20vh, rgba(193, 48, 0, 0.5)), url("/mock/leader.jpg");
+    width: min(550px, 90vw);
+    height: min(630px, 60vh);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 30px;
+    background-position: center;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.leader-card .title {
+    margin-top: auto;
+    font-size: 3.5rem;
+    text-transform: none;
+}
+
+.leader-card .subtitle {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: none;
+    margin-top: 5px;
+}
+
+.leader-card .desc {
+    font-size: 2.6rem;
+    margin-top: 5px;
+}
+
+@media (max-width: 950px) {
+
+    .leader-card {
+        margin-top: 0px;
+    }
+
+}

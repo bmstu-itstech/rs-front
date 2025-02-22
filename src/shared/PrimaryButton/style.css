@@ -1,0 +1,22 @@
+.primary-button {
+    border: 3px solid var(--primary-color);
+    border-radius: 60px;
+    padding: 15px 82px;
+    text-transform: uppercase;
+    width: fit-content;
+    cursor: pointer;
+    transition: background .3s;
+    user-select: none;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-color);
+}
+
+@media (max-width: 950px) {
+
+    .primary-button {
+        width: auto;
+    }
+
+}

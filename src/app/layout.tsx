@@ -1,37 +1,27 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import type {Metadata} from "next";
 import "./globals.css";
-import { Navbar } from "./components/widgets";
+import {Footer, Navbar} from '@/widgets'
+import {ReactNode} from "react";
 
-const alsRegular = localFont({
-  src: "./fonts/ALS_Sector-Regular.otf",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const alsBold = localFont({
-  src: "./fonts/ALS_Sector-Bold.otf",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
-  title: "Центр молодёжной робототехники",
-  description: "ЦМР",
+    title: "Центр молодёжной робототехники\n",
+    description: "Центр располагается в одном из зданий нового кампуса Университета — в Инжиниринговом центре «Автоматика и робототехника» — приходите знакомиться. Мы уверены, что каждый из вас найдет здесь что-то интересное и полезное для себя.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="ru">
-      <body
-        className={`${alsRegular.variable} ${alsBold.variable} antialiased overflow-x-hidden`}
-      >
-        <Navbar />
+export default function RootLayout(
+    {
+        children,
+    }: Readonly<{
+        children: ReactNode;
+    }>) {
+    return (
+        <html lang="ru">
+        <body>
+        <Navbar/>
         {children}
-      </body>
-    </html>
-  );
+        <Footer/>
+        </body>
+        </html>
+    );
 }

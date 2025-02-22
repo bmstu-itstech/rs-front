@@ -1,0 +1,25 @@
+.card-button {
+  background-color: white;
+  border-radius: 30px;
+  font-size: 2.3rem;
+  text-align: center;
+  height: 63px;
+  width: min(522px, 90vw);
+  line-height: 63px;
+  color: black;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+@media (max-width: 950px) {
+
+  .card-button {
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.6rem;
+  }
+
+}

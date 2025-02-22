@@ -1,8 +1,104 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+@font-face {
+  font-family: ALS Sector;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/ALS_Sector-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: ALS Sector;
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/ALS_Sector-Bold.otf") format("opentype");
+}
 
 * {
   margin: 0;
   padding: 0;
+  color: #fff;
+  font-family: "ALS Sector", sans-serif;
+}
+
+:root {
+  --max-container-width: 1600px;
+  --mobile-width: 950px;
+  --primary-color: #c13000;
+  --text-color: #FFF;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url("/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+body:has(.events-screen) {
+  background-image: url("/mock/events.png");
+  backdrop-filter: brightness(20%);
+}
+.navbar-outer {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+}
+
+.navbar-inner {
+  margin-top: 30px;
+  display: flex;
+  width: min(var(--max-container-width), 90vw);
+  justify-content: space-between;
+}
+
+.navbar-outer .logo-outer {
+  transition: opacity .3s;
 }
