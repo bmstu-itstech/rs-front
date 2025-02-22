@@ -6,6 +6,7 @@ export interface EventInputModel {
   photos: string;
   mentions: string;
   docs: string;
+  cover: string;
 }
 
 export interface IEvent extends EventInputModel {

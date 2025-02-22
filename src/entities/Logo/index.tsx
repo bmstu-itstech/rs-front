@@ -1,5 +1,6 @@
 import {FC, MouseEventHandler} from "react";
 import Image from "next/image";
+import style from "./Logo.module.css";
 
 interface LogoProps {
     src: string;
@@ -10,7 +11,7 @@ interface LogoProps {
 const Logo: FC<LogoProps> = ({ src, alt, onClick }) => {
     return (
         <Image
-            className="logo"
+            className={style.logo}
             src={src}
             alt={alt}
             onClick={onClick}

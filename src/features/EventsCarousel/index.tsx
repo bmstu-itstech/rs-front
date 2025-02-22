@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {useState, useCallback, useEffect, useMemo, memo} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -66,9 +66,9 @@ const Carousel: NextPage<CarouselProps> = ({items, itemsPerSlide = 3}) => {
                         <div className="embla__slide" key={index}>
                             <div className="embla__slide-container" style={{width: "75vw"}}>
                                 {"mentions" in slideGroup[0] ?
-                                    slideGroup.map((slide) => (
+                                    slideGroup.map((slide, idx) => (
                                         <div className="event-container" key={slide.id}>
-                                            <Event {...slide} />
+                                            <Event {...slide} selected={index+idx === selectedIndex} />
                                         </div>
                                     ))
                                     :

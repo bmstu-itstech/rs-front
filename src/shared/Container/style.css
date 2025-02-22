@@ -49,6 +49,7 @@
     font-size: 8.2rem;
     text-transform: uppercase;
     text-align: center;
+    user-select: none;
 }
 
 .caption {

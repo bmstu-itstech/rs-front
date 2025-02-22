@@ -15,9 +15,9 @@ const Navbar: FC = () => {
     }, []);
 
     return (
-        <div className="navbar-outer">
-            <div className="navbar-inner">
-                <div className="logo-outer" style={{opacity}}>
+        <div className="grid items-center justify-center sticky z-[100] top-0 left-0">
+            <div className="mt-[30px] flex justify-between navbar-inner">
+                <div className="transition-opacity duration-300" style={{opacity}}>
                     <LogoList/>
                 </div>
                 {/*<Menu />*/}

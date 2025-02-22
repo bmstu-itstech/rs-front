@@ -8,10 +8,20 @@ import LinkField from "@/shared/LinkField";
 import {IEvent} from "@/types";
 import EventDropdown from "../EventDropdown";
 import {createPortal} from "react-dom";
+import { useEffect } from "react";
 
-function Event(item: IEvent) {
+function Event(item: IEvent & { selected: boolean; }) {
 
     const [isOpened, setIsOpened] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (!item.selected) return;
+        const origin = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = `url(${item.cover})`;
+        return () => {
+            document.body.style.backgroundImage = origin;
+        };
+    }, [item.selected]);
 
     return (
         <div className="event">

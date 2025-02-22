@@ -36,7 +36,7 @@ const Achievement: FC<AchievementProps> = (
             <div
                 className="achievement-mobile-outer"
             >
-                <Image src={coverUrl} alt=""/>
+                <Image width={1416} height={945} src={coverUrl} alt=""/>
                 <div className="v-delimiter"/>
                 <div
                     className="info"

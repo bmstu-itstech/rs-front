@@ -1,0 +1,14 @@
+.list {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.photo {
+  width: min(80vw, 340px);
+  height: fit-content;
+}

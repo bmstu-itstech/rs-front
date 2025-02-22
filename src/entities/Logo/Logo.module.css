@@ -1,0 +1,13 @@
+@media screen and (max-width: 950px) {
+
+  .logo {
+    width: 70px;
+    height: 70px;
+    display: none;
+  }
+
+  .logo:last-of-type {
+    display: block;
+  }
+
+}

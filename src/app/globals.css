@@ -1,3 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    line-height: normal!important;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -83,22 +91,10 @@ body:has(.events-screen) {
   background-image: url("/mock/events.png");
   backdrop-filter: brightness(20%);
 }
-.navbar-outer {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  position: sticky;
-  z-index: 100;
-  top: 0;
-}
 
 .navbar-inner {
   margin-top: 30px;
   display: flex;
   width: min(var(--max-container-width), 90vw);
   justify-content: space-between;
-}
-
-.navbar-outer .logo-outer {
-  transition: opacity .3s;
 }
