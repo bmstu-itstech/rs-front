@@ -1,0 +1,1244 @@
+openapi: 3.0.3
+info:
+  title: API для ЦМР
+  description: API для управления пользователями, новостями, достижениями, событиями и многим другим на сайте ЦМР.
+  version: 1.0.0
+
+paths:
+  /auth/sign-up:
+    post:
+      summary: Регистрация нового администратора
+      description: Позволяет зарегистрировать нового администратора
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: zhikh23@bmstu.ru
+                password:
+                  type: string
+                  example: timosha123
+                adminKey:
+                  type: string
+                  example: IvanLovesTimosha
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          description: Администратор успешно зарегистрирован
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                  refreshToken:
+                    type: string
+                  expiresIn:
+                    type: number
+
+  /auth/sign-in:
+    post:
+      summary: Вход в аккаунт администратора
+      description: Позволяет войти в аккаунт администратора
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: timosha@mail.ru
+                password:
+                  type: string
+                  example: Timosha123
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          description: Администратор успешно вошёл в аккаунт
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: success
+                  accessToken:
+                    type: string
+                  refreshToken:
+                    type: string
+                  expiresIn:
+                    type: number
+
+  /auth/logout:
+    post:
+      summary: Выход из аккаунта администратора
+      description: Делает недействительным токены
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                refreshToken:
+                  type: string
+              required:
+                - accessToken
+                - refreshToken
+      responses:
+        '200':
+          description: Успешный выход из аккаунта
+  /news:
+    get:
+      summary: Получение списка новостей
+      description: Возвращает список новостей
+      tags:
+        - News
+      parameters:
+        - name: offset
+          in: query
+          description: Смещение
+          required: false
+          schema:
+            type: number
+            example: 0
+      responses:
+        '200':
+          description: Список новостей
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsModel'
+    post:
+      summary: Создать черновик новости
+      description: Позволяет администраторам создать черновик новости
+      tags:
+        - News
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsInputModel'
+      responses:
+        '200':
+          description: Черновик создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsModel'
+  /news/{newsId}:
+    get:
+      summary: Получить новость по идентификатору
+      description: Возвращает новость с заданным newsId.
+      tags:
+        - News
+      parameters:
+        - name: newsId
+          in: path
+          description: Идентификатор новости
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Новость
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsModel'
+  /news/drafts:
+    get:
+      summary: Получить черновики новостей
+      description: Возвращает черновики новостей
+      tags:
+        - News
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: Смещение
+          required: false
+          schema:
+            type: number
+            example: 0
+      responses:
+        '200':
+          description: Список черновиков новостей
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsModel'
+  /news/publish:
+    post:
+      summary: Опубликовать новость
+      description: Позволяет опубликовать новость
+      tags:
+        - News
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+        - name: newsId
+          in: query
+          description: Идентификатор новости
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Опубликованная новость
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsModel'
+
+  /achievements:
+    get:
+      summary: Получение списка достижений
+      description: Возвращает список достижений
+      tags:
+        - Achievements
+      parameters:
+        - name: offset
+          in: query
+          description: Смещение
+          required: false
+          schema:
+            type: number
+            example: 0
+      responses:
+        '200':
+          description: Список достижений
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AchievementModel'
+
+    post:
+      summary: Создать достижение
+      description: Позволяет администраторам создавать новые достижения
+      tags:
+        - Achievements
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AchievementInputModel'
+      responses:
+        '200':
+          description: Достижение создано
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AchievementModel'
+
+    put:
+      summary: Обновление достижения
+      description: Позволяет администраторам обновить достижение.
+      tags:
+        - Achievements
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AchievementModel'
+      responses:
+        '200':
+          description: Достижение изменено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AchievementModel'
+
+    delete:
+      summary: Удаление достижения
+      description: Позволяет администраторам удалять достижения
+      tags:
+        - Achievements
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+        - name: achievementId
+          in: query
+          description: Идентификатор достижения
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Достижение удалено
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 1
+
+  /achievements/{achievementId}:
+    get:
+      summary: Получение достижения по ID
+      description: Возвращает достижение с заданным идентификатором.
+      tags:
+        - Achievements
+      parameters:
+        - name: achievementId
+          in: path
+          description: Идентификатор достижения.
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Достижение
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AchievementModel'
+
+  /events:
+    get:
+      summary: Получение списка мероприятий
+      description: Возвращает список мероприятий.
+      tags:
+        - Events
+      parameters:
+        - name: offset
+          in: query
+          description: Смещение
+          required: false
+          schema:
+            type: number
+            example: 0
+      responses:
+        '200':
+          description: Список мероприятий
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventModel'
+
+    post:
+      summary: Создание мероприятия
+      description: Позволяет администраторам создать новое мероприятие
+      tags:
+        - Events
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventInputModel'
+      responses:
+        '200':
+          description: Мероприятие
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventModel'
+
+    put:
+      summary: Обновление мероприятия
+      description: Позволяет алминистраторам обновлять информацию о мероприятии.
+      tags:
+        - Events
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventModel'
+      responses:
+        '200':
+          description: Мероприятие обновлено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventModel'
+
+    delete:
+      summary: Удаление мероприятия
+      description: Позволяет администраторам удалить мероприятие.
+      tags:
+        - Events
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+        - name: eventId
+          in: query
+          description: Идентификатор мероприятия
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Мероприятие удалено
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 1
+
+  /events/{eventId}/teams:
+    get:
+      summary: Получение списка команд, участвующих в мероприятии
+      description: Возвращает список команд, участвующих в мероприятии
+      tags:
+        - Events
+      parameters:
+        - name: eventId
+          in: path
+          description: идентификатор мероприятия
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Список команд
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventTeamModel'
+
+    post:
+      summary: Добавление команды
+      description: Позволяет добавить команду
+      tags:
+        - Events
+      parameters:
+        - name: eventId
+          in: path
+          description: идентификатор мероприятия
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventTeamInputModel'
+      responses:
+        '200':
+          description: Команда добавлена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  team:
+                    $ref: '#/components/schemas/EventTeamModel'
+                  secretKey:
+                    type: string
+    put:
+      summary: Обновление команды
+      description: Позволяет обновить сведения о команде.
+      tags:
+        - Events
+      parameters:
+        - name: Secret-Token
+          in: header
+          description: Секретный токен
+          required: true
+          schema:
+            type: string
+        - name: eventId
+          in: path
+          description: Идентификатор мероприятия
+          required: true
+          schema:
+            type: number
+        - name: teamId
+          in: query
+          description: Идентификатор команды
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventTeamModel'
+      responses:
+        '200':
+          description: Информация о команде обновлена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventTeamModel'
+
+    delete:
+      summary: Удаление команды
+      description: Позволяет удалить команду
+      tags:
+        - Events
+      parameters:
+        - name: Secret-Token
+          in: header
+          description: Секретный токен
+          required: true
+          schema:
+            type: string
+        - name: eventId
+          in: path
+          description: Идентификатор мероприятия
+          required: true
+          schema:
+            type: number
+        - name: teamId
+          in: query
+          description: Идентификатор команды
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Команда удалена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 1
+
+  /docs:
+    get:
+      summary: Получение документов по идентификаторам
+      description: Возвращает документы с заданными идентфикаторами
+      tags:
+        - Docs
+      parameters:
+        - name: docIds
+          in: query
+          description: Список идентификаторов документов
+          required: true
+          schema:
+            type: array
+            items:
+              type: number
+            example: [1, 2, 3]
+      responses:
+        '200':
+          description: List of documents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocModel'
+
+    post:
+      summary: Добавление документа
+      description: Позволяет администраторам добавить новый документ
+      tags:
+        - Docs
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocInputModel'
+      responses:
+        '200':
+          description: Документ добавлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocModel'
+
+    delete:
+      summary: Удаление документа
+      description: Позволяет администраторам удалить документ
+      tags:
+        - Docs
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+        - name: docId
+          in: query
+          description: Идентификатор документа
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Документ удалён
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 1
+
+  /hardathons:
+    get:
+      summary: Получение списка хардатонов
+      description: Возвращает список хардатонов
+      tags:
+        - Hardathons
+      parameters:
+        - name: offset
+          in: query
+          description: Смещение
+          required: false
+          schema:
+            type: number
+            example: 0
+      responses:
+        '200':
+          description: Список хардатонов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HardathonModel'
+
+    post:
+      summary: Создание хардатона
+      description: Позволяет администраторам создать хардатон
+      tags:
+        - Hardathons
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HardathonInputModel'
+      responses:
+        '200':
+          description: Хардатон создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HardathonModel'
+
+    put:
+      summary: Обновление сведений о хардатоне
+      description: Позволяет администраторам обновлять сведения о хардатоне
+      tags:
+        - Hardathons
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HardathonModel'
+      responses:
+        '200':
+          description: Сведения о хардатоне обновлены
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HardathonModel'
+
+    delete:
+      summary: Удаление хардатона
+      description: Позволяет администраторам удалять сведения о хардатоне.
+      tags:
+        - Hardathons
+      parameters:
+        - name: Access-Token
+          in: header
+          description: Токен администратора
+          required: true
+          schema:
+            type: string
+        - name: hardathonId
+          in: query
+          description: Идентификатор хардатона
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Хардатон удалён
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 1
+
+  /hardathons/{hardathonId}/projects:
+    get:
+      summary: Получение проектов хардатона
+      description: Возвращает сведения о проектах хардатона.
+      tags:
+        - Hardathons
+      parameters:
+        - name: hardathonId
+          in: path
+          description: Идентификатор хардатона
+          required: true
+          schema:
+            type: number
+        - name: offset
+          in: query
+          description: Смещение
+          required: false
+          schema:
+            type: number
+            example: 0
+      responses:
+        '200':
+          description: Список проектов.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HardathonProjectModel'
+
+    post:
+      summary: Добавление проекта
+      description: Позволяет добавить проект.
+      tags:
+        - Hardathons
+      parameters:
+        - name: hardathonId
+          in: path
+          description: Идентификатор хардатона.
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HardathonProjectInputModel'
+      responses:
+        '200':
+          description: Проект добавлен.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  project:
+                    $ref: '#/components/schemas/HardathonProjectModel'
+                  secretKey:
+                    type: string
+
+    put:
+      summary: Обновление сведений о проекте
+      description: Позволяет обновить сведения о проекте.
+      tags:
+        - Hardathons
+      parameters:
+        - name: Secret-Token
+          in: header
+          description: Секретный токен
+          required: true
+          schema:
+            type: string
+        - name: hardathonId
+          in: path
+          description: Идентификатор хардатона
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HardathonProjectModel'
+      responses:
+        '200':
+          description: Проект обновлён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HardathonProjectModel'
+
+    delete:
+      summary: Удаление проекта
+      description: Позволяет удалить проект.
+      tags:
+        - Hardathons
+      parameters:
+        - name: Secret-Token
+          in: header
+          description: Секретный токен
+          required: true
+          schema:
+            type: string
+        - name: hardathonId
+          in: path
+          description: Идентификатор хардатона
+          required: true
+          schema:
+            type: number
+        - name: projectId
+          in: query
+          description: Идентификатор проекта
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Проект удалён
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 1
+
+components:
+  schemas:
+    HardathonModel:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        coverUrl:
+          type: string
+        date:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        resultsDate:
+          type: string
+        place:
+          type: string
+        media:
+          type: array
+          items:
+            type: string
+        photos:
+          type: array
+          items:
+            type: string
+        docs:
+          type: array
+          items:
+            type: number
+        partners:
+          type: array
+          items:
+            type: string
+        rules:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+
+    HardathonInputModel:
+      type: object
+      properties:
+        title:
+          type: string
+        coverUrl:
+          type: string
+        date:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        resultsDate:
+          type: string
+        place:
+          type: string
+        media:
+          type: array
+          items:
+            type: string
+        photos:
+          type: array
+          items:
+            type: string
+        docs:
+          type: array
+          items:
+            type: number
+        partners:
+          type: array
+          items:
+            type: string
+
+    HardathonProjectModel:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        coverUrl:
+          type: string
+        blocks:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+        scope:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+
+    HardathonProjectInputModel:
+      type: object
+      properties:
+        title:
+          type: string
+        coverUrl:
+          type: string
+        blocks:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+        scope:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+    EventModel:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        blocks:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+        date:
+          type: string
+        place:
+          type: string
+        photos:
+          type: array
+          items:
+            type: string
+        mentions:
+          type: array
+          items:
+            type: string
+        docs:
+          type: array
+          items:
+            type: number
+
+    EventInputModel:
+      type: object
+      properties:
+        title:
+          type: string
+        blocks:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+        date:
+          type: string
+        place:
+          type: string
+        photos:
+          type: array
+          items:
+            type: string
+        mentions:
+          type: array
+          items:
+            type: string
+        docs:
+          type: array
+          items:
+            type: string
+
+    EventTeamModel:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        people:
+          type: array
+          items:
+            type: string
+        vkLink:
+          type: string
+        competentions:
+          type: string
+        additional:
+          type: string
+        approved:
+          type: boolean
+    EventTeamInputModel:
+      type: object
+      properties:
+        title:
+          type: string
+        people:
+          type: array
+          items:
+            type: string
+        vkLink:
+          type: string
+        competentions:
+          type: string
+        additional:
+          type: string
+    AchievementModel:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        coverUrl:
+          type: string
+        photos:
+          type: array
+          items:
+            type: string
+        media:
+          type: array
+          items:
+            type: string
+
+    AchievementInputModel:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        coverUrl:
+          type: string
+        photos:
+          type: array
+          items:
+            type: string
+        media:
+          type: array
+          items:
+            type: string
+    NewsModel:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        caption:
+          type: string
+        blocks:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+        actionLink:
+          type: string
+        coverUrl:
+          type: string
+    NewsInputModel:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        caption:
+          type: string
+        blocks:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextBlockModel'
+              - $ref: '#/components/schemas/ImageBlockModel'
+        actionLink:
+          type: string
+        coverUrl:
+          type: string
+    DocModel:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        format:
+          type: string
+        src:
+          type: string
+    DocInputModel:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        format:
+          type: string
+        src:
+          type: string
+    TextBlockModel:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "text"
+        content:
+          type: string
+          example: "This is a sample text block."
+    ImageBlockModel:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "image"
+        src:
+          type: string
+          example: "https://example.com/image.jpg"
+        caption:
+          type: string
+          example: "This is a sample image caption."
