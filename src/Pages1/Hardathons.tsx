@@ -1,9 +1,9 @@
-import HardathonsScreen from "../screens/HardathonsScreen";
+import { HardathonsScreen } from "@/screens";
 
 function Hardathons() {
     return (
         <div className="scroll-container">
-            <HardathonsScreen/>
+            <HardathonsScreen />
         </div>
     );
 }
