@@ -1,3 +1,7 @@
+@import 'tailwindcss';
+@import 'tailwindcss/preflight';
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -44,28 +48,28 @@ a {
   font-family: ALS Sector;
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/ALS_Sector-Regular.otf") format("opentype");
+  src: url('/fonts/ALS_Sector-Regular.otf') format('opentype');
 }
 
 @font-face {
   font-family: ALS Sector;
   font-style: normal;
   font-weight: 700;
-  src: url("/fonts/ALS_Sector-Bold.otf") format("opentype");
+  src: url('/fonts/ALS_Sector-Bold.otf') format('opentype');
 }
 
 * {
   margin: 0;
   padding: 0;
   color: #fff;
-  font-family: "ALS Sector", sans-serif;
+  font-family: 'ALS Sector', sans-serif;
 }
 
 :root {
   --max-container-width: 1600px;
   --mobile-width: 950px;
   --primary-color: #c13000;
-  --text-color: #FFF;
+  --text-color: #fff;
 }
 
 html {
@@ -73,14 +77,14 @@ html {
 }
 
 body {
-  background-image: url("/background.jpg");
+  background-image: url('/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 body:has(.events-screen) {
-  background-image: url("/mock/events.png");
+  background-image: url('/mock/events.png');
   backdrop-filter: brightness(20%);
 }
 .navbar-outer {
@@ -100,5 +104,5 @@ body:has(.events-screen) {
 }
 
 .navbar-outer .logo-outer {
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
