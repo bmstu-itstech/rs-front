@@ -6,15 +6,17 @@ import {FC, MouseEventHandler} from "react";
 interface CardButtonProps {
     label: string;
     onClick: MouseEventHandler<HTMLDivElement>;
+    primary?: boolean;
 }
 
 const CardButton: FC<CardButtonProps> = (
     {
         label,
-        onClick
+        onClick,
+        primary = false
     }) => {
     return (
-        <div className="card-button" onClick={onClick}>
+        <div className={`card-button ${primary ? 'primary' : ''}`} onClick={onClick}>
             {label}
         </div>
     );

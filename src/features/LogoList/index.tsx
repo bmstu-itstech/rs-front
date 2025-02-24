@@ -9,19 +9,19 @@ const LogoList: FC = () => {
         <div className="logo-list">
             <Link href={"https://bmstu.ru"}>
                 <Logo
-                    src="./logo/bmstu.svg"
+                    src="/logo/bmstu.svg"
                     alt="logo of university"
                 />
             </Link>
             <Link href={"/404"}>
                 <Logo
-                    src="./logo/crown.svg"
+                    src="/logo/crown.svg"
                     alt="logo of company"
                 />
             </Link>
             <Link href={"/"}>
                 <Logo
-                    src="./logo/rs.svg"
+                    src="/logo/rs.svg"
                     alt="logo of robotics center"
                 />
             </Link>

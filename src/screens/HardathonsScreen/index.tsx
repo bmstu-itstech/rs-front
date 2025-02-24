@@ -2,10 +2,12 @@
 
 import { useIsMobile } from "@/hooks";
 import { PrimaryButton } from "@/shared";
+import { useRouter } from "next/navigation";
 
 function HardathonsScreen() {
 
     const isMobile = useIsMobile();
+    const router = useRouter();
 
     return (
         <div className="!pt-[30px] mb-[100px]">
@@ -23,7 +25,7 @@ function HardathonsScreen() {
                         </div>
                     </div>
                     <div className="flex max-sm:flex-col justify-between gap-[30px]">
-                        <PrimaryButton>Подробнее</PrimaryButton>
+                        <PrimaryButton onClick={() => router.push("/hardathons/1/details")}>Подробнее</PrimaryButton>
                         <PrimaryButton>Подать заявку</PrimaryButton>
                     </div>
                 </div>

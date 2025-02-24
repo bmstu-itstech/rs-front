@@ -10,8 +10,21 @@
   cursor: pointer;
 }
 
+.card-button.primary {
+  background-color: var(--primary-color);
+  transition: filter .3s;
+  color: white;
+  text-transform: uppercase;
+  width: min(522px, 100vw);
+}
+
 .card-button:hover {
   background-color: rgb(241, 241, 241);
+}
+
+.card-button.primary:hover {
+  background-color: var(--primary-color);
+  filter: brightness(0.85);
 }
 
 @media (max-width: 950px) {
@@ -20,6 +33,10 @@
     height: 50px;
     line-height: 50px;
     font-size: 1.6rem;
+  }
+
+  .card-button.primary {
+    width: 100vw;
   }
 
 }

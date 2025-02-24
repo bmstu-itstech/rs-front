@@ -5,6 +5,7 @@ import AchievementsScreen from "./AchievementsScreen";
 import EventsScreen from "./EventsScreen";
 import PartnersScreen from "./PartnersScreen";
 import HardathonsScreen from "./HardathonsScreen";
+import HardathonDetailsScreen from "./HardathonDetailsScreen";
 
 export {
     MainScreen,
@@ -13,5 +14,6 @@ export {
     AchievementsScreen,
     EventsScreen,
     PartnersScreen,
-    HardathonsScreen
+    HardathonsScreen,
+    HardathonDetailsScreen
 };
