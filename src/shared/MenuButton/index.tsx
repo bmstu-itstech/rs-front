@@ -8,23 +8,18 @@ export const MenuButton: FC<Props> = () => {
       viewBox='0 0 86 46'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'>
-      <path
-        d='M3 3H83'
-        stroke='white'
-        stroke-width='6'
-        stroke-linecap='round'
-      />
+      <path d='M3 3H83' stroke='white' strokeWidth='6' strokeLinecap='round' />
       <path
         d='M26 23L83 23'
         stroke='white'
-        stroke-width='6'
-        stroke-linecap='round'
+        strokeWidth='6'
+        strokeLinecap='round'
       />
       <path
         d='M46 43L83 43'
         stroke='white'
-        stroke-width='6'
-        stroke-linecap='round'
+        strokeWidth='6'
+        strokeLinecap='round'
       />
     </svg>
   );

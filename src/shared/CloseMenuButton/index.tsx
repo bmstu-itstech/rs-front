@@ -12,14 +12,14 @@ export const CloseMenuButton: FC<Props> = () => {
       <path
         d='M4 63.5547L65.6016 2.99989'
         stroke='white'
-        stroke-width='6'
-        stroke-linecap='round'
+        strokeWidth='6'
+        strokeLinecap='round'
       />
       <path
         d='M5.39844 5.44531L67 66.0001'
         stroke='white'
-        stroke-width='6'
-        stroke-linecap='round'
+        strokeWidth='6'
+        strokeLinecap='round'
       />
     </svg>
   );
