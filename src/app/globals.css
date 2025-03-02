@@ -1,10 +1,26 @@
-@import 'tailwindcss';
 @import 'tailwindcss/preflight';
+@import 'tailwindcss';
 @tailwind utilities;
 
-@layer base {
-  html {
-    line-height: normal!important;
+@theme {
+  --animate-appear: appear 0.3s ease-in;
+  @keyframes appear {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%, 0%);
+    }
+  }
+
+  --animate-disappear: disappear 0.3s ease-in;
+  @keyframes disappear {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
 }
 
@@ -34,12 +50,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -65,8 +75,8 @@ a {
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   color: #fff;
   font-family: 'ALS Sector', sans-serif;
 }
@@ -92,6 +102,14 @@ body {
 body:has(.events-screen) {
   background-image: url('/mock/events.png');
   backdrop-filter: brightness(20%);
+}
+.navbar-outer {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  z-index: 100;
+  top: 0;
 }
 
 .navbar-inner {

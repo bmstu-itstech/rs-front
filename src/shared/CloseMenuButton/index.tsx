@@ -3,8 +3,8 @@ import {FC} from 'react';
 export const CloseMenuButton: FC<Props> = () => {
   return (
     <svg
-      width='71'
-      height='69'
+      width='50'
+      height='50'
       viewBox='0 0 71 69'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'>
