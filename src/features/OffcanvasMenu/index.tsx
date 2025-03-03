@@ -8,25 +8,25 @@ import React, {useState, useRef, useEffect} from 'react';
 import {MenuUsecase} from './OffcanvasMenu.usecase';
 export const OffcanvasMenu: FC<Props> = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null); // Создаем ref для меню
+  const menuRef = useRef<HTMLDivElement>(null);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  // Обработчик клика вне меню
   const handleClickOutside = (event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
   useEffect(() => {
-    // Добавляем обработчик события клика
-    document.addEventListener('mousedown', handleClickOutside);
-
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
     return () => {
-      // Убираем обработчик события при размонтировании компонента
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [isOpen]);
   return (
     <>
       <button
@@ -35,13 +35,13 @@ export const OffcanvasMenu: FC<Props> = () => {
         {isOpen ? <CloseMenuButton /> : <MenuButton />}
       </button>
       <div
-        ref={menuRef} // Привязываем ref к контейнеру меню
-        className={`absolute top-0 right-0 z-30 ${
+        ref={menuRef}
+        className={`fixed top-0 right-0 ${
           isOpen ? 'animate-apper' : 'translate-x-full animate-disappear'
-        } transition-all duration-300 !pr-40 h-full max-h-dvh flex top-1/6 bg-transparent shadow-lg`}>
+        } transition-all duration-300 z-1000 !pr-40 h-full flex top-1/6 bg-custom lg:bg-transparent shadow-lg`}>
         <nav className='flex min-h-1/2 h-1/2'>
           <ul className='flex flex-col justify-around w-fit'>
-            {MenuUsecase.map(item => {
+            {MenuUsecase.map((item, index) => {
               return (
                 <li
                   key={item.id}
