@@ -31,15 +31,19 @@ export const OffcanvasMenu: FC<Props> = () => {
     <>
       <button
         onClick={toggleMenu}
-        className='p-2 cursor-pointer text-white rounded z-1000 bg-transparent fixed top-12 right-40 translate-x-1/2'>
-        {isOpen ? <CloseMenuButton /> : <MenuButton />}
+        className='p-2 cursor-pointer text-white rounded z-1000 bg-transparent fixed top-12 right-16 md:right-40 translate-x-1/2'>
+        {isOpen ? (
+          <CloseMenuButton className='md:w-24 md:h-24 w-12 h-12' />
+        ) : (
+          <MenuButton className='md:w-32 md:h-24 w-12 h-12' />
+        )}
       </button>
       <div
         ref={menuRef}
         className={`fixed top-0 right-0 ${
           isOpen ? 'animate-apper' : 'translate-x-full animate-disappear'
-        } transition-all duration-300 z-1000 !pr-40 h-full flex top-1/6 bg-custom lg:bg-transparent shadow-lg`}>
-        <nav className='flex min-h-1/2 h-1/2'>
+        } transition-all duration-300 z-200 w-dvw md:w-auto justify-end !pr-12 md:!pr-40 h-full flex items-center md:items-stretch  md:top-1/6 bg-[#C13100] lg:bg-transparent shadow-lg`}>
+        <nav className='flex h-[clamp(50%,30vw,60%)] '>
           <ul className='flex flex-col justify-around w-fit'>
             {MenuUsecase.map((item, index) => {
               return (
@@ -48,13 +52,13 @@ export const OffcanvasMenu: FC<Props> = () => {
                   className='w-full justify-end items-center text-right flex menu-el'>
                   <a
                     href={item.href}
-                    className='text-white text-7xl align-super transform-all duration-300'>
+                    className='text-white text-5xl md:text-7xl align-super transform-all duration-300'>
                     {item.title}
                   </a>
-                  <div className='w-[5rem] bg-transparent ' />
+                  <div className='w-[clamp(2rem,10vw,5rem)] bg-transparent ' />
                   <div className='flex items-center w-fit relative'>
                     <div className='rounded-full w-10 aspect-square bg-white opacity-0 absolute left-0 -translate-x-1/2 duration-300 dot' />
-                    <div className='w-[5rem] bg-white rounded-2xl rounded-r-none h-2 ' />
+                    <div className='w-[clamp(2rem,10vw,5rem)] bg-white rounded-2xl rounded-r-none h-2 ' />
                   </div>
                 </li>
               );
