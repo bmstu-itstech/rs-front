@@ -1,8 +1,10 @@
 import Props from './MenuButton.props';
 import {FC} from 'react';
-export const MenuButton: FC<Props> = () => {
+export const MenuButton: FC<Props> = ({className, ...props}) => {
   return (
     <svg
+      {...props}
+      className={className}
       width='86'
       height='46'
       viewBox='0 0 86 46'

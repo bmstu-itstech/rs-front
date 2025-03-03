@@ -1,8 +1,10 @@
 import Props from './CloseMenuButton.props';
 import {FC} from 'react';
-export const CloseMenuButton: FC<Props> = () => {
+export const CloseMenuButton: FC<Props> = ({className, ...props}) => {
   return (
     <svg
+      {...props}
+      className={className}
       width='50'
       height='50'
       viewBox='0 0 71 69'
