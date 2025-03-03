@@ -35,7 +35,7 @@ export const OffcanvasMenu: FC<Props> = () => {
         {isOpen ? (
           <CloseMenuButton className='md:w-24 md:h-24 w-12 h-12' />
         ) : (
-          <MenuButton className='md:w-32 md:h-24 w-12 h-12' />
+          <MenuButton className='md:w-32 md:h-24 w-16 h-10' />
         )}
       </button>
       <div
