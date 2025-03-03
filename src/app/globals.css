@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @theme {
+  --color-main-orange: #C13100;
   --animate-appear: appear 0.3s ease-in;
   @keyframes appear {
     0% {

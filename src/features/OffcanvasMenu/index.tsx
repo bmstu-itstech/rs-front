@@ -42,7 +42,7 @@ export const OffcanvasMenu: FC<Props> = () => {
         ref={menuRef}
         className={`fixed top-0 right-0 ${
           isOpen ? 'animate-apper' : 'translate-x-full animate-disappear'
-        } transition-all duration-300 z-200 w-dvw md:w-auto justify-end !pr-12 md:!pr-40 h-full max-h-dvh flex items-center md:items-stretch  md:top-1/6 bg-[#C13100] lg:bg-transparent shadow-lg`}>
+        } transition-all duration-300 z-200 w-dvw md:w-auto justify-end !pr-12 md:!pr-40 h-full max-h-dvh flex items-center md:items-stretch  md:top-1/6 bg-main-orange lg:bg-transparent shadow-lg`}>
         <nav className='flex h-[clamp(50%,30vw,60%)] '>
           <ul className='flex flex-col justify-around w-fit'>
             {MenuUsecase.map((item, index) => {
