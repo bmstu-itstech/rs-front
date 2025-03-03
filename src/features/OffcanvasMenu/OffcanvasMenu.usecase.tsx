@@ -12,7 +12,7 @@ export const MenuUsecase = [
   {
     id: '3',
     title: 'Хардатон',
-    href: '/events',
+    href: '/hardathons',
   },
   {
     id: '4',
