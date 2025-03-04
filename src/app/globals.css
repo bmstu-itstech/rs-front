@@ -4,25 +4,30 @@
 
 @theme {
   --color-main-orange: #c13100;
-  --radius-6xl: 6rem;
-  --animate-appear: appear 0.3s ease-in;
-  @keyframes appear {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
-  }
 
+  --radius-6xl: 6rem;
+
+  --height-48r: 48rem;
+
+  --animate-appear: appear 0.3s ease-in;
   --animate-disappear: disappear 0.3s ease-in;
-  @keyframes disappear {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
+}
+
+@keyframes appear {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes disappear {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 

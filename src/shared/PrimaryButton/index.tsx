@@ -12,10 +12,14 @@ const PrimaryButton: FC<Props> = ({
 }) => {
   return (
     <button
-      className={`select-none hover:bg-main-orange py-6 px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300  border-2 border-main-orange ${className}`}
+      className={`select-none ${
+        bgFilled
+          ? 'bg-main-orange hover:bg-white  hover:text-main-orange'
+          : 'bg-transparent hover:bg-main-orange border-2 border-main-orange'
+      }  py-6 px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300  ${className}`}
       {...props}
       onClick={onClick}>
-      <div className='caption uppercase'>{children}</div>
+      <div className={`uppercase text-inherit `}>{children}</div>
     </button>
   );
 };
