@@ -16,7 +16,7 @@ const PrimaryButton: FC<Props> = ({
         bgFilled
           ? 'bg-main-orange hover:bg-white  hover:text-main-orange'
           : 'bg-transparent hover:bg-main-orange border-2 border-main-orange'
-      }  py-6 px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300  ${className}`}
+      }  py-10 px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300 text-5xl  ${className}`}
       {...props}
       onClick={onClick}>
       <div className={`uppercase text-inherit `}>{children}</div>
