@@ -1,32 +1,25 @@
-'use client'
+'use client';
 
-import "./style.css";
-import {MouseEventHandler} from "react";
-import {NextPage} from "next";
-import {ReactNode} from "react";
+import Props from './PrimaryButton.props';
+import {FC} from 'react';
 
-interface PrimaryButtonProps {
-    children?: ReactNode;
-    onClick?: MouseEventHandler<HTMLDivElement>;
-}
-
-const PrimaryButton: NextPage<PrimaryButtonProps> = (
-    {
-        children,
-        onClick = () => {
-        }
-    }) => {
-
-    return (
-        <div className="primary-button" onClick={onClick}>
-            <div className="caption">
-                {children}
-            </div>
-        </div>
-    );
-
+const PrimaryButton: FC<Props> = ({
+  bgFilled = false,
+  children,
+  onClick,
+  className,
+  ...props
+}) => {
+  return (
+    <button
+      className={`select-none hover:bg-main-orange py-6 px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300  border-2 border-main-orange ${className}`}
+      {...props}
+      onClick={onClick}>
+      <div className='caption uppercase'>{children}</div>
+    </button>
+  );
 };
 
-PrimaryButton.displayName = "PrimaryButton";
+PrimaryButton.displayName = 'PrimaryButton';
 
 export default PrimaryButton;
