@@ -9,7 +9,6 @@
     height: min(630px, 60vh);
     display: flex;
     flex-direction: column;
-    padding-bottom: 30px;
 }
 
 .contact-card-inner {
