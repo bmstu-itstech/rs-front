@@ -7,10 +7,10 @@ const MainScreen: NextPage = () => {
   return (
     <Container id='main'>
       <div className='main'>
-        <div className=' uppercase text-9rxl leading-normal'>
+        <div className=' uppercase text-5xl md:text-9rxl leading-normal px-6 md:px-0 text-balance inline-flex'>
           Центр молодежной робототехники
         </div>
-        <div className='caption leading-normal'>
+        <div className='caption leading-normal px-6 md:px-0 text-balance'>
           Центр Молодежной Робототехники - это инновационное пространство,
           предназначенное для обучения и развития молодых талантов в области
           робототехники, искусственного интеллекта и программирования. Наша
@@ -20,6 +20,7 @@ const MainScreen: NextPage = () => {
         </div>
         <div className='bottom'>
           <PrimaryButton
+            className='w-full'
             onClick={() => {
               const element = document.getElementById('news');
               element?.scrollIntoView({
