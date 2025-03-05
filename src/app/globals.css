@@ -9,6 +9,10 @@
 
   --height-48r: 48rem;
 
+  --text-9rxl: 9rem;
+
+  --leading-normal: 1.2;
+
   --animate-appear: appear 0.3s ease-in;
   --animate-disappear: disappear 0.3s ease-in;
 }
