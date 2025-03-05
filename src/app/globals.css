@@ -4,6 +4,7 @@
 
 @theme {
   --color-main-orange: #c13100;
+  --color-main-orange-50: rgba(193, 49, 0, 0.5);
 
   --radius-6xl: 6rem;
 

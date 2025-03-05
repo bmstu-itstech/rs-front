@@ -1,23 +1,13 @@
 'use client';
 
-import './style.css';
-import {useState, MouseEventHandler, FC} from 'react';
+import {useState, FC} from 'react';
 import {useIsMobile} from '@/hooks';
 import LinkField from '@/shared/LinkField';
 import Image from 'next/image';
+import Props from './Achievement.props';
+import {Divider} from './components/Divider';
 
-interface AchievementProps {
-  id: string;
-  title: string;
-  description: string;
-  photoUrl: string;
-  mediaUrl: string;
-  coverUrl: string;
-  compact?: boolean;
-  onClick?: MouseEventHandler<HTMLDivElement>;
-}
-
-const Achievement: FC<AchievementProps> = ({
+const Achievement: FC<Props> = ({
   title,
   description,
   coverUrl,
@@ -25,68 +15,78 @@ const Achievement: FC<AchievementProps> = ({
   mediaUrl,
   compact = false,
   onClick,
+  className,
+  ...props
 }) => {
   const [hovered, setHovered] = useState<boolean>(false);
   const mobile = useIsMobile();
-
   if (mobile) {
     return (
-      <div className='achievement-mobile-outer'>
-        <Image width={1416} height={945} src={coverUrl} alt='' />
-        <div className='v-delimiter' />
-        <div className='info'>
-          <div className='title'>{title}</div>
-          <div className='h-delimiter' />
+      <div
+        className={`border-2 border-main-orange  rounded-4xl flex overflow-hidden ${className}`}
+        {...props}>
+        <Image
+          width={1416}
+          height={945}
+          src={coverUrl}
+          alt='achievement'
+          className='w-1/3 h-full min-h-[100px] object-cover object-center'
+        />
+        <Divider isVertical />
+        <div className='flex flex-col items-center justify-evenly flex-1 gap-1 py-2'>
+          <div className='text-2xl text-center uppercase'>{title}</div>
+          <Divider />
           <LinkField title='Подробнее' url={photoUrl} />
         </div>
       </div>
     );
   }
-
   if (compact) {
     return (
       <div
-        className='achievement compact'
+        className={`w-1/3 h-[220px] border-5 overflow-hidden  border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
+        {...props}
+        style={{
+          backgroundImage: `url(${coverUrl})`,
+        }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        style={{
-          background: `url(${coverUrl}) no-repeat center/cover, ${
-            hovered ? 'rgba(193, 48, 0, 0.4)' : 'rgba(0, 0, 0, 0.5)'
-          }`,
-        }}
         onClick={onClick}>
-        <div className='title'>{hovered ? 'Подробнее' : title}</div>
+        <div className='text-center flex items-center transition-all justify-center  text-5xl uppercase bg-gradient-to-b from-[rgba(0,0,0,0.5)] hover:from-main-orange-50 hover:to-main-orange-50 to-transparent from-52%  h-full w-full '>
+          {hovered ? 'Подробнее' : title}
+        </div>
       </div>
     );
   }
-
   return (
     <div
-      className='achievement outer'
-      style={{backgroundImage: `url(${coverUrl})`}}
+      className={`m-auto w-full h-[420px]  border-5 border-main-orange rounded-[60px] overflow-hidden bg-no-repeat bg-right bg-contain   ${className}`}
+      style={{
+        backgroundImage: `url(${coverUrl})`,
+        backgroundSize: '55%', // Устанавливаем ширину фона на 50%
+      }}
+      {...props}
       onClick={onClick}>
-      <div className='inner'>
-        <div className='info'>
-          <div className='title'>{title}</div>
-          <div className='description'>{description}</div>
+      <div className='px-32 flex flex-col justify-around  bg-gradient-to-r from-black to-transparent from-52% h-full'>
+        <div className='flex flex-col gap-8 max-w-1/2'>
+          <div className='text-7xl'>{title}</div>
+          <div className='text-4xl'>{description}</div>
         </div>
-        <div className='actions'>
-          <div
-            className='button'
+        <div className='flex gap-14'>
+          <button
+            className='w-72 py-8 rounded-[60px] bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
             onClick={() => (window.location.href = photoUrl)}>
             ФОТО
-          </div>
-          <div
-            className='button'
+          </button>
+          <button
+            className='w-72 py-8 rounded-[60px] bg-main-orange hover:bg-white hover:text-main-orange text-white text-3xl flex justify-center items-center cursor-pointer  duration-300'
             onClick={() => (window.location.href = mediaUrl)}>
             СМИ
-          </div>
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
 Achievement.displayName = 'Achievement';
-
 export default Achievement;
