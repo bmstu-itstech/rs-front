@@ -1,3 +1,4 @@
+'use client';
 import {useQuery} from '@tanstack/react-query';
 import {HardathonsPlaceholder} from '@/utilities/placeholders/hardathons';
 import {hardathonsList} from '@/shared/apis/hardathons/getHardathons';

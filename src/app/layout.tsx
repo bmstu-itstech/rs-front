@@ -3,6 +3,7 @@ import './globals.css';
 import {Footer, Navbar} from '@/widgets';
 import {ReactNode} from 'react';
 import {OffcanvasMenu} from '@/features/OffcanvasMenu';
+import {Providers} from './providers';
 
 export const metadata: Metadata = {
   title: 'Центр молодёжной робототехники\n',
@@ -18,10 +19,12 @@ export default function RootLayout({
   return (
     <html lang='ru'>
       <body>
-        <OffcanvasMenu />
-        <Navbar />
-        {children}
-        <Footer />
+        <Providers>
+          <OffcanvasMenu />
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
