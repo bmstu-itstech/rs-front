@@ -7,7 +7,7 @@ const MainScreen: NextPage = () => {
   return (
     <Container id='main'>
       <div className='main'>
-        <div className=' uppercase text-5xl md:text-9rxl leading-normal px-6 md:px-0 text-balance inline-flex'>
+        <div className=' uppercase font-bold md:font-normal text-center md:text-left text-5xl md:text-9rxl leading-normal px-6 md:px-0 text-balance inline-flex'>
           Центр молодежной робототехники
         </div>
         <div className='caption leading-normal px-6 md:px-0 text-balance'>

@@ -69,8 +69,10 @@ const Achievement: FC<Props> = ({
       onClick={onClick}>
       <div className='px-32 flex flex-col justify-around  bg-gradient-to-r from-black to-transparent from-52% h-full'>
         <div className='flex flex-col gap-8 max-w-1/2'>
-          <div className='text-7xl'>{title}</div>
-          <div className='text-4xl'>{description}</div>
+          <div className='text-7xl max-w-full truncate'>{title}</div>
+          <div className='text-4xl max-h-80 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+            {description}
+          </div>
         </div>
         <div className='flex gap-14'>
           <button
