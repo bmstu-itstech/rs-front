@@ -1,13 +1,5 @@
-import Image from 'next/image';
 import style from './PartnersScreen.module.css';
-
-const photos = [
-  '/partners/fc-rsk.png',
-  '/partners/techprosv.jpg',
-  '/partners/tbank.png',
-  '/partners/novikom.png',
-  '/partners/lipgart.png',
-];
+import { photos } from './Partners.usecase';
 
 function PartnersScreen() {
   return (
