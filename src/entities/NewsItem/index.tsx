@@ -58,10 +58,8 @@ const NewsItem: FC<INews> = ({
         <div
           className='flex justify-between items-center cursor-pointer'
           onClick={() => (window.location.href = actionLink)}>
-          <p className='text-2xl text-black'>{caption}</p>
-          <div className='button'>
-            <ArrowButton />
-          </div>
+          <p className='text-3xl text-black truncate max-w-5/6'>{caption}</p>
+          <ArrowButton />
         </div>
       </div>
     </div>

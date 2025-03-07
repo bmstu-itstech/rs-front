@@ -1,30 +1,29 @@
-import "./style.css";
-import {MouseEventHandler} from "react";
-import {NextPage} from "next";
-import Image from "next/image";
+import './style.css';
+import {type FC} from 'react';
+import Image from 'next/image';
+import Props from './ArrowButton.props';
 
-interface ArrowButtonProps {
-    direction?: "right" | "left";
-    onClick?: MouseEventHandler<HTMLDivElement>;
-}
-
-const ArrowButton: NextPage<ArrowButtonProps> = (
-    {
-        direction = "right",
-        onClick = () => {}
-    }) => {
-
-    return (
-        <div
-            className={`arrow-button ${direction}`}
-            onClick={onClick}
-        >
-            <Image src="/icons/arrow-right.svg" alt='' width={29} height={30}/>
-        </div>
-    );
-
+const ArrowButton: FC<Props> = ({
+  direction = 'right',
+  onClick = () => {},
+  className,
+  ...props
+}) => {
+  return (
+    <Image
+      src='/icons/arrow-right.svg'
+      className={`${
+        direction == 'left' ? ' rotate-180' : ''
+      } hover:opacity-80 bg-main-orange w-24 p-6 aspect-square rounded-full ${className}`}
+      {...props}
+      alt='arrowButton'
+      width={29}
+      height={30}
+      onClick={onClick}
+    />
+  );
 };
 
-ArrowButton.displayName = "ArrowButton";
+ArrowButton.displayName = 'ArrowButton';
 
 export default ArrowButton;
