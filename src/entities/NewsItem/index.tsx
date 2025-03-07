@@ -38,7 +38,7 @@ const NewsItem: FC<INews> = ({
     );
   }
   return (
-    <div className='border-3 border-main-orange h-[60dvh] rounded-6xl w-[min(500px,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
+    <div className='border-3 border-main-orange min-h-fit h-[30dvh] max-h-[35dvh] rounded-6xl w-[min(500px,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
       <Image
         className='w-full brightness-[0.85] max-h-[235px] object-cover'
         src={coverUrl}
@@ -47,12 +47,16 @@ const NewsItem: FC<INews> = ({
         height={500}
       />
       <div className='py-4 flex bg-main-orange justify-center'>
-        <p className='text-center uppercase text-4xl'>{title}</p>
+        <p className='text-center uppercase max-w-5/6 truncate text-4xl'>
+          {title}
+        </p>
       </div>
-      <div className='p-6 flex flex-col h-full '>
-        <p className='text-3xl text-black'>{description}</p>
+      <div className='p-6 flex flex-col h-full justify-between'>
+        <p className='text-3xl text-black max-h-2/5  overflow-hidden'>
+          {description}
+        </p>
         <div
-          className='flex justify-between items-center cursor-pointer mt-auto'
+          className='flex justify-between items-center cursor-pointer'
           onClick={() => (window.location.href = actionLink)}>
           <p className='text-2xl text-black'>{caption}</p>
           <div className='button'>
