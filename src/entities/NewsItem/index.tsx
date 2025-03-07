@@ -1,62 +1,67 @@
-'use client'
+'use client';
+import {useIsMobile} from '@/hooks';
+import {ArrowButton} from '@/shared';
+import type {INews} from '@/types';
+import Image from 'next/image';
+import {FC} from 'react';
+import {PrimaryButton} from '@/shared';
+import {useRouter} from 'next/navigation';
 
-import "./style.css";
-import {useIsMobile} from "@/hooks";
-import {ArrowButton} from "@/shared";
-import type {INews} from "@/types";
-import Image from "next/image";
-import {FC} from "react";
-
-const NewsItem: FC<INews> = (
-    {
-        title,
-        description,
-        actionLink,
-        coverUrl,
-        caption
-    }) => {
-
-    const mobile = useIsMobile();
-
-    if (mobile) {
-        return (
-            <div
-                className="news-item compact"
-                style={{backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 20vh, rgba(193, 48, 0, 0.5)), url(${coverUrl})`}}
-                onClick={() => window.location.href = actionLink}
-            >
-                <div className="title">
-                    {title}
-                </div>
-            </div>
-        );
-    }
-
-
+const NewsItem: FC<INews> = ({
+  title,
+  description,
+  actionLink,
+  coverUrl,
+  caption,
+}) => {
+  const mobile = useIsMobile();
+  const router = useRouter();
+  if (mobile) {
     return (
-        <div className="news-item">
-            <Image className="cover" src={coverUrl} alt="cover" width={500} height={500}/>
-            <div className="title-outer">
-                <div className="title-inner">
-                    {title}
-                </div>
-            </div>
-            <div className="info">
-                <div className="description">
-                    {description}
-                </div>
-                <div className="action" onClick={() => window.location.href = actionLink}>
-                    <div className="label">{caption}</div>
-                    <div className="button">
-                        <ArrowButton/>
-                    </div>
-                </div>
-            </div>
+      <div className='w-5/6 flex flex-col gap-16'>
+        <div
+          className='bg-cover w-full bg-center h-[50vh] border-3 border-main-orange rounded-3rxl overflow-hidden  bg-white bg-opacity-90 relative'
+          style={{
+            backgroundImage: `url(${coverUrl})`,
+          }}>
+          <div className='h-full w-full bg-gradient-to-t from-main-orange-50 to-transparent from-10%' />
+          <div className='text-3xl absolute bottom-8 left-1/2 -translate-x-1/2 text-nowrap max-w-5/6 truncate'>
+            {title}
+          </div>
         </div>
-    )
-
+        <PrimaryButton
+          className='w-full'
+          onClick={() => router.push(`${actionLink}`)}>
+          Подробнее
+        </PrimaryButton>
+      </div>
+    );
+  }
+  return (
+    <div className='border-3 border-main-orange h-[60dvh] rounded-6xl w-[min(500px,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
+      <Image
+        className='w-full brightness-[0.85] max-h-[235px] object-cover'
+        src={coverUrl}
+        alt='cover'
+        width={500}
+        height={500}
+      />
+      <div className='py-4 flex bg-main-orange justify-center'>
+        <p className='text-center uppercase text-4xl'>{title}</p>
+      </div>
+      <div className='p-6 flex flex-col h-full '>
+        <p className='text-3xl text-black'>{description}</p>
+        <div
+          className='flex justify-between items-center cursor-pointer mt-auto'
+          onClick={() => (window.location.href = actionLink)}>
+          <p className='text-2xl text-black'>{caption}</p>
+          <div className='button'>
+            <ArrowButton />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
-
-NewsItem.displayName = "NewsItem";
-
+NewsItem.displayName = 'NewsItem';
 export default NewsItem;
