@@ -3,7 +3,7 @@ interface IData {
   description: string;
   photo_album_url: string;
   link_to_media: string;
-  photo: string;
+  photo: string | null;
 }
 
 export interface IAchievements {

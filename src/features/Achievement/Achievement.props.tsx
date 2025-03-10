@@ -6,6 +6,6 @@ export default interface Props extends HTMLAttributes<HTMLDivElement> {
   description: string;
   photo_album_url: string;
   link_to_media: string;
-  photo: string;
+  photo: string | null;
   compact?: boolean;
 }

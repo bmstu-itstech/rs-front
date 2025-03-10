@@ -6,6 +6,7 @@ import LinkField from '@/shared/LinkField';
 import Image from 'next/image';
 import Props from './Achievement.props';
 import {Divider} from './components/Divider';
+import no_photo from '@/assets/no_photo.jpg'
 
 const Achievement: FC<Props> = ({
   title,
@@ -28,7 +29,7 @@ const Achievement: FC<Props> = ({
         <Image
           width={1416}
           height={945}
-          src={photo}
+          src={photo ?? no_photo}
           alt='achievement'
           className='w-1/3 h-full min-h-[100px] object-cover object-center'
         />
