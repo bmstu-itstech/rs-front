@@ -10,9 +10,9 @@ import {Divider} from './components/Divider';
 const Achievement: FC<Props> = ({
   title,
   description,
-  coverUrl,
-  photoUrl,
-  mediaUrl,
+  photo,
+  photo_album_url,
+  link_to_media,
   compact = false,
   onClick,
   className,
@@ -28,7 +28,7 @@ const Achievement: FC<Props> = ({
         <Image
           width={1416}
           height={945}
-          src={coverUrl}
+          src={photo}
           alt='achievement'
           className='w-1/3 h-full min-h-[100px] object-cover object-center'
         />
@@ -36,7 +36,7 @@ const Achievement: FC<Props> = ({
         <div className='flex flex-col items-center justify-evenly flex-1 gap-1 py-2'>
           <div className='text-2xl text-center uppercase'>{title}</div>
           <Divider />
-          <LinkField title='Подробнее' url={photoUrl} />
+          <LinkField title='Подробнее' url={photo_album_url} />
         </div>
       </div>
     );
@@ -47,7 +47,7 @@ const Achievement: FC<Props> = ({
         className={`w-1/3 h-[220px] border-5 overflow-hidden  border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
         {...props}
         style={{
-          backgroundImage: `url(${coverUrl})`,
+          backgroundImage: `url(${photo})`,
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -62,7 +62,7 @@ const Achievement: FC<Props> = ({
     <div
       className={`m-auto w-full h-[420px]  border-5 border-main-orange rounded-[60px] overflow-hidden bg-no-repeat bg-right bg-contain   ${className}`}
       style={{
-        backgroundImage: `url(${coverUrl})`,
+        backgroundImage: `url(${photo})`,
         backgroundSize: '55%', // Устанавливаем ширину фона на 50%
       }}
       {...props}
@@ -77,12 +77,12 @@ const Achievement: FC<Props> = ({
         <div className='flex gap-14'>
           <button
             className='w-72 py-8 rounded-[60px] bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
-            onClick={() => (window.location.href = photoUrl)}>
+            onClick={() => (window.location.href = photo_album_url)}>
             ФОТО
           </button>
           <button
             className='w-72 py-8 rounded-[60px] bg-main-orange hover:bg-white hover:text-main-orange text-white text-3xl flex justify-center items-center cursor-pointer  duration-300'
-            onClick={() => (window.location.href = mediaUrl)}>
+            onClick={() => (window.location.href = link_to_media)}>
             СМИ
           </button>
         </div>

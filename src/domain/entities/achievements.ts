@@ -1,5 +1,4 @@
 interface IData {
-  id: number;
   title: string;
   description: string;
   photo_album_url: string;
@@ -9,5 +8,7 @@ interface IData {
 
 export interface IAchievements {
   count: number;
-  data: IData[];
+  len: number;
+  next: string | null;
+  achievements: IData[];
 }
