@@ -21,7 +21,7 @@ const NewsScreen: NextPage = () => {
 
   return (
     <Container title='Новости' id='news'>
-      <div className='flex justify-center items-center min-h-[50dvh] h-96 max-h-[80dvh]]'>
+      <div className='flex justify-center items-center min-h-[50dvh] md:min-h-fit h-96 max-h-[80dvh]]'>
         <Carousel itemsPerSlide={itemsCount} items={news} />
       </div>
     </Container>
