@@ -23,7 +23,7 @@ const Achievement: FC<Props> = ({
   if (mobile) {
     return (
       <div
-        className={`border-2 border-main-orange  rounded-4xl flex overflow-hidden ${className}`}
+        className={`border-2 border-main-orange  rounded-4xl flex overflow-hidden w-full ${className}`}
         {...props}>
         <Image
           width={1416}

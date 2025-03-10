@@ -1,16 +1,11 @@
 .carousel {
   --carousel-dot-size: 0.5rem;
   --carousel-dot-spacing: 0.2rem;
-  --carousel-padding-bottom: 2rem;
-  --carousel-margin-bottom: 2rem;
+  --carousel-padding-bottom: 0rem;
+  --carousel-margin-bottom: 0rem;
   --news-item-padding: 40px;
   --border-radius: 10px;
 
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding-bottom: var(--carousel-padding-bottom);
-  margin-bottom: var(--carousel-margin-bottom);
 }
 
 .carousel__dots {

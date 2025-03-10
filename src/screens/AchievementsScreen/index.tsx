@@ -25,24 +25,21 @@ const AchievementsScreen: FC = () => {
   );
 
   return (
-    <Container id='achievements'>
-      <div className='achievements'>
-        <p className='subtitle'>Достижения</p>
-        <div className='flex flex-col gap-y-12 md:gap-y-16 mt-16 h-fit mx-auto w-[min(1400px,94vw)]'>
-          <Achievement key={active} {...achievements[0]} />
-          <div className='flex-col md:flex-row flex items-center justify-center gap-x-16 gap-y-12'>
-            {achievements
-              .filter(v => v.id !== active)
-              .map(v => (
-                <Achievement
-                  compact
-                  className={`odd:flex-row-reverse`}
-                  {...v}
-                  key={v.id}
-                  onClick={() => handleActive(v.id)}
-                />
-              ))}
-          </div>
+    <Container title='Достижения' id='achievements'>
+      <div className='flex flex-col gap-y-12 md:gap-y-16  h-fit mx-auto w-full md:w-[min(1400px,94vw)]'>
+        <Achievement key={active} {...achievements[0]} />
+        <div className='flex-col md:flex-row flex items-center justify-center gap-x-16 gap-y-12'>
+          {achievements
+            .filter(v => v.id !== active)
+            .map(v => (
+              <Achievement
+                compact
+                className={`odd:flex-row-reverse`}
+                {...v}
+                key={v.id}
+                onClick={() => handleActive(v.id)}
+              />
+            ))}
         </div>
       </div>
     </Container>

@@ -11,13 +11,12 @@ const ContactsScreen: NextPage = () => {
   const mobile = useIsMobile();
 
   return (
-    <Container id='contacts'>
+    <Container title='Контакты' id='contacts'>
       <div className='contacts'>
-        <div className='subtitle'>Контакты</div>
         {mobile ? (
           <ContactsCarousel />
         ) : (
-          <div className='flex justify-center items-center gap-28  h-[70dvh]'>
+          <div className='flex justify-center items-center gap-28 mx-auto max-w-5/6 h-[70dvh]'>
             <LeaderCard />
             <ContactCard />
           </div>

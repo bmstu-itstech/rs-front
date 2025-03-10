@@ -18,9 +18,9 @@ const NewsItem: FC<INews> = ({
   const router = useRouter();
   if (mobile) {
     return (
-      <div className='w-5/6 flex flex-col gap-16'>
+      <div className='w-5/6 flex flex-col gap-16 h-full'>
         <div
-          className='bg-cover w-full bg-center h-[50vh] border-3 border-main-orange rounded-3rxl overflow-hidden  bg-white bg-opacity-90 relative'
+          className='bg-cover w-full bg-center h-full border-3 border-main-orange rounded-3rxl overflow-hidden  bg-white bg-opacity-90 relative'
           style={{
             backgroundImage: `url(${coverUrl})`,
           }}>
