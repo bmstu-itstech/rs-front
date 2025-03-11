@@ -1,5 +1,4 @@
-interface IData {
-  id: number;
+export interface IPartnersBit {
   title: string;
   link: string;
   photo: string;
@@ -7,5 +6,7 @@ interface IData {
 
 export interface IPartners {
   count: number;
-  partners: IData[];
+  total_count: number;
+  next: string | null;
+  partners: IPartnersBit[];
 }
