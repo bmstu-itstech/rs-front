@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Props from './Achievement.props';
 import {Divider} from './components/Divider';
 import no_photo from '@/assets/no_photo.jpg';
+import {useRouter} from 'next/navigation';
 
 const Achievement: FC<Props> = ({
   title,
@@ -21,6 +22,8 @@ const Achievement: FC<Props> = ({
 }) => {
   const [hovered, setHovered] = useState<boolean>(false);
   const mobile = useIsMobile();
+  const router = useRouter();
+  const curPhoto = photo ?? no_photo.src;
   if (mobile) {
     return (
       <div
@@ -29,7 +32,7 @@ const Achievement: FC<Props> = ({
         <Image
           width={1416}
           height={945}
-          src={photo ?? no_photo}
+          src={curPhoto}
           alt='achievement'
           className='w-1/3 h-full min-h-[100px] object-cover object-center'
         />
@@ -50,7 +53,7 @@ const Achievement: FC<Props> = ({
         className={`w-full h-full border-5 overflow-hidden  border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
         {...props}
         style={{
-          backgroundImage: `url(${photo})`,
+          backgroundImage: `url(${curPhoto})`,
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -65,7 +68,7 @@ const Achievement: FC<Props> = ({
     <div
       className={`m-auto w-full h-[420px]  border-5 border-main-orange rounded-[60px] overflow-hidden bg-no-repeat bg-right bg-contain   ${className}`}
       style={{
-        backgroundImage: `url(${photo})`,
+        backgroundImage: `url(${curPhoto})`,
         backgroundSize: '55%', // Устанавливаем ширину фона на 50%
       }}
       {...props}
@@ -80,12 +83,12 @@ const Achievement: FC<Props> = ({
         <div className='flex gap-14'>
           <button
             className='w-72 py-8 rounded-[60px] bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
-            onClick={() => (window.location.href = photo_album_url)}>
+            onClick={() => router.push(photo_album_url)}>
             ФОТО
           </button>
           <button
             className='w-72 py-8 rounded-[60px] bg-main-orange hover:bg-white hover:text-main-orange text-white text-3xl flex justify-center items-center cursor-pointer  duration-300'
-            onClick={() => (window.location.href = link_to_media)}>
+            onClick={() => router.push(link_to_media)}>
             СМИ
           </button>
         </div>

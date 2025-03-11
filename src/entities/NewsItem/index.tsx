@@ -11,13 +11,13 @@ import no_photo from '@/assets/no_photo.jpg';
 const NewsItem: FC<Props> = ({title, description, new_url, photo, caption}) => {
   const mobile = useIsMobile();
   const router = useRouter();
-  const curPhoto = photo ?? no_photo;
+  const curPhoto = photo ?? no_photo.src;
 
   if (mobile) {
     return (
       <div className='w-5/6 flex flex-col gap-16 h-full'>
         <div
-          className='bg-cover w-full bg-center h-full border-3 border-main-orange rounded-3rxl overflow-hidden  bg-white bg-opacity-90 relative'
+          className={`bg-cover  w-full bg-center h-full border-3 border-main-orange rounded-3rxl overflow-hidden  bg-white bg-opacity-90 relative`}
           style={{
             backgroundImage: `url(${curPhoto})`,
           }}>
@@ -54,7 +54,7 @@ const NewsItem: FC<Props> = ({title, description, new_url, photo, caption}) => {
         </p>
         <div
           className='flex justify-between items-center cursor-pointer'
-          onClick={() => (window.location.href = new_url)}>
+          onClick={() => router.push(`${new_url}`)}>
           <p className='text-3xl text-black truncate max-w-5/6'>{caption}</p>
           <ArrowButton />
         </div>
