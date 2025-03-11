@@ -12,7 +12,7 @@ const ContactsScreen: NextPage = () => {
 
   return (
     <Container title='Контакты' id='contacts'>
-      <div className='contacts'>
+      <div className='contacts relative'>
         {mobile ? (
           <ContactsCarousel />
         ) : (

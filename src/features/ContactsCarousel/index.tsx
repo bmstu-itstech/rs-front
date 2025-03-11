@@ -48,7 +48,7 @@ const ContactsCarousel: FC = () => {
           })}
         </div>
       </div>
-      <div className='carousel__dots'>
+      <div className='carousel__dots !-bottom-8'>
         {emblaApi?.scrollSnapList().map((_, index) => {
           return (
             <button
