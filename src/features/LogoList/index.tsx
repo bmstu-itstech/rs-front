@@ -1,34 +1,28 @@
-import "./style.css";
-import { Logo } from "@/entities";
-import {FC} from "react";
-import Link from "next/link";
+import './style.css';
+import {Logo} from '@/entities';
+import {FC} from 'react';
+import Link from 'next/link';
+import Props from './LogoList.props';
+import {data} from './LogoList.usecase';
 
-const LogoList: FC = () => {
 
-    return (
-        <div className="logo-list">
-            <Link href={"https://bmstu.ru"}>
-                <Logo
-                    src="/logo/bmstu.svg"
-                    alt="logo of university"
-                />
-            </Link>
-            <Link href={"/404"}>
-                <Logo
-                    src="/logo/crown.svg"
-                    alt="logo of company"
-                />
-            </Link>
-            <Link href={"/"}>
-                <Logo
-                    src="/logo/rs.svg"
-                    alt="logo of robotics center"
-                />
-            </Link>
-        </div>
-    );
+const LogoList: FC<Props> = () => {
+  return (
+    <div className='gap-16 flex'>
+      {data.map((item, index) => {
+        return (
+          <Link
+            href={item.href}
+            key={index}
+            className='not-last:hidden md:not-last:block'>
+            <Logo src={item.src} alt={item.alt} />
+          </Link>
+        );
+      })}
+    </div>
+  );
 };
 
-LogoList.displayName = "LogoList";
+LogoList.displayName = 'LogoList';
 
 export default LogoList;
