@@ -1,17 +1,10 @@
-import "./style.css";
-import {NextPage} from "next";
-
+import {NextPage} from 'next';
 const Footer: NextPage = () => {
-
-    return (
-        <div className="footer-outer">
-            <div className="footer-inner">
-                <div className="text">Developed @ 2025 by ITS Tech</div>
-            </div>
-        </div>
-    )
+  return (
+    <div className='h-32 mt-auto md:h-48 bg-main-orange w-full flex justify-center items-center select-none'>
+      <p className='text-3xl md:text-5xl'>Developed @ 2025 by ITS Tech</p>
+    </div>
+  );
 };
-
-Footer.displayName = "Footer";
-
+Footer.displayName = 'Footer';
 export default Footer;

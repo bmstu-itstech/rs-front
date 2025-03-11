@@ -8,7 +8,7 @@ const MainScreen: NextPage = () => {
     <Container
       title='Центр молодежной робототехники'
       titleClassname='text-balance md:text-9xl font-bold md:font-normal w-full  md:max-w-3/5 md:text-left'
-      className=' md:font-normal md:text-left  md:text-9rxl text-balance !pt-0'
+      className=' md:font-normal md:text-left md:text-9rxl text-balance md:pt-[14dvh] '
       id='main'>
       <div className='flex flex-col gap-12 w-full md:max-w-3/5'>
         <p className='caption leading-normal text-balance'>
