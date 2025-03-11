@@ -19,7 +19,7 @@ const PrimaryButton: FC<Props> = ({
       } py-5  md:py-10 px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300 text-3xl md:text-5xl  ${className}`}
       {...props}
       onClick={onClick}>
-      <div className={`uppercase text-inherit `}>{children}</div>
+      <p className={`uppercase w-full text-inherit text-center flex justify-center`}>{children}</p>
     </button>
   );
 };

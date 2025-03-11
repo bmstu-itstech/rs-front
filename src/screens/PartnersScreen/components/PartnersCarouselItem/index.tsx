@@ -21,7 +21,7 @@ const PartnersCarouselItem: FC<Props> = ({
         alt={title}
         width={1000}
         height={1000}
-        className='rounded-3rxl aspect-square object-cover object-center'
+        className='rounded-3rxl aspect-square object-contain object-center'
       />
     </div>
   );
