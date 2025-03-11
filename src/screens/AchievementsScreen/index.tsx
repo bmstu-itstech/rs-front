@@ -36,8 +36,8 @@ const AchievementsScreen: FC = () => {
     [data, active, mobile],
   );
 
-  return (
-    <Container title='Достижения' id='achievements'>
+  const PCAchivements = () => {
+    return (
       <div className='flex flex-col gap-y-12 md:gap-y-16  h-fit mx-auto w-full md:w-[min(1400px,94vw)]'>
         <Achievement
           id='1'
@@ -46,8 +46,10 @@ const AchievementsScreen: FC = () => {
             AchievementsPlaceholder.achievements[0])}
         />
         <div
-          className='flex-col md:flex-row auto-rows-[0px] overflow-hidden md:h-22r  flex md:grid grid-cols-3 grid-rows-1 items-center md:items-start justify-center gap-x-16
-         gap-y-12 md:gap-y-0'>
+          className='
+           flex-row auto-rows-[0px] overflow-hidden h-22r  md:grid
+          grid-cols-3 grid-rows-1 tems-start justify-center gap-x-16
+         md:gap-y-0'>
           {data?.achievements
             .filter((v, index) => index !== active)
             .map((v, index) => (
@@ -62,6 +64,31 @@ const AchievementsScreen: FC = () => {
             ))}
         </div>
       </div>
+    );
+  };
+
+  const MobileAchievements = () => {
+    return (
+      <div
+        className='flex-col max-h-2/3 snap-start snap-mandatory overflow-y-scroll
+            flex items-center justify-start gap-y-12 scroll-smooth snap-y'>
+        {data?.achievements.map((v, index) => (
+          <Achievement
+            compact
+            id={`${index}`}
+            className={`odd:flex-row-reverse snap-start snap-always `}
+            {...v}
+            key={index}
+            onClick={() => handleActive(index)}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <Container title='Достижения' id='achievements'>
+      {mobile ? <MobileAchievements /> : <PCAchivements />}
     </Container>
   );
 };
