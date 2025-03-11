@@ -1,28 +1,25 @@
 'use client';
 import {useIsMobile} from '@/hooks';
 import {ArrowButton} from '@/shared';
-import type {INews} from '@/types';
 import Image from 'next/image';
 import {FC} from 'react';
 import {PrimaryButton} from '@/shared';
 import {useRouter} from 'next/navigation';
+import Props from './NewsItem.props';
+import no_photo from '@/assets/no_photo.jpg';
 
-const NewsItem: FC<INews> = ({
-  title,
-  description,
-  actionLink,
-  coverUrl,
-  caption,
-}) => {
+const NewsItem: FC<Props> = ({title, description, new_url, photo, caption}) => {
   const mobile = useIsMobile();
   const router = useRouter();
+  const curPhoto = photo ?? no_photo;
+
   if (mobile) {
     return (
       <div className='w-5/6 flex flex-col gap-16 h-full'>
         <div
           className='bg-cover w-full bg-center h-full border-3 border-main-orange rounded-3rxl overflow-hidden  bg-white bg-opacity-90 relative'
           style={{
-            backgroundImage: `url(${coverUrl})`,
+            backgroundImage: `url(${curPhoto})`,
           }}>
           <div className='h-full w-full bg-gradient-to-t from-main-orange-50 to-transparent from-10%' />
           <div className='text-3xl absolute bottom-8 left-1/2 -translate-x-1/2 text-nowrap max-w-5/6 truncate'>
@@ -31,7 +28,7 @@ const NewsItem: FC<INews> = ({
         </div>
         <PrimaryButton
           className='w-full'
-          onClick={() => router.push(`${actionLink}`)}>
+          onClick={() => router.push(`${new_url}`)}>
           Подробнее
         </PrimaryButton>
       </div>
@@ -41,7 +38,7 @@ const NewsItem: FC<INews> = ({
     <div className='border-3 border-main-orange min-h-fit h-[30dvh] max-h-[35dvh] rounded-6xl w-[min(500px,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
       <Image
         className='w-full brightness-[0.85] max-h-[235px] object-cover'
-        src={coverUrl}
+        src={curPhoto}
         alt='cover'
         width={500}
         height={500}
@@ -57,7 +54,7 @@ const NewsItem: FC<INews> = ({
         </p>
         <div
           className='flex justify-between items-center cursor-pointer'
-          onClick={() => (window.location.href = actionLink)}>
+          onClick={() => (window.location.href = new_url)}>
           <p className='text-3xl text-black truncate max-w-5/6'>{caption}</p>
           <ArrowButton />
         </div>

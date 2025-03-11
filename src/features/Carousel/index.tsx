@@ -3,7 +3,7 @@
 import './style.css';
 import {useState, useCallback, useEffect, useMemo, memo, FC} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import {INews} from '@/types';
+import {INews, INewsBit} from '@/domain/entities/news';
 import {NewsItem} from '@/entities';
 // import {useIsMobile} from "@/hooks";
 
@@ -20,7 +20,7 @@ function createGroup<T>(arr: T[], count: number): T[][] {
 }
 
 interface CarouselProps {
-  items: INews[];
+  items: INewsBit[];
   itemsPerSlide: number;
 }
 
@@ -63,7 +63,11 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3}) => {
             <div className='embla__slide h-full' key={index}>
               <div className='embla__slide-container h-full'>
                 {slideGroup.map((slide, idx) => (
-                  <NewsItem {...slide} key={idx} />
+                  <NewsItem
+                    {...slide}
+                    key={idx}
+                    caption='Узнать подробности о мероприятии'
+                  />
                 ))}
               </div>
             </div>

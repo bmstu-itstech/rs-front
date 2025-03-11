@@ -6,7 +6,7 @@ import LinkField from '@/shared/LinkField';
 import Image from 'next/image';
 import Props from './Achievement.props';
 import {Divider} from './components/Divider';
-import no_photo from '@/assets/no_photo.jpg'
+import no_photo from '@/assets/no_photo.jpg';
 
 const Achievement: FC<Props> = ({
   title,
@@ -24,7 +24,7 @@ const Achievement: FC<Props> = ({
   if (mobile) {
     return (
       <div
-        className={`border-2 border-main-orange  rounded-4xl flex overflow-hidden w-full ${className}`}
+        className={`border-2 border-main-orange h-44 rounded-4xl flex overflow-hidden w-full ${className}`}
         {...props}>
         <Image
           width={1416}
@@ -34,8 +34,10 @@ const Achievement: FC<Props> = ({
           className='w-1/3 h-full min-h-[100px] object-cover object-center'
         />
         <Divider isVertical />
-        <div className='flex flex-col items-center justify-evenly flex-1 gap-1 py-2'>
-          <div className='text-2xl text-center uppercase'>{title}</div>
+        <div className='flex flex-col items-center justify-evenly flex-1 gap-1 py-2 w-full'>
+          <p className='text-2xl text-center uppercase text-ellipsis line-clamp-1 max-w-5/6 w-full'>
+            {title}
+          </p>
           <Divider />
           <LinkField title='Подробнее' url={photo_album_url} />
         </div>
@@ -45,7 +47,7 @@ const Achievement: FC<Props> = ({
   if (compact) {
     return (
       <div
-        className={`w-1/3 h-[220px] border-5 overflow-hidden  border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
+        className={`w-full h-full border-5 overflow-hidden  border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
         {...props}
         style={{
           backgroundImage: `url(${photo})`,

@@ -25,7 +25,7 @@ const AchievementsScreen: FC = () => {
 
       console.log(activeIndex, originalIndex);
       if (originalIndex === -1 || activeIndex === -1) return;
-      // Создаем новый массив с изменёнными элементами
+
       const updatedData = [...data.achievements];
       [updatedData[originalIndex], updatedData[activeIndex]] = [
         updatedData[activeIndex],
@@ -45,15 +45,16 @@ const AchievementsScreen: FC = () => {
           {...(data?.achievements[active] ||
             AchievementsPlaceholder.achievements[0])}
         />
-        <div className='flex-col md:flex-row flex items-center justify-center gap-x-16 gap-y-12'>
+        <div
+          className='flex-col md:flex-row auto-rows-[0px] overflow-hidden md:h-22r  flex md:grid grid-cols-3 grid-rows-1 items-center md:items-start justify-center gap-x-16
+         gap-y-12 md:gap-y-0'>
           {data?.achievements
             .filter((v, index) => index !== active)
-            .slice(0, 3)
             .map((v, index) => (
               <Achievement
                 compact
                 id={`${index}`}
-                className={`odd:flex-row-reverse`}
+                className={`odd:flex-row-reverse `}
                 {...v}
                 key={index}
                 onClick={() => handleActive(index)}

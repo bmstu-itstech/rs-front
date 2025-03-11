@@ -1,5 +1,4 @@
-interface IData {
-  id: number;
+export interface INewsBit {
   title: string;
   description: string;
   new_url: string;
@@ -8,5 +7,7 @@ interface IData {
 
 export interface INews {
   count: number;
-  news: IData[];
+  total_count: number;
+  next: string | null;
+  news: INewsBit[];
 }
