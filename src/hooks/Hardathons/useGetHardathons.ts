@@ -2,14 +2,15 @@
 import {useQuery} from '@tanstack/react-query';
 import {HardathonsPlaceholder} from '@/utilities/placeholders/hardathons';
 import {hardathonsList} from '@/shared/apis/hardathons/getHardathons';
+import type {IHardathons} from '@/domain/entities/hardathons';
 
-export const useGetHardathons = (): any => {
+export const useGetHardathons = () => {
   const {
     data: data,
     isLoading,
     refetch,
     error,
-  } = useQuery({
+  } = useQuery<IHardathons>({
     queryKey: ['hardathons'],
     queryFn: hardathonsList,
     placeholderData: HardathonsPlaceholder,
