@@ -1,5 +1,5 @@
 interface IData {
-  id: number;
+  //id: number;
   title: string;
   photo: string;
 }

@@ -1,4 +1,5 @@
 export interface IQuestionnaireBit {
+  // id:number;
   searcher_fio: string;
 }
 

@@ -1,4 +1,6 @@
-interface IClassicEventsBit {
+export interface IClassicEventsBit {
+  //id:number;
+  //description:string|null;
   title: string;
   photo: string | null;
 }

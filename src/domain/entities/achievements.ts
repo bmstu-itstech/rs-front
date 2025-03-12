@@ -1,4 +1,5 @@
 interface IData {
+  // id: number;
   title: string;
   description: string;
   photo_album_url: string;
