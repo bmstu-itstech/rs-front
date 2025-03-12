@@ -35,7 +35,7 @@ const NewsItem: FC<Props> = ({title, description, new_url, photo, caption}) => {
     );
   }
   return (
-    <div className='border-3 border-main-orange min-h-fit h-[30dvh] max-h-[35dvh] rounded-6xl w-[min(50rem,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
+    <div className='border-3 border-main-orange min-h-fit h-[30dvh] max-h-[35dvh] rounded-6xl w-[min(45rem,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
       <Image
         className='w-full brightness-[0.85] max-h-[23rem] object-cover'
         src={curPhoto}

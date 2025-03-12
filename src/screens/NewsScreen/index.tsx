@@ -18,7 +18,7 @@ const NewsScreen: NextPage = () => {
   }, [isLoading]);
   useEffect(() => {
     function computeCount() {
-      const width = window.innerWidth * 0.9;
+      const width = window.innerWidth * 0.9 * window.devicePixelRatio; 
       return Math.max(1, Math.min(Math.floor(width / 500), 3));
     }
 
