@@ -31,7 +31,7 @@ export const OffcanvasMenu: FC<Props> = () => {
     <>
       <button
         onClick={toggleMenu}
-        className='p-2 cursor-pointer text-white rounded z-1000 bg-transparent fixed top-16 md:top-20 right-20 md:right-60 translate-x-1/2'>
+        className='p-2 cursor-pointer text-white rounded z-1000 bg-transparent fixed top-16 md:top-20 right-20 md:right-80 translate-x-1/2'>
         {isOpen ? (
           <CloseMenuButton className='md:w-24 md:h-24 w-12 h-12' />
         ) : (
