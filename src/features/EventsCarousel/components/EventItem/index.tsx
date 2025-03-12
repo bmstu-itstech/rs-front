@@ -32,6 +32,7 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
         <div className='flex flex-col md:flex-row justify-between items-center gap-x-40 gap-y-8 w-full'>
           <PrimaryButton
             className='!w-full'
+            titleClassname='truncate'
             bgFilled
             onClick={() => setIsOpened(true)}>
             Список команд

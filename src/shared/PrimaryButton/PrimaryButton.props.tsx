@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export default interface Props extends HTMLAttributes<HTMLButtonElement>{
-    bgFilled?: boolean;
+export default interface Props extends HTMLAttributes<HTMLButtonElement> {
+  bgFilled?: boolean;
+  titleClassname?: string;
 }

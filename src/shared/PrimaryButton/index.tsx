@@ -5,6 +5,7 @@ import {FC} from 'react';
 
 const PrimaryButton: FC<Props> = ({
   bgFilled = false,
+  titleClassname,
   children,
   onClick,
   className,
@@ -16,10 +17,13 @@ const PrimaryButton: FC<Props> = ({
         bgFilled
           ? 'bg-main-orange hover:bg-white  hover:text-main-orange'
           : 'bg-transparent hover:bg-main-orange border-2 border-main-orange'
-      } py-5  md:py-10 px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300 text-3xl md:text-5xl  ${className}`}
+      } py-5  md:py-10 md:px-34 rounded-6xl w-auto md:w-fit cursor-pointer transition-all duration-300 text-3xl md:text-5xl  ${className}`}
       {...props}
       onClick={onClick}>
-      <p className={`uppercase w-full text-inherit text-center flex justify-center`}>{children}</p>
+      <p
+        className={`uppercase w-full text-inherit text-center flex justify-center ${titleClassname}`}>
+        {children}
+      </p>
     </button>
   );
 };

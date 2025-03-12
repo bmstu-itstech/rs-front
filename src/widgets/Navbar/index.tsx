@@ -4,6 +4,7 @@ import './style.css';
 import {FC, useEffect, useState} from 'react';
 import {LogoList} from '@/features';
 import Props from './Navbar.props';
+import { OffcanvasMenu } from '@/features/OffcanvasMenu';
 
 const Navbar: FC<Props> = ({className, ...props}) => {
   const [opacity, setOpacity] = useState('1');
@@ -18,10 +19,11 @@ const Navbar: FC<Props> = ({className, ...props}) => {
     <div
       className={`${
         className ?? ''
-      } w-full flex items-center justify-start md:px-60 mt-12 px-12 absolute z-[100] top-0 left-0`}
+      } w-full flex items-center justify-start md:px-60 mt-12 px-12 fixed z-[100] top-0 left-0`}
       {...props}>
       <div className='transition-opacity duration-300' style={{opacity}}>
         <LogoList />
+        <OffcanvasMenu />
       </div>
     </div>
   );
