@@ -1,10 +1,8 @@
 import React, {FC} from 'react';
-import {Partners} from "../../Pages1";
+import PartnersScreen from '@/screens/PartnersScreen';
 
 const Page: FC = () => {
-    return (
-        <Partners/>
-    );
+    return <PartnersScreen />;
 };
 
 export default Page;

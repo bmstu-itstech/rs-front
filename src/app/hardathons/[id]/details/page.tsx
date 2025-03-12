@@ -1,10 +1,9 @@
-import { HardathonDetails } from '@/Pages1';
+import HardathonDetailsScreen from '@/screens/HardathonDetailsScreen';
+
 import React, {FC} from 'react';
 
 const Page: FC = () => {
-    return (
-        <HardathonDetails />
-    );
+  return <HardathonDetailsScreen />;
 };
 
 export default Page;

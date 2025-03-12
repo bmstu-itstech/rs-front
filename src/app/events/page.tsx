@@ -1,10 +1,9 @@
 import React, {FC} from 'react';
-import {Events} from "../../Pages1";
+
+import { EventsScreen } from '@/screens';
 
 const Page: FC = () => {
-    return (
-        <Events/>
-    );
+    return <EventsScreen />;
 };
 
 export default Page;

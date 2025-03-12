@@ -1,16 +1,21 @@
-import {EventsCarousel} from "@/features";
-import { data } from './EventsScreen.usecase';
-import "./style.css";
-
+'use client';
+import {EventsCarousel} from '@/features';
+import {classicEventsPlaceholder} from '@/utilities/placeholders/classicEvents';
+import './style.css';
+import {useGetClassicEvents} from '@/hooks/ClassicEvents/useGetClassicEvents';
+import { PageLayout } from '@/layouts/PageLayout';
 
 const EventsScreen = () => {
-    return (
-        <div className="events-screen">
-            <EventsCarousel items={data} itemsPerSlide={1} >
-            </EventsCarousel>
-            <div id={'modal'}></div>
-        </div>
-    );
-}
+  const {data} = useGetClassicEvents();
+  return (
+    <PageLayout>
+      <EventsCarousel
+        items={data?.classic_events ?? classicEventsPlaceholder.classic_events}
+        itemsPerSlide={1}
+      />
+      <div id={'modal'}></div>
+    </PageLayout>
+  );
+};
 
 export default EventsScreen;

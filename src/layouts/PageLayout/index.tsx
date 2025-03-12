@@ -14,12 +14,15 @@ export const PageLayout: FC<Props> = ({
       id={id}
       className={`${className} px-12 md:px-60 h-dvh flex flex-col gap-16 mt-[6dvh] pt-[9dvh] snap-start select-none `}
       {...props}>
-      <p
-        className={`text-6xl md:text-9xl font-bold md:font-normal leading-normal text-center select-none uppercase ${
-          titleClassname ?? ''
-        }`}>
-        {title}
-      </p>
+      {title && (
+        <p
+          className={`text-6xl md:text-9xl font-bold md:font-normal leading-normal text-center select-none uppercase ${
+            titleClassname ?? ''
+          }`}>
+          {title}
+        </p>
+      )}
+
       {children}
     </div>
   );
