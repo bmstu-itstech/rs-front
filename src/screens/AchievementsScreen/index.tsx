@@ -38,7 +38,7 @@ const AchievementsScreen: FC = () => {
 
   const PCAchivements = () => {
     return (
-      <div className='flex flex-col gap-y-12 md:gap-y-16  h-fit mx-auto w-full md:w-[min(1400px,94vw)]'>
+      <div className='flex flex-col gap-y-12 lg:gap-y-16  h-fit mx-auto w-full lg:w-[min(140rem,94vw)]'>
         <Achievement
           id='1'
           key={active}
@@ -47,10 +47,10 @@ const AchievementsScreen: FC = () => {
         />
         <div
           className='
-           flex-row auto-rows-[0px] overflow-hidden h-22r  md:grid
+           flex-row auto-rows-[0px] overflow-hidden h-22r  lg:grid
           grid-cols-3 grid-rows-1 tems-start justify-center gap-x-16
-         md:gap-y-0'>
-          {data?.achievements
+         lg:gap-y-0'>
+          {(data ?? AchievementsPlaceholder).achievements
             .filter((v, index) => index !== active)
             .map((v, index) => (
               <Achievement

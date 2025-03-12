@@ -2,7 +2,6 @@ import type {Metadata} from 'next';
 import './globals.css';
 import {Footer, Navbar} from '@/widgets';
 import {ReactNode} from 'react';
-import {OffcanvasMenu} from '@/features/OffcanvasMenu';
 import {Providers} from './providers';
 
 export const metadata: Metadata = {

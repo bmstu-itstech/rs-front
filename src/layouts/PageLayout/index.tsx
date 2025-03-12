@@ -24,15 +24,16 @@ export const PageLayout: FC<Props> = ({
       {...props}>
       <img
         src={background}
+        alt='bg'
         className={` ${
           isShadowedBack && 'brightness-20'
         } w-full h-full object-cover object-center -z-10  absolute top-0 left-0  min-h-full min-w-full`}
       />
       <div
-        className={`${className}  px-12 md:px-60 pt-[6dvh] flex flex-col gap-16 h-full w-full`}>
+        className={`${className}  px-12 lg:px-60 pt-[6dvh] flex flex-col gap-16 h-full w-full`}>
         {title && (
           <p
-            className={`text-6xl md:text-9xl font-bold md:font-normal leading-normal text-center select-none uppercase ${
+            className={`text-6xl lg:text-9xl font-bold lg:font-normal leading-normal text-center select-none uppercase ${
               titleClassname ?? ''
             }`}>
             {title}

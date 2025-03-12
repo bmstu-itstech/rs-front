@@ -55,7 +55,7 @@ const PartnersScreen: FC<Props> = () => {
   const router = useRouter();
 
   return (
-    <PageLayout title='Партнёры' className='md:!pt-0 pt-[30%]'>
+    <PageLayout title='Партнёры' className='lg:!pt-0 pt-[30%]'>
       {isMobile ? (
         <MobilePartners data={data} router={router} />
       ) : (

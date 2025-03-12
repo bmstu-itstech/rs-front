@@ -99,13 +99,19 @@ a {
 
 :root {
   --max-container-width: 1600px;
-  --mobile-width: 950px;
+  --mobile-width: 1024px;
   --primary-color: #c13000;
   --text-color: #fff;
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 67.5%;
+}
+
+@media only screen and (min-resolution: 1.5dppx) {
+  html {
+    font-size: 45%;
+  }
 }
 
 .navbar-outer {

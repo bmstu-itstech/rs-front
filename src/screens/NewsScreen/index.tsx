@@ -28,7 +28,7 @@ const NewsScreen: NextPage = () => {
 
   return (
     <Container hasShadowBetween title='Новости' id='news'>
-      <div className='flex justify-center items-center min-h-[50dvh] md:min-h-fit h-96 max-h-[80dvh]]'>
+      <div className='flex justify-center items-center min-h-[50dvh] lg:min-h-fit h-full max-h-[65dvh]'>
         <Carousel
           itemsPerSlide={itemsCount}
           items={data?.news ?? NewsPlaceholder.news}

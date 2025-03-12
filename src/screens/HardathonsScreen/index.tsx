@@ -14,12 +14,13 @@ function HardathonsScreen() {
       <div className='flex gap-6 justify-center items-center max-2xl:!my-10'>
         {!isMobile && (
           <img
+            alt='speaker'
             className='max-w-[40vw] scale-[1.2] hidden 2xl:block'
             src='/mock/speaker.png'
           />
         )}
-        <div className='flex flex-col items-center gap-12 2xl:!-mt-24 md:w-[50dvw]'>
-          <div className='flex flex-col  md:gap-10 text-2xl md:text-5xl h-48r max-sm:w-[90vw] max-sm:h-[50vh] bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
+        <div className='flex flex-col items-center gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
+          <div className='flex flex-col  lg:gap-10 text-2xl lg:text-5xl h-48r max-sm:w-[90vw] max-sm:h-[50vh] bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
             <p className='text-wrap text-ellipsis h-full overflow-hidden'>
               Examplefffff fffffff ffffffffffffffff fffffff ggg gggggggggg
               gggggggggg gggggggggg eeeeeeeeeeee 2 21212 5423 32 235 2312 12
@@ -71,7 +72,7 @@ function HardathonsScreen() {
               <p>Валерий Бизиков</p>
             </div>
           </div>
-          <div className='flex max-sm:flex-col justify-between gap-12 md:gap-24  w-full'>
+          <div className='flex max-sm:flex-col justify-between gap-12 lg:gap-24  w-full'>
             <PrimaryButton
               bgFilled
               className='!w-full'

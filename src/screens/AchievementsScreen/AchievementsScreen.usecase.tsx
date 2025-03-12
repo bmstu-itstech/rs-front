@@ -7,7 +7,7 @@ export const achievements: IAchievement[] = [
         Robot Fight Club, что дало им звание чемпионов 23 сезона. Команда
         выступила с роботом «Lilcheese» весом 1,5 кг и вооружённого барабанным спиннером`,
     photoUrl: '#',
-    link_to_media: '#',
+    mediaUrl: '#',
     coverUrl: '/mock/achievement_1.png',
   },
   {
@@ -17,7 +17,7 @@ export const achievements: IAchievement[] = [
         Ребята спроектировали и изготовили БПЛА на базе ЦМР.
         Летательный аппарат успешно выполнил задание и занял третье место основного трека.`,
     photoUrl: '#',
-    link_to_media: '#',
+    mediaUrl: '#',
     coverUrl: '/mock/achievement_2.png',
   },
   {
@@ -27,7 +27,7 @@ export const achievements: IAchievement[] = [
         беспилотных летательных аппаратов и предполагает создание специализированной площадки для обучения
         работе с БПЛА и проведения лекций.`,
     photoUrl: '#',
-    link_to_media: '#',
+    mediaUrl: '#',
     coverUrl: '/mock/achievement_3.png',
   },
   {
@@ -36,7 +36,7 @@ export const achievements: IAchievement[] = [
     description:
       'В этом году участие приняли 11 лучших команд Бауманки и МТКП, которые на практике показали, что могут студенты лучшего технического университета.',
     photoUrl: '#',
-    link_to_media: '#',
+    mediaUrl: '#',
     coverUrl: '/mock/achievement_4.jpg',
   },
 ];
