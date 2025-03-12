@@ -33,7 +33,7 @@ const Carousel: NextPage<Props> = ({items, itemsPerSlide = 3}) => {
       <div className='embla__container h-full'>
         {items.map((item, index) => (
           <div
-            className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] !px-46 !py-12 w-full h-full'
+            className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] md:!px-46 md:!py-12 w-full h-full'
             key={index}>
             <Event item={item} selected={index === selectedIndex} />
           </div>

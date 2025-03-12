@@ -5,8 +5,8 @@ import {PrimaryButton} from '@/shared';
 import LinkField from '@/shared/LinkField';
 import EventDropdown from '../../../EventDropdown';
 import {createPortal} from 'react-dom';
-
 import Props from './EventItem.props';
+
 const Event: FC<Props> = ({item, selected, className, ...props}) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
@@ -17,15 +17,34 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
       }`}
       {...props}>
       <MainTitle>{item.title}</MainTitle>
-      <div className='text-5xl font-normal'>{'Описания нет'}</div>
-      <div className='flex gap-4 items-center'>
-        <div className='w-10 h-10 bg-main-orange rounded-full' />
-        <LinkField
-          title='Зарегистрироваться'
-          url='https://t.me/s/studsovet_iu/748' // заглушка
-        />
+      <p className='text-5xl font-normal border-2 w-full h-full flex justify-center items-center border-main-orange md:border-0 rounded-4xl'>
+        {'Описания нет'}
+      </p>
+      <div className='flex flex-col gap-y-8 md:gap-24 w-full'>
+        <div className='flex gap-4 items-center justify-center md:justify-start'>
+          <div className='w-10 h-10 bg-main-orange rounded-full' />
+          <LinkField
+            title='Зарегистрироваться'
+            url='https://t.me/s/studsovet_iu/748' // заглушка
+            titleClassname='!uppercase'
+          />
+        </div>
+        <div className='flex flex-col md:flex-row justify-between items-center gap-x-40 gap-y-8 w-full'>
+          <PrimaryButton
+            className='!w-full'
+            bgFilled
+            onClick={() => setIsOpened(true)}>
+            Список команд
+          </PrimaryButton>
+          <PrimaryButton
+            className='!w-full'
+            bgFilled
+            onClick={() => setIsOpened(true)}>
+            Подробнее
+          </PrimaryButton>
+        </div>
       </div>
-      <PrimaryButton onClick={() => setIsOpened(true)}>Подробнее</PrimaryButton>
+
       {isOpened &&
         createPortal(
           <EventDropdown onClose={() => setIsOpened(false)} event={item} />,
