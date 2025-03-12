@@ -13,6 +13,8 @@ const Container: FC<Props> = ({
   children,
   className,
   titleClassname,
+  background,
+  hasShadowBetween,
   ...props
 }) => {
   const mobile = useIsMobile();
@@ -53,7 +55,9 @@ const Container: FC<Props> = ({
       id={id}
       title={title}
       className={`${className}`}
+      hasShadowBetween={hasShadowBetween}
       titleClassname={titleClassname}
+      background={background}
       {...props}>
       {children}
     </PageLayout>
