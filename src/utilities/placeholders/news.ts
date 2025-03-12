@@ -8,9 +8,10 @@ import {INews} from '@/domain/entities/news';
 
 export const NewsPlaceholder: INews = {
   count: 6,
+  total_count: 6,
+  next: null,
   news: [
     {
-      id: 1,
       title: 'test 1',
       description: `28 сентября команда «Гурманы» выступила
         на международном чемпионате «Битва Роботов» в Москве. Робот
@@ -20,7 +21,6 @@ export const NewsPlaceholder: INews = {
       new_url: 'https://vk.com/wall-221273536_384',
     },
     {
-      id: 2,
       title: 'test 2',
       description: `В соревнованиях «Кубок РТК: Высшая лига» приняли
         участие 4 команды от Центра, одна из них заняла 2 место и
@@ -29,7 +29,6 @@ export const NewsPlaceholder: INews = {
       new_url: 'https://vk.com/wall-214718314_349',
     },
     {
-      id: 3,
       title: 'test 3',
       description: `Команда «Временное решение» прошла в финал
         соревнований Хакатон программистов-робототехников «Роснефти».
@@ -39,7 +38,6 @@ export const NewsPlaceholder: INews = {
       new_url: 'https://vk.com/wall-214718314_70',
     },
     {
-      id: 4,
       title: 'test 4',
       description: `Команда «Айсберг» успешно выступила в Нижнем Новгороде.
         Они провели несколько дней, отлаживая робота, и в итоге набрали 42
@@ -48,7 +46,6 @@ export const NewsPlaceholder: INews = {
       new_url: 'https://vk.com/wall-214718314_353',
     },
     {
-      id: 5,
       title: 'Турнир «Битва роботов»',
       description: `Студенты продемонстрировали свои навыки, создав
         уникальных роботов, которые сражались в различных дисциплинах.
@@ -58,7 +55,6 @@ export const NewsPlaceholder: INews = {
       new_url: 'https://vk.com/wall-214718314_366',
     },
     {
-      id: 6,
       title: 'Всероссийский форум «Архипелаг»',
       description: `Бауманцы поучаствовали в гонках на техническом
         симуляторе, а затем продемонстрировали свои навыки в реальных полётах
