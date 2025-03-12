@@ -1,5 +1,5 @@
 import LinkField from '@/shared/LinkField';
-import type {ReactElement, ReactNode} from 'react';
+import type {ReactNode} from 'react';
 
 interface Idata {
   title: string;

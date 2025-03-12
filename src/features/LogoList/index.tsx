@@ -14,7 +14,7 @@ const LogoList: FC<Props> = () => {
           <Link
             href={item.href}
             key={index}
-            className='not-last:hidden md:not-last:block'>
+            className='not-last:hidden lg:not-last:block'>
             <Logo src={item.src} alt={item.alt} />
           </Link>
         );

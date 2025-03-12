@@ -31,18 +31,18 @@ export const OffcanvasMenu: FC<Props> = () => {
     <>
       <button
         onClick={toggleMenu}
-        className='p-2 cursor-pointer text-white rounded z-1000 bg-transparent fixed top-16 md:top-20 right-20 md:right-52 translate-x-1/2'>
+        className='p-2 cursor-pointer text-white rounded z-1000 bg-transparent fixed top-16 lg:top-20 right-20 lg:right-52 translate-x-1/2'>
         {isOpen ? (
-          <CloseMenuButton className='md:w-24 md:h-24 w-12 h-12' />
+          <CloseMenuButton className='lg:w-24 lg:h-24 w-12 h-12' />
         ) : (
-          <MenuButton className='md:w-32 md:h-24 w-24 h-12' />
+          <MenuButton className='lg:w-32 lg:h-24 w-24 h-12' />
         )}
       </button>
       <div
         ref={menuRef}
         className={`fixed top-0 right-0 ${
           isOpen ? 'animate-apper' : 'translate-x-full animate-disappear'
-        } transition-all duration-300 z-200 w-dvw md:w-auto justify-end !pr-12 md:!pr-40 h-full max-h-dvh flex items-center md:items-stretch  md:top-1/6 bg-main-orange lg:bg-transparent shadow-lg`}>
+        } transition-all duration-300 z-200 w-dvw lg:w-auto justify-end !pr-12 lg:!pr-40 h-full max-h-dvh flex items-center lg:items-stretch  lg:top-1/6 bg-main-orange lg:bg-transparent shadow-lg`}>
         <nav className='flex h-[clamp(50%,30vw,60%)] '>
           <ul className='flex flex-col justify-around w-fit'>
             {MenuUsecase.map((item, index) => {
@@ -52,7 +52,7 @@ export const OffcanvasMenu: FC<Props> = () => {
                   className='w-full justify-end items-center text-right flex menu-el'>
                   <a
                     href={item.href}
-                    className='text-white text-5xl md:text-7xl align-super transform-all duration-300'>
+                    className='text-white text-5xl lg:text-7xl align-super transform-all duration-300'>
                     {item.title}
                   </a>
                   <div className='w-[clamp(2rem,10vw,5rem)] bg-transparent ' />
@@ -64,7 +64,7 @@ export const OffcanvasMenu: FC<Props> = () => {
               );
             })}
           </ul>
-          <div className='h-[calc(75%+5px)] self-center max-h-full w-2 bg-white rounded-l-none rounded-2xl grow'></div>
+          <div className='h-[calc(75%+0.5rem)] self-center max-h-full w-2 bg-white rounded-l-none rounded-2xl grow'></div>
         </nav>
       </div>
     </>

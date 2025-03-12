@@ -6,10 +6,10 @@ import {data} from './ContactCard.usecase';
 const ContactCard: FC = () => {
   return (
     <div className='border-3 border-main-orange rounded-3rxl bg-black bg-opacity-80 w-full h-full flex flex-col'>
-      <div className='flex flex-col p-8 md:p-12 h-full  justify-evenly md:justify-between'>
+      <div className='flex flex-col p-8 lg:p-12 h-full  justify-evenly lg:justify-between'>
         {data.map((item, index) => {
           return (
-            <div className='flex flex-col md:gap-4' key={index}>
+            <div className='flex flex-col lg:gap-4' key={index}>
               {item.map((subItem, subIndex) => {
                 return (
                   <Field

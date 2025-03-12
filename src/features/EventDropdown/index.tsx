@@ -1,7 +1,5 @@
 import './style.css';
-import {MouseEventHandler} from 'react';
 import {CardButton} from '@/entities';
-import {IClassicEventsBit} from '@/domain/entities/classic_events';
 import Image from 'next/image';
 import {useRouter} from 'next/navigation';
 import {Props, ICardButton} from './EventDropdown.props';

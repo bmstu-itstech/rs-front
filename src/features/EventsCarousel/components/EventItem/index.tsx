@@ -17,11 +17,11 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
       }`}
       {...props}>
       <MainTitle>{item.title}</MainTitle>
-      <p className='text-5xl font-normal border-2 w-full h-full flex justify-center items-center border-main-orange md:border-0 rounded-4xl'>
+      <p className='text-5xl font-normal border-2 w-full h-full flex justify-center items-center border-main-orange lg:border-0 rounded-4xl'>
         {'Описания нет'}
       </p>
-      <div className='flex flex-col gap-y-8 md:gap-24 w-full'>
-        <div className='flex gap-4 items-center justify-center md:justify-start'>
+      <div className='flex flex-col gap-y-8 lg:gap-24 w-full'>
+        <div className='flex gap-4 items-center justify-center lg:justify-start'>
           <div className='w-10 h-10 bg-main-orange rounded-full' />
           <LinkField
             title='Зарегистрироваться'
@@ -29,7 +29,7 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
             titleClassname='!uppercase'
           />
         </div>
-        <div className='flex flex-col md:flex-row justify-between items-center gap-x-40 gap-y-8 w-full'>
+        <div className='flex flex-col lg:flex-row justify-between items-center gap-x-40 gap-y-8 w-full'>
           <PrimaryButton
             className='!w-full'
             titleClassname='truncate'

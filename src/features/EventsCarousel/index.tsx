@@ -1,5 +1,5 @@
 'use client';
-import {useState, useCallback, useEffect, useMemo, memo} from 'react';
+import {useState, useCallback, useEffect, memo} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Event from './components/EventItem';
 import {ArrowButton} from '@/shared';
@@ -33,16 +33,16 @@ const Carousel: NextPage<Props> = ({items, itemsPerSlide = 3}) => {
       <div className='embla__container h-full'>
         {items.map((item, index) => (
           <div
-            className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] md:!px-46 md:!py-12 w-full h-full'
+            className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] lg:!px-46 lg:!py-12 w-full h-full'
             key={index}>
             <Event item={item} selected={index === selectedIndex} />
           </div>
         ))}
       </div>
-      <div className='absolute top-1/2 left-0 hidden md:block'>
+      <div className='absolute top-1/2 left-0 hidden lg:block'>
         <ArrowButton direction='left' onClick={() => emblaApi?.scrollPrev()} />
       </div>
-      <div className='absolute top-1/2 right-0 hidden md:block'>
+      <div className='absolute top-1/2 right-0 hidden lg:block'>
         <ArrowButton direction='right' onClick={() => emblaApi?.scrollNext()} />
       </div>
       <div className='carousel__dots'>

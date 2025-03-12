@@ -38,7 +38,7 @@ const ContactsCarousel: FC = () => {
   return (
     <div className='carousel'>
       <div className='embla w-full' ref={emblaRef}>
-        <div className='embla__container w-full h-[50dvh] md:h-[min(630px,60dvh)] mt-5'>
+        <div className='embla__container w-full h-[65dvh] lg:h-[min(63rem,60dvh)] mt-5'>
           {items.map((item, index) => {
             return (
               <div className='embla__slide w-full' key={index}>
