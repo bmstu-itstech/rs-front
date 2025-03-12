@@ -1,4 +1,5 @@
 export interface IPartnersBit {
+  // id: number;
   title: string;
   link: string;
   photo: string;

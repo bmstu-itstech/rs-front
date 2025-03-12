@@ -1,4 +1,5 @@
 export interface INewsBit {
+  // id: number;
   title: string;
   description: string;
   new_url: string;
