@@ -1,52 +1,67 @@
-import "./style.css";
-import {MouseEventHandler} from "react";
-import {CardButton} from "@/entities";
-import {IEvent} from "@/types";
-import Image from "next/image";
+import './style.css';
+import {MouseEventHandler} from 'react';
+import {CardButton} from '@/entities';
+import {IClassicEventsBit} from '@/domain/entities/classic_events';
+import Image from 'next/image';
+import {useRouter} from 'next/navigation';
+import {Props, ICardButton} from './EventDropdown.props';
 
-interface EventDropdownProps {
-    onClose: MouseEventHandler<HTMLImageElement>;
-    event: IEvent;
-}
+function EventDropdown({onClose, event}: Props) {
+  const router = useRouter();
+  const data: ICardButton[] = [
+    {
+      label: `Дата проведения: ${'дата'}`, // заглушка
+      onClick: () => {},
+    },
+    {
+      label: `Место проведения`, // загрушка
+      onClick: () => {
+        router.push('урл места');
+      }, // заглушка
+    },
+    {
+      label: `Фото`, // загрушка
+      onClick: () => {
+        router.push('урл фото');
+      }, // заглушка
+    },
+    {
+      label: `Документы`, // загрушка
+      onClick: () => {
+        router.push('урл доков');
+      }, // заглушка
+    },
+  ];
 
-function EventDropdown({onClose, event}: EventDropdownProps) {
-    return (
-        <div className="event-dropdown-bg" onClick={onClose}>
-            <div className="event-dropdown-outer" onClick={(e) => e.stopPropagation()}>
-                <div className="event-dropdown-inner">
-                    <div className="info">
-                        <div className="title">Подробнее</div>
-
-                        <CardButton
-                            label={`Дата проведения: ${event.date}`}
-                            onClick={() => {
-                            }}
-                        />
-                        <CardButton
-                            label="Место проведения"
-                            onClick={() => window.location.href = event.place}
-                        />
-                        <CardButton
-                            label="Фото"
-                            onClick={() => window.location.href = event.photos}
-                        />
-                        <CardButton
-                            label="Упоминания в СМИ"
-                            onClick={() => window.location.href = event.mentions}
-                        />
-                        <CardButton
-                            label="Документы"
-                            onClick={() => window.location.href = event.docs}
-                        />
-                    </div>
-                    <div className="action">
-                        <Image src="/icons/close.svg" onClick={onClose} alt="" width={100} height={100} />
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className='event-dropdown-bg' onClick={onClose}>
+      <div className='event-dropdown-outer' onClick={e => e.stopPropagation()}>
+        <div className='event-dropdown-inner'>
+          <div className='info'>
+            <div className='title'>Подробнее</div>
+            {data.map((item, index) => {
+              return (
+                <CardButton
+                  key={index}
+                  label={item.label}
+                  onClick={item.onClick}
+                />
+              );
+            })}
+          </div>
+          <div className='action'>
+            <Image
+              src='/icons/close.svg'
+              onClick={onClose}
+              alt='close'
+              width={100}
+              height={100}
+            />
+          </div>
         </div>
-    );
-
+      </div>
+    </div>
+  );
 }
 
 export default EventDropdown;

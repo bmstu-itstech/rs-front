@@ -59,7 +59,6 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -116,10 +115,6 @@ body {
   background-position: center center;
 }
 
-body:has(.events-screen) {
-  background-image: url('/mock/events.png');
-  backdrop-filter: brightness(20%);
-}
 .navbar-outer {
   display: grid;
   align-items: center;

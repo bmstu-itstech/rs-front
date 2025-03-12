@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 100;
+  z-index: 1000;
 }
 
 .event-dropdown-outer {
@@ -44,7 +44,6 @@
 }
 
 @media (max-width: 950px) {
-
   .event-dropdown-inner img {
     width: 50px;
   }
@@ -52,5 +51,4 @@
   .event-dropdown-inner .title {
     margin-top: 50px;
   }
-
 }

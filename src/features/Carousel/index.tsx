@@ -3,7 +3,7 @@
 import './style.css';
 import {useState, useCallback, useEffect, useMemo, memo, FC} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import {INews, INewsBit} from '@/domain/entities/news';
+import {INewsBit} from '@/domain/entities/news';
 import {NewsItem} from '@/entities';
 // import {useIsMobile} from "@/hooks";
 
