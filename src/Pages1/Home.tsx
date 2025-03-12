@@ -1,18 +1,22 @@
-import {AchievementsScreen, ContactsScreen, MainScreen, NewsScreen} from "../screens";
-import {FC} from "react";
+import {
+  AchievementsScreen,
+  ContactsScreen,
+  MainScreen,
+  NewsScreen,
+} from '../screens';
+import {FC} from 'react';
 
 const Home: FC = () => {
+  return (
+    <div className='flex flex-col gap-[6dvh]'>
+      <MainScreen  />
+      <NewsScreen />
+      <AchievementsScreen />
+      <ContactsScreen />
+    </div>
+  );
+};
 
-    return (
-        <>
-            <MainScreen/>
-            <NewsScreen/>
-            <AchievementsScreen/>
-            <ContactsScreen/>
-        </>
-    );
-}
-
-Home.displayName = "HomePage";
+Home.displayName = 'HomePage';
 
 export default Home;

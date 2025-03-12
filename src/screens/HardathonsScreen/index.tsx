@@ -1,6 +1,7 @@
 'use client';
 
 import {useIsMobile} from '@/hooks';
+import {PageLayout} from '@/layouts/PageLayout';
 import {PrimaryButton} from '@/shared';
 import {useRouter} from 'next/navigation';
 
@@ -9,8 +10,7 @@ function HardathonsScreen() {
   const router = useRouter();
 
   return (
-    <div className='pt-12 mb-32 '>
-      <div className='subtitle'>Хардатон 2024</div>
+    <PageLayout title='Хардатон 2024'>
       <div className='flex gap-6 justify-center items-center max-2xl:!my-10'>
         {!isMobile && (
           <img
@@ -84,7 +84,7 @@ function HardathonsScreen() {
           </div>
         </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
 

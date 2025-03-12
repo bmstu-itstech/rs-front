@@ -2,16 +2,19 @@
 
 import {Container, PrimaryButton} from '@/shared';
 import {NextPage} from 'next';
+import background_main from '@/assets/main_background.png'
 
 const MainScreen: NextPage = () => {
   return (
     <Container
       title='Центр молодежной робототехники'
+      hasShadowBetween
+      background={background_main.src}
       titleClassname='text-balance md:text-9xl font-bold md:font-normal w-full  md:max-w-3/5 md:text-left'
-      className=' md:font-normal md:text-left md:text-9rxl text-balance md:pt-[14dvh] '
+      className=' md:font-normal md:text-left md:text-9rxl pt-[20%] md:pt-[10%] text-balance  '
       id='main'>
-      <div className='flex flex-col gap-12 w-full md:max-w-3/5'>
-        <p className='caption leading-normal text-balance'>
+      <div className='flex flex-col h-full justify-around gap-12 w-full md:max-w-3/5'>
+        <p className='caption leading-normal text-balance '>
           Центр Молодежной Робототехники - это инновационное пространство,
           предназначенное для обучения и развития молодых талантов в области
           робототехники, искусственного интеллекта и программирования. Наша

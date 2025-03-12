@@ -6,12 +6,12 @@ import {Carousel} from '@/features';
 import {NextPage} from 'next';
 import {useGetNews} from '@/hooks/News/useGetNews';
 import {NewsPlaceholder} from '@/utilities/placeholders/news';
+
 // import {news} from './News.usecase';
 
 const NewsScreen: NextPage = () => {
   const [itemsCount, setItemsCount] = useState<number>(1);
   const {data, isLoading} = useGetNews();
-  console.log(data);
 
   useEffect(() => {
     setItemsCount(data?.count ?? 1);
@@ -27,7 +27,7 @@ const NewsScreen: NextPage = () => {
   }, [data]);
 
   return (
-    <Container title='Новости' id='news'>
+    <Container hasShadowBetween title='Новости' id='news'>
       <div className='flex justify-center items-center min-h-[50dvh] md:min-h-fit h-96 max-h-[80dvh]]'>
         <Carousel
           itemsPerSlide={itemsCount}

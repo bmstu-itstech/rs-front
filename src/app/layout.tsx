@@ -20,7 +20,6 @@ export default function RootLayout({
     <html lang='ru'>
       <body>
         <Providers>
-          <OffcanvasMenu />
           <Navbar />
           {children}
           <Footer />

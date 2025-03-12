@@ -11,7 +11,7 @@ const ContactsScreen: NextPage = () => {
   const mobile = useIsMobile();
 
   return (
-    <Container title='Контакты' id='contacts'>
+    <Container hasShadowBetween title='Контакты' id='contacts'>
       <div className='contacts relative'>
         {mobile ? (
           <ContactsCarousel />
