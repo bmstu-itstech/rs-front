@@ -30,7 +30,6 @@ const Carousel: NextPage<Props> = ({
   const scrollToIndex = (index: number) => {
     if (!emblaApi) return;
     emblaApi.scrollTo(index);
-    if (items[index].photo) onBackgroundChange(items[index].photo ?? '');
   };
   if (!items.length) return null;
   return (

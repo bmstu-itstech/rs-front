@@ -5,6 +5,7 @@ import {useState, useCallback, useEffect, useMemo, memo, FC} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import {INewsBit} from '@/domain/entities/news';
 import {NewsItem} from '@/entities';
+import {NewsItemSkeleton} from '@/entities/NewsItem/NewsItem.skeleton';
 // import {useIsMobile} from "@/hooks";
 
 function createGroup<T>(arr: T[], count: number): T[][] {
@@ -22,12 +23,44 @@ function createGroup<T>(arr: T[], count: number): T[][] {
 interface CarouselProps {
   items: INewsBit[];
   itemsPerSlide: number;
+  isLoading: boolean;
 }
 
-const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3}) => {
+const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
   const [selectedIndex, setSelectedIndex] = useState(0);
-  // const mobile = useIsMobile();
+
+  const ItemsToShow = useCallback(() => {
+    return isLoading || items == undefined ? (
+      <>
+        {[1, 2].map((_, index) => {
+          return (
+            <div className='embla__slide h-full' key={index}>
+              <div className='embla__slide-container h-full'>
+                <NewsItemSkeleton />
+                <NewsItemSkeleton />
+                <NewsItemSkeleton />
+              </div>
+            </div>
+          );
+        })}
+      </>
+    ) : (
+      groupedSlides.map((slideGroup, index) => (
+        <div className='embla__slide h-full' key={index}>
+          <div className='embla__slide-container h-full'>
+            {slideGroup.map((slide, idx) => (
+              <NewsItem
+                {...slide}
+                key={idx}
+                caption='Узнать подробности о мероприятии'
+              />
+            ))}
+          </div>
+        </div>
+      ))
+    );
+  }, [isLoading]);
 
   const groupedSlides = useMemo(() => {
     return createGroup(items, itemsPerSlide);
@@ -53,25 +86,12 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3}) => {
     if (!emblaApi) return;
     emblaApi.scrollTo(index);
   };
-  if (!items.length) return null;
 
   return (
     <div className='w-full overflow-hidden pb-8 relative  h-full  carousel'>
       <div className='embla h-full' ref={emblaRef}>
         <div className='embla__container h-full'>
-          {groupedSlides.map((slideGroup, index) => (
-            <div className='embla__slide h-full' key={index}>
-              <div className='embla__slide-container h-full'>
-                {slideGroup.map((slide, idx) => (
-                  <NewsItem
-                    {...slide}
-                    key={idx}
-                    caption='Узнать подробности о мероприятии'
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+          <ItemsToShow />
         </div>
       </div>
       <div className='carousel__dots'>

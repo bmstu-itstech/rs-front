@@ -18,7 +18,7 @@ const NewsScreen: NextPage = () => {
   }, [isLoading]);
   useEffect(() => {
     function computeCount() {
-      const width = window.innerWidth * 0.9 * window.devicePixelRatio; 
+      const width = window.innerWidth * 0.9 * window.devicePixelRatio;
       return Math.max(1, Math.min(Math.floor(width / 500), 3));
     }
 
@@ -31,7 +31,8 @@ const NewsScreen: NextPage = () => {
       <div className='flex justify-center items-center min-h-[50dvh] lg:min-h-fit h-full max-h-[65dvh]'>
         <Carousel
           itemsPerSlide={itemsCount}
-          items={data?.news ?? NewsPlaceholder.news}
+          items={data?.news ?? []}
+          isLoading={isLoading}
         />
       </div>
     </Container>

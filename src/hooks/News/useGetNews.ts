@@ -13,7 +13,7 @@ export const useGetNews = () => {
   } = useQuery<INews>({
     queryKey: ['news'],
     queryFn: newsList,
-    placeholderData: NewsPlaceholder,
+    // placeholderData: NewsPlaceholder,
   });
 
   return {data, isLoading, refetch, error};
