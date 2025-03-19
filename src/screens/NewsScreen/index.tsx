@@ -31,7 +31,7 @@ const NewsScreen: NextPage = () => {
       <div className='flex justify-center items-center min-h-[50dvh] lg:min-h-fit h-full max-h-[65dvh]'>
         <Carousel
           itemsPerSlide={itemsCount}
-          items={data?.news ?? []}
+          items={data?.news}
           isLoading={isLoading}
         />
       </div>

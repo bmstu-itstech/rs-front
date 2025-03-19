@@ -2,7 +2,7 @@ export const NewsItemSkeleton = () => {
   return (
     <div
       role='status'
-      className='space-y-2.5  items-center justify-center animate-pulse flex flex-col gap-2 w-[min(45rem,88vw)] h-full bg-gray-200  rounded-3xl'>
+      className='space-y-2.5 py-6 px-12  items-center justify-center animate-pulse flex flex-col gap-2 w-[min(45rem,88vw)] h-full bg-gray-200  rounded-3xl'>
       <svg
         className='w-52 h-52 text-gray-300'
         aria-hidden='true'

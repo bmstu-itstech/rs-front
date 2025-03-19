@@ -21,7 +21,7 @@ function createGroup<T>(arr: T[], count: number): T[][] {
 }
 
 interface CarouselProps {
-  items: INewsBit[];
+  items: INewsBit[] | undefined;
   itemsPerSlide: number;
   isLoading: boolean;
 }
@@ -31,9 +31,8 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const ItemsToShow = useCallback(() => {
-    return isLoading || items == undefined ? (
-      <>
-        {[1, 2].map((_, index) => {
+    return isLoading || !items
+      ? [1, 2].map((_, index) => {
           return (
             <div className='embla__slide h-full' key={index}>
               <div className='embla__slide-container h-full'>
@@ -43,26 +42,24 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
               </div>
             </div>
           );
-        })}
-      </>
-    ) : (
-      groupedSlides.map((slideGroup, index) => (
-        <div className='embla__slide h-full' key={index}>
-          <div className='embla__slide-container h-full'>
-            {slideGroup.map((slide, idx) => (
-              <NewsItem
-                {...slide}
-                key={idx}
-                caption='Узнать подробности о мероприятии'
-              />
-            ))}
+        })
+      : groupedSlides.map((slideGroup, index) => (
+          <div className='embla__slide h-full' key={index}>
+            <div className='embla__slide-container h-full'>
+              {slideGroup.map((slide, idx) => (
+                <NewsItem
+                  {...slide}
+                  key={idx}
+                  caption='Узнать подробности о мероприятии'
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      ))
-    );
+        ));
   }, [isLoading]);
 
   const groupedSlides = useMemo(() => {
+    if (!items) return []
     return createGroup(items, itemsPerSlide);
   }, [items, itemsPerSlide]);
 

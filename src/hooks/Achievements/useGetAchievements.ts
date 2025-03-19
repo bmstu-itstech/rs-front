@@ -13,7 +13,7 @@ export const useGetAchievements = () => {
   } = useQuery<IAchievements>({
     queryKey: ['achievements'],
     queryFn: achievementsList,
-    placeholderData: AchievementsPlaceholder,
+    // placeholderData: AchievementsPlaceholder,
   });
 
   return {data, isLoading, refetch, error};

@@ -5,13 +5,49 @@ import {Container} from '@/shared';
 import {useIsMobile} from '@/hooks';
 import {Achievement} from '@/features';
 import {FC} from 'react';
-import {AchievementsPlaceholder} from '@/utilities/placeholders/achievements';
 import {useGetAchievements} from '@/hooks/Achievements/useGetAchievements';
+import {
+  MainAchievemtSkeleton,
+  SubAchievemtSkeletonPC,
+} from '@/features/Achievement/Achievement.skeleton';
 
 const AchievementsScreen: FC = () => {
   const mobile = useIsMobile();
   const [active, setActive] = useState(1);
-  const {data} = useGetAchievements();
+  const {data, isLoading} = useGetAchievements();
+
+  const MainItemToShowPC = useCallback(() => {
+    return isLoading || !data ? (
+      <MainAchievemtSkeleton />
+    ) : (
+      <Achievement id='1' key={active} {...data.achievements[active]} />
+    );
+  }, [isLoading]);
+
+  const SubItemsToShowPC = useCallback(() => {
+    return isLoading || !data ? (
+      <>
+        <SubAchievemtSkeletonPC />
+        <SubAchievemtSkeletonPC />
+        <SubAchievemtSkeletonPC />
+      </>
+    ) : (
+      <>
+        {data?.achievements
+          .filter((v, index) => index !== active)
+          .map((v, index) => (
+            <Achievement
+              compact
+              id={`${index}`}
+              className={`odd:flex-row-reverse `}
+              {...v}
+              key={index}
+              onClick={() => handleActive(index)}
+            />
+          ))}
+      </>
+    );
+  }, [isLoading]);
 
   const handleActive = useCallback(
     (newId: number) => {
@@ -23,7 +59,6 @@ const AchievementsScreen: FC = () => {
         (v, index) => index === active,
       );
 
-      console.log(activeIndex, originalIndex);
       if (originalIndex === -1 || activeIndex === -1) return;
 
       const updatedData = [...data.achievements];
@@ -39,29 +74,13 @@ const AchievementsScreen: FC = () => {
   const PCAchivements = () => {
     return (
       <div className='flex flex-col gap-y-12 lg:gap-y-16  h-fit mx-auto w-full lg:w-[min(140rem,94vw)]'>
-        <Achievement
-          id='1'
-          key={active}
-          {...(data?.achievements[active] ||
-            AchievementsPlaceholder.achievements[0])}
-        />
+        <MainItemToShowPC />
         <div
           className='
            flex-row auto-rows-[0px] overflow-hidden h-22r  lg:grid
           grid-cols-3 grid-rows-1 tems-start justify-center gap-x-16
          lg:gap-y-0'>
-          {(data ?? AchievementsPlaceholder).achievements
-            .filter((v, index) => index !== active)
-            .map((v, index) => (
-              <Achievement
-                compact
-                id={`${index}`}
-                className={`odd:flex-row-reverse `}
-                {...v}
-                key={index}
-                onClick={() => handleActive(index)}
-              />
-            ))}
+          <SubItemsToShowPC />
         </div>
       </div>
     );
