@@ -5,8 +5,12 @@ import Event from './components/EventItem';
 import {ArrowButton} from '@/shared';
 import {NextPage} from 'next';
 import Props from './EventsCarousel.props';
-
-const Carousel: NextPage<Props> = ({items, itemsPerSlide = 3}) => {
+import no_bg from '@/assets/no_photo.jpg';
+const Carousel: NextPage<Props> = ({
+  items,
+  onBackgroundChange,
+  itemsPerSlide = 3,
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
   const [selectedIndex, setSelectedIndex] = useState(0);
   const handleSelect = useCallback(() => {
@@ -26,6 +30,7 @@ const Carousel: NextPage<Props> = ({items, itemsPerSlide = 3}) => {
   const scrollToIndex = (index: number) => {
     if (!emblaApi) return;
     emblaApi.scrollTo(index);
+    if (items[index].photo) onBackgroundChange(items[index].photo ?? '');
   };
   if (!items.length) return null;
   return (
@@ -40,10 +45,28 @@ const Carousel: NextPage<Props> = ({items, itemsPerSlide = 3}) => {
         ))}
       </div>
       <div className='absolute top-1/2 left-0 hidden lg:block'>
-        <ArrowButton direction='left' onClick={() => emblaApi?.scrollPrev()} />
+        <ArrowButton
+          direction='left'
+          onClick={() => {
+            emblaApi?.scrollPrev();
+            onBackgroundChange(
+              items[selectedIndex - 1 >= 0 ? selectedIndex - 1 : items.length-1].photo ??
+                no_bg.src,
+            );
+          }}
+        />
       </div>
       <div className='absolute top-1/2 right-0 hidden lg:block'>
-        <ArrowButton direction='right' onClick={() => emblaApi?.scrollNext()} />
+        <ArrowButton
+          direction='right'
+          onClick={() => {
+            emblaApi?.scrollNext();
+
+            onBackgroundChange(
+              items[(selectedIndex + 1) % items.length].photo ?? no_bg.src,
+            );
+          }}
+        />
       </div>
       <div className='carousel__dots'>
         {emblaApi?.scrollSnapList().map((_, index) => {
@@ -53,7 +76,9 @@ const Carousel: NextPage<Props> = ({items, itemsPerSlide = 3}) => {
                 selectedIndex === index ? 'carousel__dot--selected' : ''
               }`}
               key={index}
-              onClick={() => scrollToIndex(index)}
+              onClick={() => {
+                scrollToIndex(index);
+              }}
             />
           );
         })}
