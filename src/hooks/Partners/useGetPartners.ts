@@ -13,7 +13,7 @@ export const useGetPartners = () => {
   } = useQuery<IPartners>({
     queryKey: ['partners'],
     queryFn: partnersList,
-    placeholderData: PartnersPlaceholder,
+    // placeholderData: PartnersPlaceholder,
   });
 
   return {data, isLoading, refetch, error};

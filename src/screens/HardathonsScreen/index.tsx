@@ -15,7 +15,7 @@ function HardathonsScreen() {
         {!isMobile && (
           <img
             alt='speaker'
-            className='max-w-[40vw] scale-[1.2] hidden 2xl:block'
+            className='max-w-[40vw] scale-[1.2] hidden lg:block'
             src='/mock/speaker.png'
           />
         )}
