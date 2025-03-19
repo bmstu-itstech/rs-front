@@ -26,7 +26,7 @@ export const PageLayout: FC<Props> = ({
         src={background}
         alt='bg'
         className={` ${
-          isShadowedBack && 'brightness-20'
+          isShadowedBack && 'brightness-30'
         } w-full h-full object-cover object-center -z-10  absolute top-0 left-0  min-h-full min-w-full`}
       />
       <div
