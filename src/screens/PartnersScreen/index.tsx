@@ -8,7 +8,7 @@ import Props from './PartnersScreem.props';
 import {useRouter} from 'next/navigation';
 import {useIsMobile} from '@/hooks';
 import {PCPartners} from './components/PCPartners';
-import { MobilePartners } from './components/MobilePartners';
+import {MobilePartners} from './components/MobilePartners';
 
 const PartnersScreen: FC<Props> = () => {
   const isMobile = useIsMobile();
@@ -17,11 +17,7 @@ const PartnersScreen: FC<Props> = () => {
 
   return (
     <PageLayout title='Партнёры'>
-      {isMobile ? (
-        <MobilePartners data={data} router={router} isLoading={isLoading} />
-      ) : (
-        <PCPartners data={data} router={router} isLoading={isLoading} />
-      )}
+      <PCPartners data={data} router={router} isLoading={isLoading} />
     </PageLayout>
   );
 };

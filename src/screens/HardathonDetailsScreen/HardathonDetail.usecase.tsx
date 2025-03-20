@@ -1,35 +1,29 @@
-import type { MouseEventHandler } from 'react';
+import type {MouseEventHandler} from 'react';
 
 interface HardathonCard {
-  label: string;
-  onClick: MouseEventHandler<HTMLDivElement>;
-  primary: boolean;
+  children: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const HardathonDetailUsecase: HardathonCard[] = [
   {
-    label: 'Упоминания в СМИ',
+    children: 'Упоминания в СМИ',
     onClick: () => {},
-    primary: true,
   },
   {
-    label: 'Проекты',
+    children: 'Проекты',
     onClick: () => {},
-    primary: true,
   },
   {
-    label: 'Фото',
+    children: 'Фото',
     onClick: () => {},
-    primary: true,
   },
   {
-    label: 'Документы',
+    children: 'Документы',
     onClick: () => {},
-    primary: true,
   },
   {
-    label: 'Партнёры',
+    children: 'Партнёры',
     onClick: () => {},
-    primary: true,
   },
 ];

@@ -9,6 +9,7 @@ import {useGetAchievements} from '@/hooks/Achievements/useGetAchievements';
 import {
   MainAchievemtSkeleton,
   SubAchievemtSkeletonPC,
+  CompactAchievemtSkeleton,
 } from '@/features/Achievement/Achievement.skeleton';
 
 const AchievementsScreen: FC = () => {
@@ -17,15 +18,15 @@ const AchievementsScreen: FC = () => {
   const {data, isLoading} = useGetAchievements();
 
   const MainItemToShowPC = useCallback(() => {
-    return isLoading || !data ? (
+    return isLoading || !data || data.results.length == 0 ? (
       <MainAchievemtSkeleton />
     ) : (
-      <Achievement id='1' key={active} {...data.achievements[active]} />
+      <Achievement key={active} {...data.results[active]} />
     );
   }, [isLoading]);
 
   const SubItemsToShowPC = useCallback(() => {
-    return isLoading || !data ? (
+    return isLoading || !data || data.results.length == 0 ? (
       <>
         <SubAchievemtSkeletonPC />
         <SubAchievemtSkeletonPC />
@@ -33,12 +34,11 @@ const AchievementsScreen: FC = () => {
       </>
     ) : (
       <>
-        {data?.achievements
+        {data?.results
           .filter((v, index) => index !== active)
           .map((v, index) => (
             <Achievement
               compact
-              id={`${index}`}
               className={`odd:flex-row-reverse `}
               {...v}
               key={index}
@@ -49,19 +49,41 @@ const AchievementsScreen: FC = () => {
     );
   }, [isLoading]);
 
+  const CompactItemsToShow = useCallback(() => {
+    return isLoading || !data || data.results.length == 0 ? (
+      <>
+        <CompactAchievemtSkeleton />
+        <CompactAchievemtSkeleton />
+        <CompactAchievemtSkeleton />
+      </>
+    ) : (
+      <>
+        {data?.results.map((v, index) => (
+          <Achievement
+            compact
+            className={`odd:flex-row-reverse snap-start snap-always `}
+            {...v}
+            key={index}
+            onClick={() => handleActive(index)}
+          />
+        ))}
+      </>
+    );
+  }, [isLoading]);
+
   const handleActive = useCallback(
     (newId: number) => {
-      if (!data?.achievements) return;
-      const originalIndex = data.achievements.findIndex(
+      if (!data?.results) return;
+      const originalIndex = data.results.findIndex(
         (vm, index) => index === newId,
       );
-      const activeIndex = data.achievements.findIndex(
+      const activeIndex = data.results.findIndex(
         (v, index) => index === active,
       );
 
       if (originalIndex === -1 || activeIndex === -1) return;
 
-      const updatedData = [...data.achievements];
+      const updatedData = [...data.results];
       [updatedData[originalIndex], updatedData[activeIndex]] = [
         updatedData[activeIndex],
         updatedData[originalIndex],
@@ -91,16 +113,7 @@ const AchievementsScreen: FC = () => {
       <div
         className='flex-col max-h-2/3 snap-start snap-mandatory overflow-y-scroll
             flex items-center justify-start gap-y-12 scroll-smooth snap-y'>
-        {data?.achievements.map((v, index) => (
-          <Achievement
-            compact
-            id={`${index}`}
-            className={`odd:flex-row-reverse snap-start snap-always `}
-            {...v}
-            key={index}
-            onClick={() => handleActive(index)}
-          />
-        ))}
+        {<CompactItemsToShow />}
       </div>
     );
   };

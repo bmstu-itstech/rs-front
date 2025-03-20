@@ -6,9 +6,7 @@ import { PartnersPlaceholder } from '@/utilities/placeholders/partners';
 export const MobilePartners: FC<IPCPartners> = ({data, router}) => {
   return (
     <div className='w-full'>
-      <PartnersCarousel
-        items={data?.partners ?? PartnersPlaceholder.partners}
-      />
+      <PartnersCarousel items={data?.results ?? PartnersPlaceholder.results} />
     </div>
   );
 };

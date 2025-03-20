@@ -4,53 +4,58 @@ import {CardButton} from '@/entities';
 import {ArrowButton} from '@/shared';
 import {useRouter} from 'next/navigation';
 import {HardathonDetailUsecase} from './HardathonDetail.usecase';
-
+import {PageLayout} from '@/layouts/PageLayout';
+import group_of_people from '@/assets/group_of_people.jpeg';
+import {useIsMobile} from '@/hooks';
 function HardathonDetailsScreen() {
   const router = useRouter();
-
+  const isMobile = useIsMobile();
   return (
-    <div className='!pt-12 mb-40 min-h-[100vh] flex flex-col gap-20 max-sm:!pb-12'>
-      <div className='relative'>
-        <div className='subtitle'>Хардатон 2024</div>
-      </div>
-      <div className='relative flex max-lg:flex-col gap-12 lg:gap-32 justify-center items-stretch max-sm:mx-auto max-sm:w-[100vw]'>
-        <div
-          className={`absolute -top-48 max-lg:hidden`}
-          style={{left: 'calc(18vw - (100vw - 1920px) * 0.1)'}}>
+    <PageLayout
+      title='Хардатон 2024'
+      background={group_of_people.src}
+      hasOrangeShadow>
+      <div className='relative flex flex-col lg:flex-row gap-12 lg:gap-0 justify-center lg:justify-between items-stretch w-full'>
+        <div className={`absolute -top-48 max-lg:hidden left-0`}>
           <ArrowButton direction='left' onClick={() => router.back()} />
         </div>
-        <div className='!px-12 !py-20 rounded-6xl border-2 border-main-orange bg-black/55 flex flex-col justify-between max-lg:gap-12 max-lg:text-center'>
-          <div className='text-2xl lg:text-5xl'>
+        <div
+          className='p-20  lg:w-full relative  rounded-6xl border-2 border-main-orange
+         bg-black/45 flex flex-col justify-between max-lg:gap-12 max-lg:text-center overflow-hidden
+         after:bg-linear-to-t after:from-main-orange-50 after:to-transparent
+          after:z-10 after:absolute after:top-0 after:left-0 after:h-full after:w-full md:after:hidden'>
+          <div className='text-3xl lg:text-5xl'>
             Дата проведения: xx.xx.20xx
           </div>
-          <div className='text-2xl lg:text-5xl'>
+          <div className='text-3xl lg:text-5xl'>
             Старт приёма заявок: xx.xx.20xx
           </div>
-          <div className='text-2xl lg:text-5xl'>
+          <div className='text-3xl lg:text-5xl'>
             Окончание регистрации: xx.xx.20xx
           </div>
-          <div className='text-2xl lg:text-5xl'>
+          <div className='text-3xl lg:text-5xl'>
             Подведение итогов: xx.xx.20xx
           </div>
           <div className='flex flex-col gap-2'>
-            <div className='text-2xl lg:text-5xl'>Место проведения:</div>
-            <div className='text-2xl lg:text-5xl'>Адрес/Ссылка</div>
+            <div className='text-3xl lg:text-5xl'>Место проведения:</div>
+            <div className='text-3xl lg:text-5xl'>Адрес/Ссылка</div>
           </div>
         </div>
-        <div className='flex flex-col gap-12 lg:gap-20'>
+        <div className='flex flex-col w-full gap-12 lg:gap-20 lg:ms-32'>
           {HardathonDetailUsecase.map((item, index) => {
             return (
               <CardButton
-                label={item.label}
+                isFilled={!isMobile}
                 key={index}
                 onClick={item.onClick}
-                primary={item.primary}
-              />
+                className='!w-full !py-8'>
+                {item.children}
+              </CardButton>
             );
           })}
         </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
 
