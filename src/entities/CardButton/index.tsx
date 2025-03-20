@@ -1,25 +1,25 @@
-'use client'
+'use client';
 
-import "./style.css";
-import {FC, MouseEventHandler} from "react";
+import PrimaryButton from '@/shared/PrimaryButton';
+import './style.css';
+import {FC, MouseEventHandler, type HTMLAttributes} from 'react';
 
-interface CardButtonProps {
-    label: string;
-    onClick: MouseEventHandler<HTMLDivElement>;
-    primary?: boolean;
+interface CardButtonProps extends HTMLAttributes<HTMLButtonElement> {
+    isFilled: boolean;
 }
 
-const CardButton: FC<CardButtonProps> = (
-    {
-        label,
-        onClick,
-        primary = false
-    }) => {
-    return (
-        <div className={`card-button ${primary ? 'primary' : ''}`} onClick={onClick}>
-            {label}
-        </div>
-    );
+const CardButton: FC<CardButtonProps> = ({
+  className,
+  children,
+  onClick,
+  isFilled,
+  ...props
+}) => {
+  return (
+    <PrimaryButton {...props} bgFilled={isFilled} className={className} onClick={onClick}>
+      {children}
+    </PrimaryButton>
+  );
 };
 
 export default CardButton;

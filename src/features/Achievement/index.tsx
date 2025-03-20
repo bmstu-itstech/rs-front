@@ -10,11 +10,12 @@ import no_photo from '@/assets/no_photo.jpg';
 import {useRouter} from 'next/navigation';
 
 const Achievement: FC<Props> = ({
+  id,
   title,
   description,
-  photo,
-  photo_album_url,
-  link_to_media,
+  image,
+  album_url,
+  media_url,
   compact = false,
   onClick,
   className,
@@ -23,18 +24,18 @@ const Achievement: FC<Props> = ({
   const [hovered, setHovered] = useState<boolean>(false);
   const mobile = useIsMobile();
   const router = useRouter();
-  const curPhoto = photo ?? no_photo.src;
+  const curPhoto = image ?? no_photo.src;
   if (mobile) {
     return (
       <div
-        className={`border-2 border-main-orange h-44 min-h-fit max-h-44 rounded-4xl flex overflow-hidden w-full ${className}`}
+        className={`border-2 border-main-orange h-44 max-h-44 rounded-4xl flex overflow-hidden w-full ${className}`}
         {...props}>
         <Image
           width={1416}
           height={945}
           src={curPhoto}
           alt='achievement'
-          className='w-1/3 h-full min-h-40 object-cover object-center'
+          className='w-1/3 h-full min-h-full object-cover object-center'
         />
         <Divider isVertical />
         <div className='flex flex-col items-center justify-evenly flex-1 gap-1 py-2 w-full'>
@@ -42,7 +43,7 @@ const Achievement: FC<Props> = ({
             {title}
           </p>
           <Divider />
-          <LinkField title='Подробнее' url={photo_album_url} />
+          <LinkField title='Подробнее' url={album_url} />
         </div>
       </div>
     );
@@ -83,12 +84,12 @@ const Achievement: FC<Props> = ({
         <div className='flex gap-14'>
           <button
             className='w-72 py-8 rounded-6xl bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
-            onClick={() => router.push(photo_album_url)}>
+            onClick={() => router.push(album_url)}>
             ФОТО
           </button>
           <button
             className='w-72 py-8 rounded-6xl bg-main-orange hover:bg-white hover:text-main-orange text-white text-3xl flex justify-center items-center cursor-pointer  duration-300'
-            onClick={() => router.push(link_to_media)}>
+            onClick={() => router.push(media_url)}>
             СМИ
           </button>
         </div>

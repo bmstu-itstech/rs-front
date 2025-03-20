@@ -31,7 +31,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const ItemsToShow = useCallback(() => {
-    return isLoading || !items
+    return isLoading || !items || items.length == 0
       ? [1, 2].map((_, index) => {
           return (
             <div className='embla__slide h-full' key={index}>
@@ -56,10 +56,10 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
             </div>
           </div>
         ));
-  }, [isLoading]);
+  }, [isLoading, itemsPerSlide]);
 
   const groupedSlides = useMemo(() => {
-    if (!items) return []
+    if (!items) return [];
     return createGroup(items, itemsPerSlide);
   }, [items, itemsPerSlide]);
 

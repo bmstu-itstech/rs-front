@@ -8,6 +8,8 @@ import {usePathname} from 'next/navigation';
 
 const LogoList: FC<Props> = () => {
   const path = usePathname();
+  const regex = /^\/hardathons\/\d+\/details$/;
+  if (path && regex.test(path)) return;
   return (
     <div className='gap-16 flex'>
       {data.map((item, index) => {
