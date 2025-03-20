@@ -1,13 +1,14 @@
 export interface IPartnersBit {
-  // id: number;
-  title: string;
-  link: string;
-  photo: string;
+  id: number;
+  name: string;
+  url: string;
+  logo: string;
 }
 
 export interface IPartners {
   count: number;
-  total_count: number;
+  page_size: number;
   next: string | null;
-  partners: IPartnersBit[];
+  previous: string | null;
+  results: IPartnersBit[];
 }

@@ -1,14 +1,15 @@
 export interface INewsBit {
-  // id: number;
+  id: number;
   title: string;
-  description: string;
-  new_url: string;
-  photo: string;
+  content: string;
+  image: string;
+  href: string;
 }
 
 export interface INews {
   count: number;
-  total_count: number;
+  page_size: number;
+  previous: string | null;
   next: string | null;
-  news: INewsBit[];
+  results: INewsBit[];
 }
