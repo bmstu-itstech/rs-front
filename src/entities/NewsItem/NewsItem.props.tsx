@@ -1,9 +1,7 @@
 import type {HtmlHTMLAttributes} from 'react';
-
-export default interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
-  title: string;
-  description: string;
-  photo: string | null;
-  new_url: string;
+import {INewsBit} from '@/domain/entities/news';
+export default interface Props
+  extends INewsBit,
+    Omit<HtmlHTMLAttributes<HTMLDivElement>, 'content' | 'id' | 'title'> {
   caption: string;
 }

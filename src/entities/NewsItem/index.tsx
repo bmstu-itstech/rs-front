@@ -8,10 +8,10 @@ import {useRouter} from 'next/navigation';
 import Props from './NewsItem.props';
 import no_photo from '@/assets/no_photo.jpg';
 
-const NewsItem: FC<Props> = ({title, description, new_url, photo, caption}) => {
+const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
   const mobile = useIsMobile();
   const router = useRouter();
-  const curPhoto = photo ?? no_photo.src;
+  const curPhoto = image ?? no_photo.src;
 
   if (mobile) {
     return (
@@ -28,7 +28,7 @@ const NewsItem: FC<Props> = ({title, description, new_url, photo, caption}) => {
         </div>
         <PrimaryButton
           className='w-full'
-          onClick={() => router.push(`${new_url}`)}>
+          onClick={() => router.push(`${href}`)}>
           Подробнее
         </PrimaryButton>
       </div>
@@ -50,11 +50,11 @@ const NewsItem: FC<Props> = ({title, description, new_url, photo, caption}) => {
       </div>
       <div className='p-6 flex flex-col h-full justify-between'>
         <p className='text-3xl text-black max-h-2/5  overflow-hidden'>
-          {description}
+          {content}
         </p>
         <div
           className='flex justify-between items-center cursor-pointer'
-          onClick={() => router.push(`${new_url}`)}>
+          onClick={() => router.push(`${href}`)}>
           <p className='text-3xl text-black truncate max-w-5/6'>{caption}</p>
           <ArrowButton />
         </div>
