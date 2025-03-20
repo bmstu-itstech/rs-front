@@ -21,7 +21,9 @@ const LinkField: NextPage<LinkFieldProps> = ({
       className={`link-field ${className}`}
       {...props}
       onClick={() => router.push(url)}>
-      <p className={`title ${titleClassname}`}>{title}</p>
+      <p className={`title lg:!text-5xl !text-4xl ${titleClassname}`}>
+        {title}
+      </p>
       <svg
         width='15'
         height='13'

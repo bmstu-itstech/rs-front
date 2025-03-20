@@ -1,4 +1,3 @@
-
 .field .key {
   color: rgba(255, 255, 255, 0.7);
   font-size: 3rem;
@@ -18,7 +17,7 @@
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 920px) {
   .field .key {
     font-size: 1.8rem;
   }
