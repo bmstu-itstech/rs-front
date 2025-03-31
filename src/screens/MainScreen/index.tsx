@@ -4,6 +4,7 @@ import {Container, PrimaryButton} from '@/shared';
 import {NextPage} from 'next';
 import background_main from '@/assets/main_background.png';
 import TelegramIcon from '@/shared/TelegramIcon';
+import VKIcon from '@/shared/VKIcon';
 
 const MainScreen: NextPage = () => {
   return (
@@ -35,7 +36,10 @@ const MainScreen: NextPage = () => {
             }}>
             Подробнее
           </PrimaryButton>
-          <TelegramIcon className=' translate-x-full hidden lg:block' />
+          <div className=' translate-x-1/4 hidden lg:flex'>
+            <TelegramIcon className='me-12' />
+            <VKIcon />
+          </div>
         </div>
       </div>
     </Container>

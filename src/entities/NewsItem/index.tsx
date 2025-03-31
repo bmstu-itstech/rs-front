@@ -48,10 +48,13 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
           {title}
         </p>
       </div>
+      jsx
       <div className='p-6 flex flex-col h-full justify-between'>
-        <p className='text-3xl text-black max-h-2/5  overflow-hidden'>
-          {content}
-        </p>
+        <div className='flex-1 overflow-hidden'>
+          <p className='text-3xl text-black overflow-y-auto max-h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+            {content}
+          </p>
+        </div>
         <div
           className='flex justify-between items-center cursor-pointer'
           onClick={() => router.push(`${href}`)}>
