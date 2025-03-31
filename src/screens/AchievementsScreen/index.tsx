@@ -19,9 +19,9 @@ const AchievementsScreen: FC = () => {
 
   const MainItemToShowPC = useCallback(() => {
     return isLoading || !data || data.results.length == 0 ? (
-      <MainAchievemtSkeleton />
+      <MainAchievemtSkeleton className='mb-12' />
     ) : (
-      <Achievement key={active} {...data.results[active]} />
+      <Achievement className='mb-12' key={active} {...data.results[active]} />
     );
   }, [isLoading]);
 
@@ -95,12 +95,12 @@ const AchievementsScreen: FC = () => {
 
   const PCAchivements = () => {
     return (
-      <div className='flex flex-col gap-y-12 lg:gap-y-16  h-fit mx-auto w-full lg:w-[min(140rem,94vw)]'>
+      <div className='flex flex-col h-full mx-auto w-full lg:w-[min(140rem,94vw)]'>
         <MainItemToShowPC />
         <div
           className='
            flex-row auto-rows-[0px] overflow-hidden h-22r  lg:grid
-          grid-cols-3 grid-rows-1 tems-start justify-center gap-x-16
+          grid-cols-3 grid-rows-1 tems-start justify-center gap-x-12
          lg:gap-y-0'>
           <SubItemsToShowPC />
         </div>

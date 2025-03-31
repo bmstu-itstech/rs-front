@@ -1,9 +1,15 @@
+import type {FC, HTMLAttributes} from 'react';
 import {Divider} from './components/Divider';
-export const MainAchievemtSkeleton = () => {
+
+interface IMainAchievemtSkeletont extends HTMLAttributes<HTMLDivElement> {}
+
+export const MainAchievemtSkeleton: FC<IMainAchievemtSkeletont> = ({className}) => {
   return (
     <div
       role='status'
-      className='space-y-2.5 py-8 px-16 items-center justify-around animate-pulse flex gap-2 w-full h-[42rem] bg-gray-200  rounded-6xl'>
+      className={`${
+        className ?? ''
+      } space-y-2.5 py-8 px-16 items-center justify-around animate-pulse flex gap-2 w-full h-[42rem] bg-gray-200  rounded-6xl`}>
       <div className='flex flex-col justify-around  h-full items-start w-1/2'>
         <div className='w-full flex flex-col gap-6'>
           <div className='h-12  bg-gray-300 rounded-full w-full'></div>

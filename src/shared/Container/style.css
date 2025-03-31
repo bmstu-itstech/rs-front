@@ -46,20 +46,3 @@
   margin-top: 20px;
 }
 
-@media (max-width: 950px) {
-  .title {
-    font-size: 4rem;
-    text-align: center;
-    font-weight: 700;
-  }
-
-  .caption {
-    font-size: 1.8rem;
-    text-align: center;
-  }
-
-  .subtitle {
-    font-size: 4rem;
-    font-weight: 700;
-  }
-}
