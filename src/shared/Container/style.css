@@ -8,12 +8,7 @@
   overflow-anchor: none;
 }
 
-@media (min-width: 950px) {
-  .container-outer:has(.main) {
-    align-items: center;
-    justify-content: center;
-  }
-}
+
 
 .container-inner {
   margin-top: 15vh;
@@ -23,14 +18,6 @@
   flex-direction: column;
 }
 
-#main {
-  height: 100vh;
-}
-
-#main .container-inner {
-  height: 80vh;
-  margin-top: 0px;
-}
 
 .container-inner .main {
   display: grid;
@@ -74,9 +61,5 @@
   .subtitle {
     font-size: 4rem;
     font-weight: 700;
-  }
-
-  #main {
-    height: 90vh;
   }
 }
