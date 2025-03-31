@@ -1,13 +1,11 @@
 @media screen and (max-width: 950px) {
-
   .logo {
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
     display: none;
   }
 
   .logo:last-of-type {
     display: block;
   }
-
 }

@@ -15,8 +15,8 @@ const Logo: FC<LogoProps> = ({src, alt, onClick}) => {
       src={src}
       alt={alt}
       onClick={onClick}
-      width={70}
-      height={70}
+      width={60}
+      height={60}
     />
   );
 };

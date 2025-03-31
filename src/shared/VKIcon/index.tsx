@@ -1,15 +1,15 @@
 import {type FC} from 'react';
 import Image from 'next/image';
-import Props from './TelegramIcon.props';
-import src from '@/assets/icons/telegram.svg';
+import Props from './VKIcon.props';
+import src from '@/assets/icons/vk.svg';
 
-const TelegramIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {
+const VKIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {
   return (
     <Image
       src={src}
       className={` hover:opacity-80 size-24 duration-200 transition-all ${className}`}
       {...props}
-      alt='TelegramIcon'
+      alt='VKIcon'
       width={29}
       height={30}
       onClick={onClick}
@@ -17,6 +17,6 @@ const TelegramIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {
   );
 };
 
-TelegramIcon.displayName = 'TelegramIcon';
+VKIcon.displayName = 'VKIcon';
 
-export default TelegramIcon;
+export default VKIcon;
