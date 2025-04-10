@@ -11,7 +11,7 @@ function HardathonsScreen() {
   const router = useRouter();
 
   return (
-    <PageLayout title='Хардатон 2024' background={bg.src}>
+    <PageLayout title='Хардатон 2024' background={bg.src} isDvh>
       <div className='flex justify-between items-center w-full h-full'>
         {!isMobile && (
           <img

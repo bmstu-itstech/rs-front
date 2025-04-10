@@ -1,11 +1,10 @@
 'use client';
 import {EventsCarousel} from '@/features';
-import {classicEventsPlaceholder} from '@/utilities/placeholders/classicEvents';
+
 import './style.css';
 import {useGetEvents} from '@/hooks/Events/useGetEvents';
 import {PageLayout} from '@/layouts/PageLayout';
-import {useCallback, useState} from 'react';
-// import background_default from '@/assets/background_original.jpeg';
+import {useCallback} from 'react';
 import {EventPageSkeleton} from '@/features/EventsCarousel/EventsCarousel.skeleton';
 const EventsScreen = () => {
   const {data, isLoading} = useGetEvents();
