@@ -12,25 +12,28 @@ export const PageLayout: FC<Props> = ({
   hasShadowBetween = false,
   hasOrangeShadow = false,
   className,
+  isDvh = false,
   ...props
 }) => {
   return (
     <div
       id={id}
-      className={`h-dvh relative w-dvw
+      className={` relative w-dvw
       ${
         hasShadowBetween &&
         'after:absolute after:-z-10 after:top-full after:w-full after:left-0 after:h-[6dvh] not-last:after:bg-linear-to-b after:from-[rgba(0,0,0,0.6)] after:via-50% after:via-black after:to-[rgba(0,0,0,0.6)] after:to-100%'
       } ${
         hasOrangeShadow &&
         'md:after:absolute after:-z-10 after:top-0 after:w-full after:left-0 after:h-full after:bg-linear-to-t after:from-main-orange-50 after:to-60% after:to-transparent '
-      }   min-h-full min-w-full select-none `}
+      }  min-w-full select-none ${
+        isDvh ? 'h-dvh min-h-full' : 'h-full min-h-dvh'
+      } `}
       {...props}>
       <img
         src={background}
         alt='bg'
         className={` ${
-          isShadowedBack && 'brightness-30'
+          isShadowedBack && 'brightness-25'
         } w-full h-full object-cover object-center -z-10  absolute top-0 left-0  min-h-full min-w-full`}
       />
       <div

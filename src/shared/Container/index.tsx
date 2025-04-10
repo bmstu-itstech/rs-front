@@ -58,6 +58,7 @@ const Container: FC<Props> = ({
       hasShadowBetween={hasShadowBetween}
       titleClassname={titleClassname}
       background={background}
+      isDvh={true}
       {...props}>
       {children}
     </PageLayout>

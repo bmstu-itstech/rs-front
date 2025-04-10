@@ -32,7 +32,7 @@ function HardathonsScreen() {
               <p>Валерий Бизиков</p>
             </div>
           </div>
-          <div className='flex max-sm:flex-col justify-between gap-12 h-32 lg:gap-24  w-full'>
+          <div className='flex max-sm:flex-col justify-between gap-12 h-28 lg:gap-24  w-full'>
             <PrimaryButton
               bgFilled
               className='!w-full'
