@@ -5,8 +5,7 @@ import Event from './components/EventItem';
 import {ArrowButton} from '@/shared';
 import {NextPage} from 'next';
 import Props from './EventsCarousel.props';
-import no_bg from '@/assets/no_photo.jpg';
-import { PageLayout } from '@/layouts/PageLayout';
+
 const Carousel: NextPage<Props> = ({
   items,
   count,
@@ -35,53 +34,60 @@ const Carousel: NextPage<Props> = ({
   };
 
   return (
-    <PageLayout background={items[selectedIndex].background_img} isDvh>
-      <div className='embla relative h-full max-h-11/12' ref={emblaRef}>
-        <div className='embla__container h-full'>
-          {items.map((item, index) => (
-            <div
-              className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] lg:!px-46 lg:!py-12 w-full h-full'
-              key={index}>
-              <Event item={item} selected={index === selectedIndex} />
-            </div>
-          ))}
-        </div>
-        <div className='absolute top-1/2 left-0 hidden lg:block'>
-          <ArrowButton
-            direction='left'
-            onClick={() => {
-              emblaApi?.scrollPrev();
-
-            }}
-          />
-        </div>
-        <div className='absolute top-1/2 right-0 hidden lg:block'>
-          <ArrowButton
-            direction='right'
-            onClick={() => {
-              emblaApi?.scrollNext();
-
-              
-            }}
-          />
-        </div>
-        <div className='carousel__dots'>
-          {emblaApi?.scrollSnapList().map((_, index) => {
-            return (
-              <button
-                className={`carousel__dot ${
-                  selectedIndex === index ? 'carousel__dot--selected' : ''
-                }`}
-                key={index}
-                onClick={() => {
-                  scrollToIndex(index);
-                }}
-              />
-            );
-          })}
-        </div>
+    <div className='embla relative h-full' ref={emblaRef}>
+      <div className='embla__container h-full  '>
+        {items.map((item, index) => (
+          <div
+            className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] lg:!py-12 w-full h-full relative overflow-hidden'
+            key={index}
+            style={{
+              backgroundImage: `url(${item.background_img})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}>
+            <div className='absolute top-0 left-0 h-full w-full bg-black opacity-75 z-10' />
+            
+            <Event
+              className='relative z-20' // Убедитесь, что z-index выше затемняющего слоя
+              item={item}
+              selected={index === selectedIndex}
+            />
+          </div>
+        ))}
       </div>
-    </PageLayout>
+
+      <div className='absolute top-1/2 left-0 hidden lg:block px-12 lg:px-60'>
+        <ArrowButton
+          direction='left'
+          onClick={() => {
+            emblaApi?.scrollPrev();
+          }}
+        />
+      </div>
+      <div className='absolute top-1/2 right-0 hidden lg:block px-12 lg:px-60'>
+        <ArrowButton
+          direction='right'
+          onClick={() => {
+            emblaApi?.scrollNext();
+          }}
+        />
+      </div>
+      <div className='carousel__dots px-12 lg:px-60'>
+        {emblaApi?.scrollSnapList().map((_, index) => {
+          return (
+            <button
+              className={`carousel__dot ${
+                selectedIndex === index ? 'carousel__dot--selected' : ''
+              }`}
+              key={index}
+              onClick={() => {
+                scrollToIndex(index);
+              }}
+            />
+          );
+        })}
+      </div>
+    </div>
   );
 };
 Carousel.displayName = 'Carousel';

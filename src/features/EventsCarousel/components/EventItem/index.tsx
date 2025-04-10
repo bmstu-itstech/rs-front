@@ -12,7 +12,7 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
 
   return (
     <div
-      className={`flex flex-col items-center gap-12 min-h-full justify-between w-full mx-auto h-full user-select-none ${
+      className={`flex   flex-col items-center gap-12 min-h-full justify-between lg:w-2/3 px-12 pt-[3%] mx-auto h-full user-select-none ${
         className ?? ''
       }`}
       {...props}>

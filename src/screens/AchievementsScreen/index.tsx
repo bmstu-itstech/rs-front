@@ -18,15 +18,16 @@ const AchievementsScreen: FC = () => {
   const {data, isLoading} = useGetAchievements();
 
   const MainItemToShowPC = useCallback(() => {
-    return isLoading || !data || data.results.length == 0 ? (
+    return isLoading || !data ? (
       <MainAchievemtSkeleton className='mb-12' />
     ) : (
-      <Achievement className='mb-12' key={active} {...data.results[active]} />
+      // <Achievement className='mb-12' key={active} {...data.results[active]} />
+      <></>
     );
   }, [isLoading]);
 
   const SubItemsToShowPC = useCallback(() => {
-    return isLoading || !data || data.results.length == 0 ? (
+    return isLoading || !data ? (
       <>
         <SubAchievemtSkeletonPC />
         <SubAchievemtSkeletonPC />
@@ -34,7 +35,7 @@ const AchievementsScreen: FC = () => {
       </>
     ) : (
       <>
-        {data?.results
+        {/* {data?.results
           .filter((v, index) => index !== active)
           .map((v, index) => (
             <Achievement
@@ -44,13 +45,13 @@ const AchievementsScreen: FC = () => {
               key={index}
               onClick={() => handleActive(index)}
             />
-          ))}
+          ))} */}
       </>
     );
   }, [isLoading]);
 
   const CompactItemsToShow = useCallback(() => {
-    return isLoading || !data || data.results.length == 0 ? (
+    return isLoading || !data ? (
       <>
         <CompactAchievemtSkeleton />
         <CompactAchievemtSkeleton />
@@ -58,7 +59,7 @@ const AchievementsScreen: FC = () => {
       </>
     ) : (
       <>
-        {data?.results.map((v, index) => (
+        {/* {data?.results.map((v, index) => (
           <Achievement
             compact
             className={`odd:flex-row-reverse snap-start snap-always `}
@@ -66,7 +67,7 @@ const AchievementsScreen: FC = () => {
             key={index}
             onClick={() => handleActive(index)}
           />
-        ))}
+        ))} */}
       </>
     );
   }, [isLoading]);

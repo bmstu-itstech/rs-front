@@ -9,7 +9,6 @@ import {useCallback, useState} from 'react';
 import {EventPageSkeleton} from '@/features/EventsCarousel/EventsCarousel.skeleton';
 const EventsScreen = () => {
   const {data, isLoading} = useGetEvents();
-  // const [bg, setBg] = useState(background_default.src);
 
   const EventsToShow = useCallback(() => {
     return isLoading || !data ? (
@@ -19,16 +18,14 @@ const EventsScreen = () => {
         items={data.results}
         itemsPerSlide={1}
         count={data.count}
-        // onBackgroundChange={setBg}
       />
     );
   }, [isLoading, data]);
 
   return (
-    <>
+    <PageLayout hasBg={false} className='!p-0' isDvh>
       <EventsToShow />
-      {/* <div id={'modal'}></div> */}
-    </>
+    </PageLayout>
   );
 };
 

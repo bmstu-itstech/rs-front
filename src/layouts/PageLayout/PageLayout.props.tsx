@@ -6,5 +6,6 @@ export default interface Props extends HTMLAttributes<HTMLDivElement> {
   isShadowedBack?: boolean;
   hasShadowBetween?: boolean;
   hasOrangeShadow?: boolean;
+  hasBg?: boolean;
   isDvh?: boolean;
 }

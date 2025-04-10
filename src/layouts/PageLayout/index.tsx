@@ -11,6 +11,7 @@ export const PageLayout: FC<Props> = ({
   isShadowedBack = true,
   hasShadowBetween = false,
   hasOrangeShadow = false,
+  hasBg = true,
   className,
   isDvh = false,
   ...props
@@ -29,13 +30,16 @@ export const PageLayout: FC<Props> = ({
         isDvh ? 'h-dvh min-h-full' : 'h-full min-h-dvh'
       } `}
       {...props}>
-      <img
-        src={background}
-        alt='bg'
-        className={` ${
-          isShadowedBack && 'brightness-25'
-        } w-full h-full object-cover object-center -z-10 absolute top-0 left-0  min-h-full min-w-full`}
-      />
+      {hasBg && (
+        <img
+          src={background}
+          alt='bg'
+          className={` ${
+            isShadowedBack && 'brightness-25'
+          } w-full h-full object-cover object-center -z-10 absolute top-0 left-0  min-h-full min-w-full`}
+        />
+      )}
+
       <div
         className={`${className}  px-12 lg:px-60 pt-[3dvh] flex flex-col gap-16 h-full w-full`}>
         {title && (
