@@ -8,6 +8,7 @@ import Props from './EventsCarousel.props';
 import no_bg from '@/assets/no_photo.jpg';
 const Carousel: NextPage<Props> = ({
   items,
+  count,
   onBackgroundChange,
   itemsPerSlide = 3,
 }) => {
@@ -31,7 +32,7 @@ const Carousel: NextPage<Props> = ({
     if (!emblaApi) return;
     emblaApi.scrollTo(index);
   };
-  if (!items.length) return null;
+  console.log(items)
   return (
     <div className='embla relative h-full max-h-11/12' ref={emblaRef}>
       <div className='embla__container h-full'>
@@ -47,11 +48,12 @@ const Carousel: NextPage<Props> = ({
         <ArrowButton
           direction='left'
           onClick={() => {
-            emblaApi?.scrollPrev();
-            onBackgroundChange(
-              items[selectedIndex - 1 >= 0 ? selectedIndex - 1 : items.length-1].photo ??
-                no_bg.src,
-            );
+            // emblaApi?.scrollPrev();
+            // onBackgroundChange(
+            //   items[
+            //     selectedIndex - 1 >= 0 ? selectedIndex - 1 : count - 1
+            //   ].photo ?? no_bg.src,
+            // );
           }}
         />
       </div>
@@ -61,9 +63,9 @@ const Carousel: NextPage<Props> = ({
           onClick={() => {
             emblaApi?.scrollNext();
 
-            onBackgroundChange(
-              items[(selectedIndex + 1) % items.length].photo ?? no_bg.src,
-            );
+            // onBackgroundChange(
+            //   items[(selectedIndex + 1) % count].photo ?? no_bg.src,
+            // );
           }}
         />
       </div>

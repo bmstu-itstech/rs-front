@@ -1,4 +1,4 @@
-import type {IClassicEvents} from '@/domain/entities/classic_events';
+import type {IClassicEvents} from '@/domain/entities/events';
 
 const classicEventsPlaceholder: IClassicEvents = {
   count: 15,

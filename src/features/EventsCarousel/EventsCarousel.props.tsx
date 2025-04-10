@@ -1,8 +1,9 @@
-import type {IClassicEventsBit} from '@/domain/entities/classic_events';
+import type {IEventsBit} from '@/domain/entities/events';
 import type {Dispatch, HTMLAttributes, SetStateAction} from 'react';
 
 export default interface Props extends HTMLAttributes<HTMLDivElement> {
-  items: IClassicEventsBit[];
+  items: IEventsBit[];
   onBackgroundChange: Dispatch<SetStateAction<string>>;
   itemsPerSlide: number;
+  count: number;
 }
