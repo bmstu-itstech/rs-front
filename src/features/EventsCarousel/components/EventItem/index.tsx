@@ -16,9 +16,9 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
         className ?? ''
       }`}
       {...props}>
-      <MainTitle>{item.title}</MainTitle>
+      <MainTitle>{item.name}</MainTitle>
       <p className='text-5xl font-normal border-2 w-full h-full flex justify-center items-center border-main-orange lg:border-0 rounded-4xl'>
-        {'Описания нет'}
+        {item.description}
       </p>
       <div className='flex flex-col gap-y-8 lg:gap-24 w-full'>
         <div className='flex gap-4 items-center justify-center lg:justify-start'>

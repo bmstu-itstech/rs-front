@@ -2,17 +2,17 @@
 
 import PrimaryButton from '@/shared/PrimaryButton';
 import './style.css';
-import {FC, MouseEventHandler, type HTMLAttributes} from 'react';
+import {FC, type HTMLAttributes} from 'react';
 
 interface CardButtonProps extends HTMLAttributes<HTMLButtonElement> {
-    isFilled: boolean;
+    isFilled?: boolean;
 }
 
 const CardButton: FC<CardButtonProps> = ({
   className,
   children,
   onClick,
-  isFilled,
+  isFilled = false,
   ...props
 }) => {
   return (

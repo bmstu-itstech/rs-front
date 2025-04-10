@@ -3,7 +3,7 @@ import type {Dispatch, HTMLAttributes, SetStateAction} from 'react';
 
 export default interface Props extends HTMLAttributes<HTMLDivElement> {
   items: IEventsBit[];
-  onBackgroundChange: Dispatch<SetStateAction<string>>;
+  // onBackgroundChange: Dispatch<SetStateAction<string>>;
   itemsPerSlide: number;
   count: number;
 }

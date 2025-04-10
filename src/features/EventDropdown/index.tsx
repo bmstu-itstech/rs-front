@@ -8,25 +8,24 @@ function EventDropdown({onClose, event}: Props) {
   const router = useRouter();
   const data: ICardButton[] = [
     {
-      label: `Дата проведения: ${'дата'}`, // заглушка
-      onClick: () => {},
+      label: `Дата проведения: ${event.date}`,
     },
     {
-      label: `Место проведения`, // загрушка
+      label: `Место проведения`,
       onClick: () => {
-        router.push('урл места');
+        router.push(event.on_map_url);
       }, // заглушка
     },
     {
       label: `Фото`, // загрушка
       onClick: () => {
-        router.push('урл фото');
+        router.push(event.media_url);
       }, // заглушка
     },
     {
       label: `Документы`, // загрушка
       onClick: () => {
-        router.push('урл доков');
+        router.push(event.docs_url);
       }, // заглушка
     },
   ];
@@ -38,12 +37,16 @@ function EventDropdown({onClose, event}: Props) {
           <div className='info'>
             <div className='title'>Подробнее</div>
             {data.map((item, index) => {
-              return (
-                <CardButton
+              return item.onClick ? (
+                <CardButton key={index} onClick={item.onClick}>
+                  {item.label}
+                </CardButton>
+              ) : (
+                <p
                   key={index}
-                  label={item.label}
-                  onClick={item.onClick}
-                />
+                  className='uppercase w-full text-inherit text-center flex justify-center '>
+                  {item.label}
+                </p>
               );
             })}
           </div>

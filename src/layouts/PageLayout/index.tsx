@@ -34,7 +34,7 @@ export const PageLayout: FC<Props> = ({
         alt='bg'
         className={` ${
           isShadowedBack && 'brightness-25'
-        } w-full h-full object-cover object-center -z-10  absolute top-0 left-0  min-h-full min-w-full`}
+        } w-full h-full object-cover object-center -z-10 absolute top-0 left-0  min-h-full min-w-full`}
       />
       <div
         className={`${className}  px-12 lg:px-60 pt-[3dvh] flex flex-col gap-16 h-full w-full`}>

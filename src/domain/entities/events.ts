@@ -7,6 +7,7 @@ export interface IEventsBit {
   album_url: string;
   on_map_url: string;
   docs_url: string;
+  background_img: string;
 }
 
 export interface IEvents {
