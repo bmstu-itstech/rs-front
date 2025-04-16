@@ -21,8 +21,8 @@ const AchievementsScreen: FC = () => {
     return isLoading || !data ? (
       <MainAchievemtSkeleton className='mb-12' />
     ) : (
-      // <Achievement className='mb-12' key={active} {...data.results[active]} />
-      <></>
+      <Achievement className='mb-12' key={active} {...data.results[active]} />
+      
     );
   }, [isLoading]);
 
@@ -35,7 +35,7 @@ const AchievementsScreen: FC = () => {
       </>
     ) : (
       <>
-        {/* {data?.results
+        {data?.results
           .filter((v, index) => index !== active)
           .map((v, index) => (
             <Achievement
@@ -45,7 +45,7 @@ const AchievementsScreen: FC = () => {
               key={index}
               onClick={() => handleActive(index)}
             />
-          ))} */}
+          ))}
       </>
     );
   }, [isLoading]);
@@ -59,7 +59,7 @@ const AchievementsScreen: FC = () => {
       </>
     ) : (
       <>
-        {/* {data?.results.map((v, index) => (
+        {data?.results.map((v, index) => (
           <Achievement
             compact
             className={`odd:flex-row-reverse snap-start snap-always `}
@@ -67,7 +67,7 @@ const AchievementsScreen: FC = () => {
             key={index}
             onClick={() => handleActive(index)}
           />
-        ))} */}
+        ))}
       </>
     );
   }, [isLoading]);
