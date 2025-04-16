@@ -1,14 +1,13 @@
 'use client';
-import {memo, useState, type FC} from 'react';
+import {memo, type FC} from 'react';
 import MainTitle from '@/entities/MainTitle';
 import {PrimaryButton} from '@/shared';
 import EventDropdown from '../../../EventDropdown';
-import {createPortal} from 'react-dom';
 import Props from './EventItem.props';
 import {useIsMobile} from '@/hooks';
 import {useRouter} from 'next/navigation';
+import {Offcanvas} from '@/layouts/OffcanvasLayout';
 const Event: FC<Props> = ({item, selected, className, ...props}) => {
-  const [isOpened, setIsOpened] = useState<boolean>(false);
   const isMobile = useIsMobile();
   const router = useRouter();
   return (
@@ -30,19 +29,13 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
           onClick={() => router.push('')}>
           Зарегистрироваться
         </PrimaryButton>
-        <PrimaryButton
-          className='!w-full'
-          bgFilled={!isMobile}
-          onClick={() => setIsOpened(true)}>
-          Подробнее
-        </PrimaryButton>
+        <Offcanvas
+          className='select-none 
+        bg-main-orange hover:bg-white  hover:text-main-orange py-5 lg:py-8 lg:px-34 rounded-6xl w-full lg:w-full cursor-pointer transition-all duration-300 text-3xl lg:text-5xl'
+          isClosedObject={<>Подробнее</>}>
+          <EventDropdown event={item} />
+        </Offcanvas>
       </div>
-
-      {isOpened &&
-        createPortal(
-          <EventDropdown onClose={() => setIsOpened(false)} event={item} />,
-          document.getElementById('modal') as HTMLElement,
-        )}
     </div>
   );
 };
