@@ -38,20 +38,15 @@ const Carousel: NextPage<Props> = ({
       <div className='embla__container h-full  '>
         {items.map((item, index) => (
           <div
-            className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] lg:!py-12 w-full h-full relative overflow-hidden'
+            className='embla__slide max-w-[calc(100dvw-30rem)] z-0 min-h-[51vh] lg:!py-12 w-full h-full  overflow-hidden'
             key={index}
             style={{
               backgroundImage: `url(${item.background_img})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>
-            <div className='absolute top-0 left-0 h-full w-full bg-black opacity-75 z-10' />
-            
-            <Event
-              className='relative z-20' // Убедитесь, что z-index выше затемняющего слоя
-              item={item}
-              selected={index === selectedIndex}
-            />
+            <div className='absolute -z-10 top-0 left-0 h-full w-full bg-black opacity-75' />
+            <Event  item={item} selected={index === selectedIndex} />
           </div>
         ))}
       </div>

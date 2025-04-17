@@ -17,7 +17,7 @@
 
   --leading-normal: 1.2;
 
-  --animate-appear: appear 0.3s ease-in;
+  --animate-appear: appear 0.2s ease-in;
   --animate-disappear: disappear 0.3s ease-in;
 }
 
@@ -35,7 +35,7 @@
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(150%);
   }
 }
 
