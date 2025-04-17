@@ -17,12 +17,11 @@ const MainScreen: NextPage = () => {
       id='main'>
       <div className='flex  flex-col h-full justify-around gap-12 w-full '>
         <p className='leading-normal lg:max-w-3/5 text-balance md:text-5xl text-4xl font-normal md:text-left text-center'>
-          Центр Молодежной Робототехники - это инновационное пространство,
-          предназначенное для обучения и развития молодых талантов в области
-          робототехники, искусственного интеллекта и программирования. Наша
-          миссия - предоставить молодежи возможность исследовать и создавать
-          будущее с помощью передовых технологий и творчества. Присоединяйтесь к
-          нам и откройте для себя мир будущего уже сегодня!
+          Центр Молодежной Робототехники - это инновационное пространство, предназначенное для
+          обучения и развития молодых талантов в области робототехники, искусственного интеллекта и
+          программирования. Наша миссия - предоставить молодежи возможность исследовать и создавать
+          будущее с помощью передовых технологий и творчества. Присоединяйтесь к нам и откройте для
+          себя мир будущего уже сегодня!
         </p>
         <div className='flex w-full justify-between items-center'>
           <PrimaryButton
@@ -37,8 +36,8 @@ const MainScreen: NextPage = () => {
             Подробнее
           </PrimaryButton>
           <div className=' translate-x-1/4 hidden lg:flex'>
-            <TelegramIcon className='me-12' />
-            <VKIcon />
+            <TelegramIcon className='me-12 cursor-pointer' />
+            <VKIcon className='cursor-pointer' />
           </div>
         </div>
       </div>
