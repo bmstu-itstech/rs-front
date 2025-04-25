@@ -31,9 +31,10 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
         </PrimaryButton>
         <Offcanvas
           hasOverlayShadowing
-          className='select-none 
-        bg-main-orange hover:bg-white 
+          className='select-none uppercase
+        lg:bg-main-orange  lg:hover:bg-white 
           hover:text-main-orange py-5 lg:py-8 lg:px-34 rounded-6xl
+          bg-transparent hover:bg-main-orange border-2 border-main-orange
            w-full lg:w-full cursor-pointer transition-all duration-300 text-3xl lg:text-5xl'
           isClosedObject={<>Подробнее</>}>
           <EventDropdown event={item} />

@@ -52,7 +52,7 @@ export const Offcanvas: FC<Props> = ({
         className={` absolute top-0 right-0 ${
           isOpen ? 'animate-appear' : ' animate-disappear invisible'
         } transition-all  w-dvw lg:min-w-[50rem]  lg:w-auto justify-end
-         max-h-dvh flex items-center lg:items-stretch
+         max-h-dvh h-dvh flex items-center lg:items-stretch
             bg-main-orange lg:bg-transparent 
               `}>
         {children}
