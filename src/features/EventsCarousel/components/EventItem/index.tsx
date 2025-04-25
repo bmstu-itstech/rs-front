@@ -21,7 +21,7 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
         {item.description}
       </p>
 
-      <div className='flex flex-col  lg:flex-row justify-between items-center gap-x-40 gap-y-8 w-full'>
+      <div className='flex flex-col lg:flex-row justify-between items-center gap-x-40 gap-y-8 w-full'>
         <PrimaryButton
           className='!w-full'
           titleClassname='truncate'
@@ -30,8 +30,11 @@ const Event: FC<Props> = ({item, selected, className, ...props}) => {
           Зарегистрироваться
         </PrimaryButton>
         <Offcanvas
+          hasOverlayShadowing
           className='select-none 
-        bg-main-orange hover:bg-white  hover:text-main-orange py-5 lg:py-8 lg:px-34 rounded-6xl w-full lg:w-full cursor-pointer transition-all duration-300 text-3xl lg:text-5xl'
+        bg-main-orange hover:bg-white 
+          hover:text-main-orange py-5 lg:py-8 lg:px-34 rounded-6xl
+           w-full lg:w-full cursor-pointer transition-all duration-300 text-3xl lg:text-5xl'
           isClosedObject={<>Подробнее</>}>
           <EventDropdown event={item} />
         </Offcanvas>

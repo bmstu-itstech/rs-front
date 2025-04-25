@@ -34,11 +34,11 @@ const Carousel: NextPage<Props> = ({
   };
 
   return (
-    <div className='embla relative h-full' ref={emblaRef}>
-      <div className='embla__container h-full  '>
+    <div className='embla h-full' ref={emblaRef}>
+      <div className='embla__container h-full'>
         {items.map((item, index) => (
           <div
-            className='embla__slide max-w-[calc(100dvw-30rem)] z-0 min-h-[51vh] lg:!py-12 w-full h-full  overflow-hidden'
+            className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] lg:!py-12 w-full h-full z-10  overflow-hidden'
             key={index}
             style={{
               backgroundImage: `url(${item.background_img})`,
@@ -46,28 +46,42 @@ const Carousel: NextPage<Props> = ({
               backgroundPosition: 'center',
             }}>
             <div className='absolute -z-10 top-0 left-0 h-full w-full bg-black opacity-75' />
-            <Event  item={item} selected={index === selectedIndex} />
+            <div className='absolute top-1/2 left-0 hidden lg:block px-12 lg:px-60 z-0 '>
+              <ArrowButton
+                direction='left'
+                onClick={() => {
+                  emblaApi?.scrollPrev();
+                }}
+              />
+            </div>
+            <div className='absolute top-1/2 right-0 hidden lg:block px-12 lg:px-60 z-0'>
+              <ArrowButton
+                direction='right'
+                onClick={() => {
+                  emblaApi?.scrollNext();
+                }}
+              />
+            </div>
+            <Event item={item} selected={index === selectedIndex} />
           </div>
         ))}
       </div>
-
-      <div className='absolute top-1/2 left-0 hidden lg:block px-12 lg:px-60'>
+      {/* <div className='absolute top-0 left-0 w-full h-full z-0 hidden lg:flex items-center justify-between px-12 lg:px-60'>
         <ArrowButton
           direction='left'
           onClick={() => {
             emblaApi?.scrollPrev();
           }}
         />
-      </div>
-      <div className='absolute top-1/2 right-0 hidden lg:block px-12 lg:px-60'>
         <ArrowButton
           direction='right'
           onClick={() => {
             emblaApi?.scrollNext();
           }}
         />
-      </div>
-      <div className='carousel__dots px-12 lg:px-60'>
+      </div> */}
+
+      {/* <div className='carousel__dots px-12 lg:px-60'>
         {emblaApi?.scrollSnapList().map((_, index) => {
           return (
             <button
@@ -81,7 +95,7 @@ const Carousel: NextPage<Props> = ({
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
