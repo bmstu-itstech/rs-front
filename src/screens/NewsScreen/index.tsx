@@ -5,7 +5,7 @@ import {Container} from '@/shared';
 import {Carousel} from '@/features';
 import {NextPage} from 'next';
 import {useGetNews} from '@/hooks/News/useGetNews';
-import {NewsPlaceholder} from '@/utilities/placeholders/news';
+// import {NewsPlaceholder} from '@/utilities/placeholders/news';
 import { useIsMobile } from '@/hooks';
 
 // import {news} from './News.usecase';

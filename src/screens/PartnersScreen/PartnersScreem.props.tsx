@@ -7,7 +7,7 @@ export default interface Props extends HTMLAttributes<HTMLDivElement>{
 }
 
 export interface IPCPartners {
-  data: IPartners | undefined;
+  data: IPartners;
   router: AppRouterInstance;
   isLoading: boolean;
 }

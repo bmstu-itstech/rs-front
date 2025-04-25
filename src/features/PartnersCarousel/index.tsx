@@ -3,7 +3,7 @@
 import {useState, useCallback, useEffect, memo, FC} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import {IPartnersBit} from '@/domain/entities/partners';
-import { PartnersCarouselItem } from '@/screens/PartnersScreen/components/PartnersCarouselItem';
+import {PartnersCarouselItem} from '@/screens/PartnersScreen/components/PartnersCarouselItem';
 // import {useIsMobile} from "@/hooks";
 
 interface CarouselProps {
@@ -43,7 +43,7 @@ const Carousel: FC<CarouselProps> = ({items}) => {
           {items.map((item, index) => {
             return (
               <div className='embla__slide w-full' key={index}>
-                <PartnersCarouselItem {...item} />
+                <PartnersCarouselItem name={item.name} logo={item.logo} url={item.url} />
               </div>
             );
           })}

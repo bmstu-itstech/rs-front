@@ -2,14 +2,11 @@ import type {FC} from 'react';
 import Props from './PartnersCarouselItem.props';
 import Image from 'next/image';
 import no_photo from '@/assets/no_photo.jpg';
+import {useRouter} from 'next/navigation';
 
-const PartnersCarouselItem: FC<Props> = ({
-  title,
-  photo,
-  className,
-  ...props
-}) => {
-  const curPhoto = photo ?? no_photo;
+const PartnersCarouselItem: FC<Props> = ({name, url, logo, className, ...props}) => {
+  const router = useRouter();
+  const curPhoto = logo ?? no_photo;
   return (
     <div
       className={`w-full h-full p-12 aspect-square rounded-3rxl overflow-hidden flex justify-center items-center  border-2 border-main-orange bg-linear-to-t from-main-orange to-transparent ${
@@ -18,10 +15,11 @@ const PartnersCarouselItem: FC<Props> = ({
       {...props}>
       <Image
         src={curPhoto}
-        alt={title}
+        alt={name}
         width={1000}
         height={1000}
         className='rounded-3rxl aspect-square object-contain object-center'
+        onClick={() => router.push(url)}
       />
     </div>
   );
