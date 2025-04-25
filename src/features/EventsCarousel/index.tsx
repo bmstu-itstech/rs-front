@@ -28,10 +28,6 @@ const Carousel: NextPage<Props> = ({
       emblaApi.off('pointerUp', handleSelect);
     };
   }, [emblaApi, handleSelect]);
-  const scrollToIndex = (index: number) => {
-    if (!emblaApi) return;
-    emblaApi.scrollTo(index);
-  };
 
   return (
     <div className='embla h-full' ref={emblaRef}>
@@ -49,7 +45,7 @@ const Carousel: NextPage<Props> = ({
             <div className='absolute top-1/2  left-0 hidden lg:block px-12 lg:px-60 z-0 '>
               <ArrowButton
                 direction='left'
-                className='translate-x-1/2'
+                className='translate-x-1/2 cursor-pointer'
                 onClick={() => {
                   emblaApi?.scrollPrev();
                 }}
@@ -58,7 +54,7 @@ const Carousel: NextPage<Props> = ({
             <div className='absolute top-1/2  right-0 hidden lg:block px-12 lg:px-60 z-0'>
               <ArrowButton
                 direction='right'
-                className='-translate-x-1/2'
+                className='-translate-x-1/2 cursor-pointer'
                 onClick={() => {
                   emblaApi?.scrollNext();
                 }}
@@ -68,36 +64,6 @@ const Carousel: NextPage<Props> = ({
           </div>
         ))}
       </div>
-      {/* <div className='absolute top-0 left-0 w-full h-full z-0 hidden lg:flex items-center justify-between px-12 lg:px-60'>
-        <ArrowButton
-          direction='left'
-          onClick={() => {
-            emblaApi?.scrollPrev();
-          }}
-        />
-        <ArrowButton
-          direction='right'
-          onClick={() => {
-            emblaApi?.scrollNext();
-          }}
-        />
-      </div> */}
-
-      {/* <div className='carousel__dots px-12 lg:px-60'>
-        {emblaApi?.scrollSnapList().map((_, index) => {
-          return (
-            <button
-              className={`carousel__dot ${
-                selectedIndex === index ? 'carousel__dot--selected' : ''
-              }`}
-              key={index}
-              onClick={() => {
-                scrollToIndex(index);
-              }}
-            />
-          );
-        })}
-      </div> */}
     </div>
   );
 };
