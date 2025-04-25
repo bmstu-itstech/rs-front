@@ -1,4 +1,4 @@
-import Props from './MenuButton.props';
+import { Props } from './MenuButton.props';
 import {FC} from 'react';
 export const MenuButton: FC<Props> = ({className, ...props}) => {
   return (

@@ -8,9 +8,6 @@ import Props from './EventsCarousel.props';
 
 const Carousel: NextPage<Props> = ({
   items,
-  count,
-  // onBackgroundChange,
-  itemsPerSlide = 3,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
   const [selectedIndex, setSelectedIndex] = useState(0);

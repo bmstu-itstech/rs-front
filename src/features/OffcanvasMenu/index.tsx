@@ -1,7 +1,7 @@
 'use client';
 import './style.css';
 import type {FC} from 'react';
-import Props from './OffcanvasMenu.props';
+import {Props} from './OffcanvasMenu.props';
 import {CloseMenuButton} from '@/shared/CloseMenuButton';
 import {MenuButton} from '@/shared/MenuButton';
 import React from 'react';
@@ -16,7 +16,7 @@ export const OffcanvasMenu: FC<Props> = ({className}) => {
       className={`z-10 cursor-pointer text-white rounded  bg-transparent ${className}`}>
       <nav className='flex h-[max(80dvh,65rem)] !pr-12 lg:!pr-48 lg:pt-52 '>
         <ul className='flex flex-col justify-around w-fit h-full'>
-          {MenuUsecase.map((item, index) => {
+          {MenuUsecase.map(item => {
             return (
               <li key={item.id} className='w-full justify-end items-center text-right flex menu-el'>
                 <a

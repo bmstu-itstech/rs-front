@@ -1,4 +1,4 @@
-import Props from './CloseMenuButton.props';
+import { Props } from './CloseMenuButton.props';
 import {FC} from 'react';
 export const CloseMenuButton: FC<Props> = ({className, ...props}) => {
   return (

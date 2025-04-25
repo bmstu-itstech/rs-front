@@ -1,5 +1,4 @@
 import {CardButton} from '@/entities';
-import Image from 'next/image';
 import {useRouter} from 'next/navigation';
 import {Props, ICardButton} from './EventDropdown.props';
 function EventDropdown({event}: Props) {

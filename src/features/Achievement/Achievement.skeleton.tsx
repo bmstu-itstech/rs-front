@@ -1,7 +1,6 @@
 import type {FC, HTMLAttributes} from 'react';
-import {Divider} from './components/Divider';
 
-interface IMainAchievemtSkeletont extends HTMLAttributes<HTMLDivElement> {}
+type IMainAchievemtSkeletont = HTMLAttributes<HTMLDivElement>;
 
 export const MainAchievemtSkeleton: FC<IMainAchievemtSkeletont> = ({className}) => {
   return (

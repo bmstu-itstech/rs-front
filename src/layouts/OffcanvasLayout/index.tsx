@@ -2,7 +2,7 @@
 import type {FC} from 'react';
 import Props from './Offcanvas.props';
 import React, {useState, useRef, useEffect, useCallback} from 'react';
-import {Divider} from '@/features/Achievement/components/Divider';
+// import {Divider} from '@/features/Achievement/components/Divider';
 
 export const Offcanvas: FC<Props> = ({
   isOpenedObject,
@@ -36,7 +36,7 @@ export const Offcanvas: FC<Props> = ({
     ({isOpen}: {isOpen: boolean}) => {
       return isOpen ? isOpenedObject : isClosedObject;
     },
-    [isOpen],
+    [isClosedObject, isOpenedObject],
   );
 
   return (

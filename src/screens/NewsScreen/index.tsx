@@ -16,7 +16,7 @@ const NewsScreen: NextPage = () => {
   const isMobile = useIsMobile()
   useEffect(() => {
     setItemsCount(data?.count ?? 1);
-  }, [isLoading]);
+  }, [isLoading, data?.count]);
   useEffect(() => {
     function computeCount() {
       const width = isMobile? window.innerWidth: window.innerWidth * window.devicePixelRatio;
@@ -26,7 +26,7 @@ const NewsScreen: NextPage = () => {
 
     setItemsCount(computeCount);
     window.onresize = () => setItemsCount(computeCount);
-  }, [data, isLoading]);
+  }, [data, isLoading, isMobile]);
 
   return (
     <Container hasShadowBetween title='Новости' id='news'>

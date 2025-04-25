@@ -1,6 +1,6 @@
 import {type FC} from 'react';
 import Image from 'next/image';
-import Props from './TelegramIcon.props';
+import { Props } from './TelegramIcon.props';
 import src from '@/assets/icons/telegram.svg';
 
 const TelegramIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {

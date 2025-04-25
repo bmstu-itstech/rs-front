@@ -1,5 +1,3 @@
 import type { HTMLAttributes } from 'react';
 
-export default interface Props extends HTMLAttributes<HTMLOrSVGElement>{
-    
-}
+export type Props = HTMLAttributes<HTMLOrSVGElement>;

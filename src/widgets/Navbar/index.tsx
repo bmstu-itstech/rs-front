@@ -3,7 +3,7 @@
 import './style.css';
 import {FC, useEffect, useState} from 'react';
 import {LogoList} from '@/features';
-import Props from './Navbar.props';
+import { Props } from './Navbar.props';
 import {OffcanvasMenu} from '@/features/OffcanvasMenu';
 
 const Navbar: FC<Props> = ({className, ...props}) => {

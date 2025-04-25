@@ -30,6 +30,11 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const groupedSlides = useMemo(() => {
+    if (!items) return [];
+    return createGroup(items, itemsPerSlide);
+  }, [items, itemsPerSlide]);
+
   const ItemsToShow = useCallback(() => {
     return isLoading || !items || items.length == 0
       ? [1, 2].map((_, index) => {
@@ -47,21 +52,12 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
           <div className='embla__slide h-full' key={index}>
             <div className='embla__slide-container h-full'>
               {slideGroup.map((slide, idx) => (
-                <NewsItem
-                  {...slide}
-                  key={idx}
-                  caption='Узнать подробности о мероприятии'
-                />
+                <NewsItem {...slide} key={idx} caption='Узнать подробности о мероприятии' />
               ))}
             </div>
           </div>
         ));
-  }, [isLoading, itemsPerSlide]);
-
-  const groupedSlides = useMemo(() => {
-    if (!items) return [];
-    return createGroup(items, itemsPerSlide);
-  }, [items, itemsPerSlide]);
+  }, [isLoading, itemsPerSlide, groupedSlides, items]);
 
   const handleSelect = useCallback(() => {
     if (!emblaApi) return;

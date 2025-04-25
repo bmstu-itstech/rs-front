@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import {data} from './LeaderCard.usecase';
-import Props from './LeaderCard.props';
+import { Props } from './LeaderCard.props';
 
 const LeaderCard: FC<Props> = ({className, ...props}) => {
   return (

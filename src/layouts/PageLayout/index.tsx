@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import Props from './PageLayout.props';
 import background_default from '@/assets/background_original.jpeg';
+import Image from 'next/image';
 
 export const PageLayout: FC<Props> = ({
   title,
@@ -31,7 +32,9 @@ export const PageLayout: FC<Props> = ({
       } `}
       {...props}>
       {hasBg && (
-        <img
+        <Image
+          width={800}
+          height={800}
           src={background}
           alt='bg'
           className={` ${

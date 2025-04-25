@@ -1,5 +1,5 @@
 import type {IEventsBit} from '@/domain/entities/events';
-import type {HTMLAttributes, MouseEventHandler} from 'react';
+import type {HTMLAttributes} from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   event: IEventsBit;

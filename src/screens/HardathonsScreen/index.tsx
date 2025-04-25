@@ -5,6 +5,7 @@ import {PageLayout} from '@/layouts/PageLayout';
 import {PrimaryButton} from '@/shared';
 import {useRouter} from 'next/navigation';
 import bg from '@/assets/group_of_people.jpeg';
+import Image from 'next/image';
 
 function HardathonsScreen() {
   const isMobile = useIsMobile();
@@ -14,10 +15,12 @@ function HardathonsScreen() {
     <PageLayout title='Хардатон 2024' background={bg.src} isDvh>
       <div className='flex justify-between items-center w-full h-full'>
         {!isMobile && (
-          <img
+          <Image
             alt='speaker'
             className='max-w-2/5 hidden lg:block self-end scale-[1.2] origin-bottom-right'
             src='/mock/speaker.png'
+            width={600}
+            height={600}
           />
         )}
         <div className='flex flex-col items-center gap-12 2xl:!-mt-24 lg:w-[50dvw]'>

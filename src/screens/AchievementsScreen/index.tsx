@@ -24,7 +24,26 @@ const AchievementsScreen: FC = () => {
       <Achievement className='mb-12' key={active} {...data.results[active]} />
       
     );
-  }, [isLoading]);
+  }, [isLoading, active, data]);
+
+    const handleActive = useCallback(
+      (newId: number) => {
+        if (!data?.results) return;
+        const originalIndex = data.results.findIndex((vm, index) => index === newId);
+        const activeIndex = data.results.findIndex((v, index) => index === active);
+
+        if (originalIndex === -1 || activeIndex === -1) return;
+
+        const updatedData = [...data.results];
+        [updatedData[originalIndex], updatedData[activeIndex]] = [
+          updatedData[activeIndex],
+          updatedData[originalIndex],
+        ];
+        setActive(newId);
+      },
+      [data, active],
+    );
+
 
   const SubItemsToShowPC = useCallback(() => {
     return isLoading || !data ? (
@@ -48,7 +67,7 @@ const AchievementsScreen: FC = () => {
           ))}
       </>
     );
-  }, [isLoading]);
+  }, [isLoading, active, data, handleActive]);
 
   const CompactItemsToShow = useCallback(() => {
     return isLoading || !data ? (
@@ -70,29 +89,8 @@ const AchievementsScreen: FC = () => {
         ))}
       </>
     );
-  }, [isLoading]);
+  }, [isLoading, data, handleActive]);
 
-  const handleActive = useCallback(
-    (newId: number) => {
-      if (!data?.results) return;
-      const originalIndex = data.results.findIndex(
-        (vm, index) => index === newId,
-      );
-      const activeIndex = data.results.findIndex(
-        (v, index) => index === active,
-      );
-
-      if (originalIndex === -1 || activeIndex === -1) return;
-
-      const updatedData = [...data.results];
-      [updatedData[originalIndex], updatedData[activeIndex]] = [
-        updatedData[activeIndex],
-        updatedData[originalIndex],
-      ];
-      setActive(newId);
-    },
-    [data, active, mobile],
-  );
 
   const PCAchivements = () => {
     return (

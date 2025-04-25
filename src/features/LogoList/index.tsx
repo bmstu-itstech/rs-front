@@ -2,7 +2,7 @@ import './style.css';
 import {Logo} from '@/entities';
 import {FC} from 'react';
 import Link from 'next/link';
-import Props from './LogoList.props';
+import { Props } from './LogoList.props';
 import {data} from './LogoList.usecase';
 import {usePathname} from 'next/navigation';
 

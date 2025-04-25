@@ -7,7 +7,7 @@ import Props from './EventItem.props';
 import {useIsMobile} from '@/hooks';
 import {useRouter} from 'next/navigation';
 import {Offcanvas} from '@/layouts/OffcanvasLayout';
-const Event: FC<Props> = ({item, selected, className, ...props}) => {
+const Event: FC<Props> = ({item, className, ...props}) => {
   const isMobile = useIsMobile();
   const router = useRouter();
   return (

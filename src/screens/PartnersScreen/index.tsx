@@ -4,7 +4,7 @@
 import {useGetPartners} from '@/hooks/Partners/useGetPartners';
 import {PageLayout} from '@/layouts/PageLayout';
 import type {FC} from 'react';
-import Props from './PartnersScreem.props';
+import { Props } from './PartnersScreem.props';
 import {useRouter} from 'next/navigation';
 // import {useIsMobile} from '@/hooks';
 import {PCPartners} from './components/PCPartners';

@@ -15,8 +15,8 @@ const EventsScreen = () => {
     ) : (
       <EventsCarousel
         items={data.results}
-        itemsPerSlide={1}
-        count={data.count}
+        // itemsPerSlide={1}
+        // count={data.count}
       />
     );
   }, [isLoading, data]);

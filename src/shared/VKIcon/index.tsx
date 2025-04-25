@@ -1,6 +1,6 @@
 import {type FC} from 'react';
 import Image from 'next/image';
-import Props from './VKIcon.props';
+import { Props } from './VKIcon.props';
 import src from '@/assets/icons/vk.svg';
 
 const VKIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {

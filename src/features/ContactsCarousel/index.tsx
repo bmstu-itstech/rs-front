@@ -9,7 +9,7 @@ import {FC} from 'react';
 const ContactsCarousel: FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const items = [<LeaderCard />, <ContactCard />];
+  const items = [<LeaderCard key={'leader'} />, <ContactCard key={'contacts'} />];
 
   const handleSelect = useCallback(() => {
     if (!emblaApi) return;
