@@ -7,13 +7,13 @@ import {MenuButton} from '@/shared/MenuButton';
 import React from 'react';
 import {MenuUsecase} from './OffcanvasMenu.usecase';
 import {Offcanvas} from '@/layouts/OffcanvasLayout';
-export const OffcanvasMenu: FC<Props> = () => {
+export const OffcanvasMenu: FC<Props> = ({className}) => {
   return (
     <Offcanvas
       hasOverlayShadowing
       isOpenedObject={<CloseMenuButton className='lg:w-24 lg:h-24 w-12 h-12' />}
       isClosedObject={<MenuButton className='lg:w-32 lg:h-24 w-24 h-12' />}
-      className=' z-10 cursor-pointer text-white rounded  bg-transparent'>
+      className={`z-10 cursor-pointer text-white rounded  bg-transparent ${className}`}>
       <nav className='flex h-[max(80dvh,65rem)] !pr-12 lg:!pr-48 lg:pt-52 '>
         <ul className='flex flex-col justify-around w-fit h-full'>
           {MenuUsecase.map((item, index) => {

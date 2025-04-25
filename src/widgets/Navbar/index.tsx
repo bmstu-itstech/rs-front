@@ -23,7 +23,7 @@ const Navbar: FC<Props> = ({className, ...props}) => {
         className='transition-opacity duration-300 flex justify-between w-full'
         style={{opacity}}>
         <LogoList />
-        <OffcanvasMenu />
+        <OffcanvasMenu className='ml-auto' />
       </div>
     </div>
   );

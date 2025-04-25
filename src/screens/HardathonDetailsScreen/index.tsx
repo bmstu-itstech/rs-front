@@ -34,7 +34,7 @@ function HardathonDetailsScreen() {
           after:z-10 after:absolute after:top-0  after:left-0 after:h-full after:w-full md:after:hidden'>
           {info.map((item, ind) => {
             return (
-              <div className='text-3xl lg:text-5xl z-20'>
+              <div className='text-3xl lg:text-5xl z-20' key={ind}>
                 {HardathonDetailMainInfoUsecase[ind].title}: {item}
               </div>
             );
