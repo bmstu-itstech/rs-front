@@ -17,7 +17,7 @@ const Navbar: FC<Props> = ({className, ...props}) => {
 
   return (
     <div
-      className={`${className ?? ''} w-full  lg:px-60 mt-12 px-12 fixed z-100 top-0 left-0`}
+      className={`${className ?? ''} w-full lg:px-60 pt-12 px-12 fixed z-100 top-0 left-0`}
       {...props}>
       <div
         className='transition-opacity duration-300 flex justify-between w-full'

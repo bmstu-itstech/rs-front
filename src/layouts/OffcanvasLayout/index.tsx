@@ -45,7 +45,7 @@ export const Offcanvas: FC<Props> = ({
         {isClosedObject && isOpenedObject ? <SwitchableIcon isOpen={isOpen} /> : isClosedObject}
       </button>
       {hasOverlayShadowing && isOpen && (
-        <div className='absolute top-0 left-0 inset-0 bg-black/50  z-0 transition-opacity duration-300' />
+        <div className='absolute top-0 left-0 h-dvh w-full inset-0 bg-black/50  z-0 transition-opacity duration-300' />
       )}
       <div
         ref={menuRef}
