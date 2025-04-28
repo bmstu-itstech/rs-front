@@ -24,7 +24,7 @@ function HardathonDetailsScreen() {
       background={group_of_people.src}
       hasOrangeShadow>
       <div className='relative flex flex-col lg:flex-row gap-12 lg:gap-0 justify-center lg:justify-between items-stretch w-full'>
-        <div className={`absolute -top-48 max-lg:hidden left-0`}>
+        <div className={`absolute -top-48 max-lg:hidden left-0 z-9999 cursor-pointer`}>
           <ArrowButton direction='left' onClick={() => router.back()} />
         </div>
         <div
