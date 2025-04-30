@@ -20,16 +20,14 @@ export const PageLayout: FC<Props> = ({
   return (
     <div
       id={id}
-      className={` relative w-dvw
+      className={` relative w-full
       ${
         hasShadowBetween &&
         'after:absolute after:-z-10 after:top-full after:w-full after:left-0 after:h-[6dvh] not-last:after:bg-linear-to-b after:from-[rgba(0,0,0,0.6)] after:via-50% after:via-black after:to-[rgba(0,0,0,0.6)] after:to-100%'
       } ${
         hasOrangeShadow &&
         'md:after:absolute after:-z-10 after:top-0 after:w-full after:left-0 after:h-full after:bg-linear-to-t after:from-main-orange-50 after:to-60% after:to-transparent '
-      }  min-w-full select-none ${
-        isDvh ? 'h-dvh min-h-full' : 'h-full min-h-dvh'
-      } `}
+      }  min-w-full select-none ${isDvh ? 'h-dvh min-h-full' : 'h-full min-h-dvh'} `}
       {...props}>
       {hasBg && (
         <Image
@@ -43,8 +41,7 @@ export const PageLayout: FC<Props> = ({
         />
       )}
 
-      <div
-        className={`${className}  px-12 lg:px-60 pt-[3dvh] flex flex-col gap-16 h-full w-full`}>
+      <div className={`${className}  px-12 lg:px-60 pt-[3dvh] flex flex-col gap-16 h-full w-full`}>
         {title && (
           <p
             className={`text-6xl lg:text-9xl font-bold lg:font-normal leading-normal text-center select-none uppercase ${

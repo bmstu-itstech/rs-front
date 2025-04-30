@@ -35,7 +35,7 @@ const MainScreen: NextPage = () => {
             }}>
             Подробнее
           </PrimaryButton>
-          <div className=' translate-x-1/4 hidden lg:flex'>
+          <div className='hidden lg:flex'>
             <TelegramIcon className='me-12 cursor-pointer' />
             <VKIcon className='cursor-pointer' />
           </div>
