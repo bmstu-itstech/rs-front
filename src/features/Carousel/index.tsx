@@ -49,7 +49,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
           );
         })
       : groupedSlides.map((slideGroup, index) => (
-          <div className='embla__slide h-full' key={index}>
+          <div className='embla__slide !p-0 h-full' key={index}>
             <div className='embla__slide-container h-full'>
               {slideGroup.map((slide, idx) => (
                 <NewsItem {...slide} key={idx} caption='Узнать подробности о мероприятии' />
@@ -82,7 +82,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
 
   return (
     <div className='w-full overflow-hidden pb-8 relative  h-full  carousel'>
-      <div className='embla h-full' ref={emblaRef}>
+      <div className='embla h-[min(35dvh, 30rem)]' ref={emblaRef}>
         <div className='embla__container h-full'>
           <ItemsToShow />
         </div>
