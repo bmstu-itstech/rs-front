@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      padding: {
+        'inline-15': '15px',
+      },
       spacing: {
         '8xl': '96rem',
         '9xl': '128rem',
