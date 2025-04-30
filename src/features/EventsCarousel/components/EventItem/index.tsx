@@ -26,7 +26,7 @@ const Event: FC<Props> = ({item, className, ...props}) => {
           className='!w-full'
           titleClassname='truncate'
           bgFilled={!isMobile}
-          onClick={() => router.push('')}>
+          onClick={() => router.push(item.registration_url)}>
           Зарегистрироваться
         </PrimaryButton>
         <Offcanvas
