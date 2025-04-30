@@ -18,32 +18,24 @@ const AchievementsScreen: FC = () => {
   const {data, isLoading} = useGetAchievements();
 
   const MainItemToShowPC = useCallback(() => {
-    return isLoading || !data ? (
-      <MainAchievemtSkeleton className='mb-12' />
-    ) : (
-      <Achievement className='mb-12' key={active} {...data.results[active]} />
-      
-    );
+    if (isLoading || !data) {
+      return <MainAchievemtSkeleton className='mb-12' />;
+    } else {
+      const ActiveItem = data.results.find(item => item.id == active);
+      return ActiveItem ? (
+        <Achievement className='mb-12' key={active} {...ActiveItem} />
+      ) : (
+        <Achievement className='mb-12' key={active} {...data.results[0]} />
+      );
+    }
   }, [isLoading, active, data]);
 
-    const handleActive = useCallback(
-      (newId: number) => {
-        if (!data?.results) return;
-        const originalIndex = data.results.findIndex((vm, index) => index === newId);
-        const activeIndex = data.results.findIndex((v, index) => index === active);
-
-        if (originalIndex === -1 || activeIndex === -1) return;
-
-        const updatedData = [...data.results];
-        [updatedData[originalIndex], updatedData[activeIndex]] = [
-          updatedData[activeIndex],
-          updatedData[originalIndex],
-        ];
-        setActive(newId);
-      },
-      [data, active],
-    );
-
+  const handleActive = useCallback(
+    (newId: number) => {
+      setActive(newId);
+    },
+    [mobile, active],
+  );
 
   const SubItemsToShowPC = useCallback(() => {
     return isLoading || !data ? (
@@ -55,14 +47,17 @@ const AchievementsScreen: FC = () => {
     ) : (
       <>
         {data?.results
-          .filter((v, index) => index !== active)
-          .map((v, index) => (
+          .filter(v1 => v1.id !== active)
+          .map(v2 => (
             <Achievement
               compact
               className={`odd:flex-row-reverse `}
-              {...v}
-              key={index}
-              onClick={() => handleActive(index)}
+              {...v2}
+              key={v2.id}
+              onClick={() => {
+                handleActive(v2.id);
+                console.log('Я КЛИКНУЛ НА', v2.id);
+              }}
             />
           ))}
       </>
@@ -90,7 +85,6 @@ const AchievementsScreen: FC = () => {
       </>
     );
   }, [isLoading, data, handleActive]);
-
 
   const PCAchivements = () => {
     return (
