@@ -9,9 +9,9 @@ import Props from './NewsItem.props';
 import no_photo from '@/assets/no_photo.jpg';
 
 const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
-  const mobile = useIsMobile();
-  const router = useRouter();
-  const curPhoto = image ?? no_photo.src;
+    const mobile = useIsMobile();
+    const router = useRouter();
+    const curPhoto = image ?? no_photo.src;
 
   if (mobile) {
     return (

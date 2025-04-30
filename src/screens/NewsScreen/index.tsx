@@ -19,9 +19,11 @@ const NewsScreen: NextPage = () => {
   }, [isLoading, data?.count]);
   useEffect(() => {
     function computeCount() {
-      const width = isMobile? window.innerWidth: window.innerWidth * window.devicePixelRatio;
-      console.log(width, Math.max(1, Math.min(Math.floor(width / 500), 3)));
-      return Math.max(1, Math.min(Math.floor(width / 500), 3));
+      // const width = isMobile? window.innerWidth: window.innerWidth * window.devicePixelRatio;
+      const width = window.innerWidth - 216;
+      // console.log(window)
+      // console.log(width, Math.max(1, Math.min(Math.floor(width / 354), 3)));
+      return Math.max(1, Math.min(Math.floor(width / 354), 3));
     }
 
     setItemsCount(computeCount);
