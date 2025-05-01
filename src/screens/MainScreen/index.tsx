@@ -16,7 +16,7 @@ const MainScreen: NextPage = () => {
       className=' lg:font-normal lg:text-left  pt-[25%] lg:pt-[10%] text-balance lg:pb-12 '
       id='main'>
       <div className='flex  flex-col h-full justify-around gap-12 w-full '>
-        <p className='leading-normal lg:max-w-3/5 text-balance md:text-5xl text-4xl font-normal md:text-left text-center'>
+        <p className='leading-normal 2xl:max-w-4/5 text-balance md:text-5xl text-4xl font-normal md:text-left text-center'>
           Центр Молодежной Робототехники - это инновационное пространство, предназначенное для
           обучения и развития молодых талантов в области робототехники, искусственного интеллекта и
           программирования. Наша миссия - предоставить молодежи возможность исследовать и создавать
