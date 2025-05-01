@@ -41,11 +41,15 @@ export const PageLayout: FC<Props> = ({
       )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div
         className={`${className}  px-12 lg:px-60 pt-[3dvh] flex flex-col gap-16 h-full w-full`}>
 =======
       <div className={`${className}  px-12 lg:px-60 min-w-[15px] pl-[15px] pr-[15px] pt-[3dvh] flex flex-col gap-16 h-full w-full`}>
 >>>>>>> 0e7b3a6 (промежуточные фиксы багов верстки)
+=======
+      <div className={`${className}  px-12 2xl:px-60 min-w-[15px] pl-[15px] pr-[15px] pt-[3dvh] flex flex-col gap-16 h-full w-full`}>
+>>>>>>> 73b47f1 ([feat] fixed paddings in news)
         {title && (
           <p
             className={`text-6xl lg:text-9xl font-bold lg:font-normal leading-normal text-center select-none uppercase ${
