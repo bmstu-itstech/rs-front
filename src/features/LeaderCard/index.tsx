@@ -7,7 +7,7 @@ const LeaderCard: FC<Props> = ({className, ...props}) => {
     <div
       className={`${
         className ?? ''
-      } min-w-[280px] min-h-[464px] max-w-[700px] max-h-[700px] border-4 border-main-orange rounded-3rxl relative overflow-hidden h-full bg-[url(/mock/leader.jpg)] w-full  flex flex-col text-center pb-7 bg-center bg-cover`}
+      } min-w-[280px] w-[80-dvw] min-h-[464px] max-w-[700px] max-h-[700px] border-4 border-main-orange rounded-3rxl relative overflow-hidden h-full bg-[url(/mock/leader.jpg)] w-full  flex flex-col text-center pb-7 bg-center bg-cover`}
       {...props}>
       <div className='absolute w-full h-full bg-gradient-to-b from-transparent to-main-orange-50 from-30% to-85%' />
       <div className='mt-auto flex flex-col gap-2 z-10 leading-normal'>
