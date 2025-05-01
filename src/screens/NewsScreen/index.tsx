@@ -20,7 +20,7 @@ const NewsScreen: NextPage = () => {
   useEffect(() => {
     function computeCount() {
       // const width = isMobile? window.innerWidth: window.innerWidth * window.devicePixelRatio;
-      const width = window.innerWidth - 216;
+      const width = window.innerWidth * 0.7;
       // console.log(window)
       // console.log(width, Math.max(1, Math.min(Math.floor(width / 354), 3)));
       return Math.max(1, Math.min(Math.floor(width / 354), 3));
