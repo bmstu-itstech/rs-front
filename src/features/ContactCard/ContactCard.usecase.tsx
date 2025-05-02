@@ -55,7 +55,7 @@ export const data: Idata[][] = [
     {
       title: 'Соцсети',
       value: (
-        <div className='flex justify-between w-full '>
+        <div className='flex justify-between w-full flex-wrap'>
           <LinkField title='ВКонтакте' url='https://vk.com/robotics_bmstu' />
           <LinkField title='Телеграм' url='https://t.me/robotics_bmstu' />
         </div>

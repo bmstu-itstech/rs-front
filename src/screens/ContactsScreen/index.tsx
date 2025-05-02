@@ -12,16 +12,14 @@ const ContactsScreen: NextPage = () => {
 
   return (
     <Container hasShadowBetween title='Контакты' id='contacts'>
-      <div className='contacts relative'>
-        {mobile ? (
-          <ContactsCarousel />
-        ) : (
-          <div className='flex justify-center items-center gap-28 mx-auto max-w-5/6 h-[70dvh]'>
-            <LeaderCard />
-            <ContactCard />
-          </div>
-        )}
-      </div>
+      {mobile ? (
+        <ContactsCarousel />
+      ) : (
+        <div className='flex justify-center items-center gap-28 sm:max-w-5/6 w-full mx-auto h-[70dvh]'>
+          <LeaderCard />
+          <ContactCard />
+        </div>
+      )}
     </Container>
   );
 };
