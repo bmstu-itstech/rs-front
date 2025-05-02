@@ -3,7 +3,7 @@
 import './style.css';
 import {FC, useEffect, useState} from 'react';
 import {LogoList} from '@/features';
-import { Props } from './Navbar.props';
+import {Props} from './Navbar.props';
 import {OffcanvasMenu} from '@/features/OffcanvasMenu';
 
 const Navbar: FC<Props> = ({className, ...props}) => {
@@ -16,11 +16,9 @@ const Navbar: FC<Props> = ({className, ...props}) => {
   }, []);
 
   return (
-    <div
-      className={`${className ?? ''} w-full lg:px-60 pt-12 px-12 fixed z-100 top-0 left-0`}
-      {...props}>
+    <div className={`${className ?? ''} w-full pt-12 fixed z-100 top-0 left-0`} {...props}>
       <div
-        className='transition-opacity duration-300 flex justify-between w-full'
+        className='transition-opacity duration-300 flex justify-between max-w-800 w-full mx-auto px-12 lg:px-60'
         style={{opacity}}>
         <LogoList />
         <OffcanvasMenu className='ml-auto' />
