@@ -113,6 +113,23 @@ html {
     font-size: 45%;
   }
 }
+@media only screen and (min-resolution: 2dppx) {
+  html {
+    font-size: 33.75%;
+  }
+}
+
+@media only screen and (min-resolution: 3dppx) {
+  html {
+    font-size: 22.5%;
+  }
+}
+
+@media only screen and (min-resolution: 4dppx) {
+  html {
+    font-size: 16.875%;
+  }
+}
 
 .navbar-outer {
   display: grid;
