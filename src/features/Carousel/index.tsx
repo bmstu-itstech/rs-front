@@ -82,7 +82,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
 
   return (
     <div className='w-full overflow-hidden pb-8 relative  h-full  carousel'>
-      <div className='embla h-[min(35dvh, 30rem)]' ref={emblaRef}>
+      <div className='embla h-full' ref={emblaRef}>
         <div className='embla__container h-full'>
           <ItemsToShow />
         </div>

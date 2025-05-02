@@ -9,9 +9,9 @@ import Props from './NewsItem.props';
 import no_photo from '@/assets/no_photo.jpg';
 
 const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
-    const mobile = useIsMobile();
-    const router = useRouter();
-    const curPhoto = image ?? no_photo.src;
+  const mobile = useIsMobile();
+  const router = useRouter();
+  const curPhoto = image ?? no_photo.src;
 
   if (mobile) {
     return (
@@ -41,15 +41,15 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
         width={500}
         height={500}
       />
-      <div className='py-4 flex bg-main-orange justify-center h-full'>
-        <p className='text-center uppercase max-w-5/6 truncate text-4xl'>{title}</p>
+      <div className='py-4 flex bg-main-orange justify-center h-fit'>
+        <p className='text-center uppercase max-w-5/6  text-4xl line-clamp-2'>{title}</p>
+        {/* Line-clamp-1 если надо в 1 строку максимум */}
       </div>
       <div className='p-6 flex flex-col h-full justify-between'>
         {/* <div className='flex-1 overflow-hidden h-full'> */}
-        <p className='text-3xl text-black overflow-y-auto max-h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+        <p className='text-3xl text-black overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
           {content}
         </p>
-        {/* </div> */}
         <div
           className='flex justify-between items-center cursor-pointer'
           onClick={() => router.push(`${href}`)}>
