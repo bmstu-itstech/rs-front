@@ -17,75 +17,6 @@ const AchievementsScreen: FC = () => {
     const [active, setActive] = useState(1);
     const {data, isLoading} = useGetAchievements();
 
-<<<<<<< HEAD
-  const MainItemToShowPC = useCallback(() => {
-    if (isLoading || !data) {
-      return <MainAchievemtSkeleton className='mb-12' />;
-    } else {
-      const ActiveItem = data.results.find(item => item.id == active);
-      return ActiveItem ? (
-        <Achievement className='mb-12' key={active} {...ActiveItem} />
-      ) : (
-        <Achievement className='mb-12' key={active} {...data.results[0]} />
-      );
-    }
-  }, [isLoading, active, data]);
-
-  const handleActive = useCallback(
-    (newId: number) => {
-      setActive(newId);
-    },
-    [mobile, active],
-  );
-
-  const SubItemsToShowPC = useCallback(() => {
-    return isLoading || !data ? (
-      <>
-        <SubAchievemtSkeletonPC />
-        <SubAchievemtSkeletonPC />
-        <SubAchievemtSkeletonPC />
-      </>
-    ) : (
-      <>
-        {data?.results
-          .filter(v1 => v1.id !== active)
-          .map(v2 => (
-            <Achievement
-              compact
-              className={`odd:flex-row-reverse `}
-              {...v2}
-              key={v2.id}
-              onClick={() => {
-                handleActive(v2.id);
-                console.log('Я КЛИКНУЛ НА', v2.id);
-              }}
-            />
-          ))}
-      </>
-    );
-  }, [isLoading, active, data, handleActive]);
-
-  const CompactItemsToShow = useCallback(() => {
-    return isLoading || !data ? (
-      <>
-        <CompactAchievemtSkeleton />
-        <CompactAchievemtSkeleton />
-        <CompactAchievemtSkeleton />
-      </>
-    ) : (
-      <>
-        {data?.results.map((v, index) => (
-          <Achievement
-            compact
-            className={`odd:flex-row-reverse snap-start snap-always `}
-            {...v}
-            key={index}
-            onClick={() => handleActive(index)}
-          />
-        ))}
-      </>
-    );
-  }, [isLoading]);
 
   const handleActive = useCallback(
     (newId: number) => {
@@ -108,6 +39,70 @@ const AchievementsScreen: FC = () => {
     },
     [data, active, mobile],
   );
+
+    const MainItemToShowPC = useCallback(() => {
+        if (isLoading || !data) {
+            return <MainAchievemtSkeleton className='mb-12'/>;
+        } else {
+            const ActiveItem = data.results.find(item => item.id == active);
+            return ActiveItem ? (
+                <Achievement className='mb-12' key={active} {...ActiveItem} />
+            ) : (
+                <Achievement className='mb-12' key={active} {...data.results[0]} />
+            );
+        }
+    }, [isLoading, active, data]);
+
+
+    const SubItemsToShowPC = useCallback(() => {
+        return isLoading || !data ? (
+            <>
+                <SubAchievemtSkeletonPC/>
+                <SubAchievemtSkeletonPC/>
+                <SubAchievemtSkeletonPC/>
+            </>
+        ) : (
+            <>
+                {data?.results
+                    .filter(v1 => v1.id !== active)
+                    .map(v2 => (
+                        <Achievement
+                            compact
+                            className={`odd:flex-row-reverse `}
+                            {...v2}
+                            key={v2.id}
+                            onClick={() => {
+                                handleActive(v2.id);
+                                console.log('Я КЛИКНУЛ НА', v2.id);
+                            }}
+                        />
+                    ))}
+            </>
+        );
+    }, [isLoading, active, data, handleActive]);
+
+
+    const CompactItemsToShow = useCallback(() => {
+        return isLoading || !data ? (
+            <>
+                <CompactAchievemtSkeleton/>
+                <CompactAchievemtSkeleton/>
+                <CompactAchievemtSkeleton/>
+            </>
+        ) : (
+            <>
+                {data?.results.map((v, index) => (
+                    <Achievement
+                        compact
+                        className={`odd:flex-row-reverse snap-start snap-always `}
+                        {...v}
+                        key={index}
+                        onClick={() => handleActive(index)}
+                    />
+                ))}
+            </>
+        );
+    }, [isLoading, data, handleActive]);
 
     const PCAchivements = () => {
         return (
