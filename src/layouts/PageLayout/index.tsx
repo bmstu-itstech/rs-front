@@ -45,7 +45,7 @@ export const PageLayout: FC<Props> = ({
         className={`${className} px-12 md:px-28 lg:px-60 pt-[3dvh] flex flex-col gap-16 h-full w-full mx-auto max-w-800`}>
         {title && (
           <p
-            className={`text-6xl lg:text-9xl font-bold lg:font-normal leading-normal text-center select-none uppercase ${
+            className={` lg:text-9xl font-bold text-8xl leading-normal text-center select-none uppercase ${
               titleClassname ?? ''
             }`}>
             {title}
