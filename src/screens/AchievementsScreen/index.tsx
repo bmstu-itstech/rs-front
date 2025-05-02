@@ -87,7 +87,7 @@ const AchievementsScreen: FC = () => {
 
   const PCAchivements = () => {
     return (
-      <div className='flex flex-col  mx-auto w-full justify-center md:px-20 lg:px-60  aspect-[2/1] max-h-260'>
+      <div className='flex flex-col  mx-auto w-full justify-center md:px-20 lg:px-40 xl:px-60 aspect-[2/1] max-h-250'>
         <MainItemToShowPC />
         <div
           className='
