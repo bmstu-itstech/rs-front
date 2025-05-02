@@ -77,7 +77,7 @@ const Achievement: FC<Props> = ({
       <div className='px-32 flex flex-col justify-around  bg-gradient-to-r from-black to-transparent from-52% h-full'>
         <div className='flex flex-col gap-8 max-w-1/2'>
           <div className='lg:text-6xl md:text-5xl 2xl:text-7xl max-w-full truncate'>{title}</div>
-          <p className='lg:text-3xl md:text-2xl 2xl:text-4xl max-h-40  lg:max-h-80 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+          <p className='lg:text-3xl md:text-2xl 2xl:text-4xl max-h-40 lg:max-h-40  xl:max-h-60 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
             {description}
           </p>
         </div>
