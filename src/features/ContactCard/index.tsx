@@ -5,7 +5,8 @@ import {data} from './ContactCard.usecase';
 
 const ContactCard: FC = () => {
   return (
-    <div className='min-w-[450px] min-h-[464px] max-w-[700px] max-h-[700px] border-3 border-main-orange rounded-3rxl bg-black bg-opacity-80 w-full h-full flex flex-col'>
+    <div className='border-3 border-main-orange rounded-3rxl bg-black bg-opacity-80 w-full h-full flex flex-col'>
+      {/* <div className='min-w-[450px] min-h-[464px] max-w-[700px] max-h-[700px] border-3 border-main-orange rounded-3rxl bg-black bg-opacity-80 w-full h-full flex flex-col'> */}
       <div className='flex flex-col p-8 lg:p-12 h-full  justify-evenly lg:justify-between'>
         {data.map((item, index) => {
           return (
