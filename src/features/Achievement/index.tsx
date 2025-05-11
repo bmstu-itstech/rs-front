@@ -8,6 +8,7 @@ import Props from './Achievement.props';
 import {Divider} from './components/Divider';
 import no_photo from '@/assets/no_photo.jpg';
 import {useRouter} from 'next/navigation';
+import React from 'react';
 
 const Achievement: FC<Props> = ({
   id,
@@ -98,4 +99,4 @@ const Achievement: FC<Props> = ({
   );
 };
 Achievement.displayName = 'Achievement';
-export default Achievement;
+export default React.memo(Achievement);

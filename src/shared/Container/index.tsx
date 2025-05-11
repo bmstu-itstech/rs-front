@@ -1,29 +1,23 @@
 'use client';
-
-import {FC, useEffect, useState, Suspense} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {useIsMobile} from '@/hooks';
 import {PageLayout} from '@/layouts/PageLayout';
-import Props from './Container.props';
+import {Props} from './Container.props';
 
 const Container: FC<Props> = ({
   id,
   title,
-  children,
   className,
+  children,
   titleClassname,
   background,
   hasShadowBetween,
-  LoadingScreen,
+  onBecomeVisible, // Колбек при появлении экрана
   ...props
 }) => {
   const mobile = useIsMobile();
-  const [shouldLoadContent, setShouldLoadContent] = useState(id === 'main');
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const SECTION_MAP = {
-    main: '@/sections/MainSection',
-    about: '@/sections/AboutSection',
-    contacts: '@/sections/ContactsSection',
-  };
+
+  const [nextPreloaded, setNextPreloaded] = useState(false);
 
   useEffect(() => {
     const element = document.getElementById(id);
@@ -31,13 +25,10 @@ const Container: FC<Props> = ({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
-
         if (entry.isIntersecting) {
-          setShouldLoadContent(true);
-
-          if (mobile) {
-            document.documentElement.style.overflowY = 'hidden';
+          if (!nextPreloaded) {
+            onBecomeVisible(); // Предзагрузка следующего экрана
+            setNextPreloaded(true);
           }
 
           requestAnimationFrame(() => {
@@ -49,35 +40,12 @@ const Container: FC<Props> = ({
           });
         }
       },
-      {
-        threshold: 0,
-      },
+      {threshold: 0},
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [id, mobile]);
-
-  // Предзагрузка следующего экрана при приближении
-  useEffect(() => {
-    if (!isIntersecting) return;
-
-    console.log(`Предзагрузка для секции ${id}`);
-
-    // Динамически определяем следующую секцию
-    const nextSection = {
-      main: 'News',
-      news: 'Achievements',
-      achievements: 'Contacts',
-      contacts: null,
-    }[id];
-
-    if (nextSection) {
-      import(`@/screens/${nextSection.charAt(0).toUpperCase() + nextSection.slice(1)}Screen`)
-        .then(() => console.log(`Секция ${nextSection} предзагружена`))
-        .catch(console.error);
-    }
-  }, [isIntersecting, id]);
+  }, [id, mobile, onBecomeVisible, nextPreloaded]);
 
   return (
     <PageLayout
@@ -89,15 +57,10 @@ const Container: FC<Props> = ({
       background={background}
       isDvh
       {...props}>
-      {shouldLoadContent ? (
-        <Suspense fallback={LoadingScreen}>{children}</Suspense>
-      ) : (
-        <div style={{height: '100dvh'}} aria-hidden='true' />
-      )}
+      {children}
     </PageLayout>
   );
 };
 
 Container.displayName = 'Container';
-
 export default Container;

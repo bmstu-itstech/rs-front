@@ -6,16 +6,13 @@ import ContactCard from '@/features/ContactCard';
 import {useIsMobile} from '@/hooks';
 import ContactsCarousel from '@/features/ContactsCarousel';
 import {NextPage} from 'next';
+import React from 'react';
 
-const ContactsScreen: NextPage = () => {
+const ContactsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
+  // console.log('Я загрузил contacts');
   const mobile = useIsMobile();
-
   return (
-    <Container
-      hasShadowBetween
-      title='Контакты'
-      id='contacts'
-      LoadingScreen={<div>Загрузка...</div>}>
+    <Container hasShadowBetween title='Контакты' id='contacts' onBecomeVisible={setPageToShow}>
       {mobile ? (
         <ContactsCarousel />
       ) : (
@@ -30,4 +27,4 @@ const ContactsScreen: NextPage = () => {
 
 ContactsScreen.displayName = 'ContactsScreen';
 
-export default ContactsScreen;
+export default React.memo(ContactsScreen);
