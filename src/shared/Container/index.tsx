@@ -1,8 +1,6 @@
 'use client';
 
-import './style.css';
-import {type FC} from 'react';
-import {useEffect} from 'react';
+import {FC, useEffect, useState, Suspense} from 'react';
 import {useIsMobile} from '@/hooks';
 import {PageLayout} from '@/layouts/PageLayout';
 import Props from './Container.props';
@@ -15,52 +13,87 @@ const Container: FC<Props> = ({
   titleClassname,
   background,
   hasShadowBetween,
+  LoadingScreen,
   ...props
 }) => {
   const mobile = useIsMobile();
+  const [shouldLoadContent, setShouldLoadContent] = useState(id === 'main');
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const SECTION_MAP = {
+    main: '@/sections/MainSection',
+    about: '@/sections/AboutSection',
+    contacts: '@/sections/ContactsSection',
+  };
 
   useEffect(() => {
-    const element = document.getElementById(id) as HTMLElement;
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        if (mobile) document.documentElement.style.overflowY = 'hidden';
-        if (id === 'main') {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+
+        if (entry.isIntersecting) {
+          setShouldLoadContent(true);
+
+          if (mobile) {
+            document.documentElement.style.overflowY = 'hidden';
+          }
+
           requestAnimationFrame(() => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-            });
-          });
-        } else {
-          requestAnimationFrame(() => {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-            });
+            if (id === 'main') {
+              window.scrollTo({top: 0, behavior: 'smooth'});
+            } else {
+              element.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
           });
         }
-        setTimeout(
-          () => (document.documentElement.style.overflowY = 'scroll'),
-          700,
-        );
-      });
-    }, {});
+      },
+      {
+        threshold: 0,
+      },
+    );
+
     observer.observe(element);
     return () => observer.disconnect();
   }, [id, mobile]);
+
+  // Предзагрузка следующего экрана при приближении
+  useEffect(() => {
+    if (!isIntersecting) return;
+
+    console.log(`Предзагрузка для секции ${id}`);
+
+    // Динамически определяем следующую секцию
+    const nextSection = {
+      main: 'News',
+      news: 'Achievements',
+      achievements: 'Contacts',
+      contacts: null,
+    }[id];
+
+    if (nextSection) {
+      import(`@/screens/${nextSection.charAt(0).toUpperCase() + nextSection.slice(1)}Screen`)
+        .then(() => console.log(`Секция ${nextSection} предзагружена`))
+        .catch(console.error);
+    }
+  }, [isIntersecting, id]);
 
   return (
     <PageLayout
       id={id}
       title={title}
-      className={`${className}`}
+      className={className}
       hasShadowBetween={hasShadowBetween}
       titleClassname={titleClassname}
       background={background}
-      isDvh={true}
+      isDvh
       {...props}>
-      {children}
+      {shouldLoadContent ? (
+        <Suspense fallback={LoadingScreen}>{children}</Suspense>
+      ) : (
+        <div style={{height: '100dvh'}} aria-hidden='true' />
+      )}
     </PageLayout>
   );
 };

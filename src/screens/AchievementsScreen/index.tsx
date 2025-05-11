@@ -111,7 +111,7 @@ const AchievementsScreen: FC = () => {
   };
 
   return (
-    <Container hasShadowBetween title='Достижения' id='achievements'>
+    <Container hasShadowBetween title='Достижения' id='achievements' LoadingScreen={<div>Загрузка...</div>}>
       {mobile ? <MobileAchievements /> : <PCAchivements />}
     </Container>
   );

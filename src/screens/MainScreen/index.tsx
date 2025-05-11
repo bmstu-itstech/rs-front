@@ -9,6 +9,7 @@ import VKIcon from '@/shared/VKIcon';
 const MainScreen: NextPage = () => {
   return (
     <Container
+      LoadingScreen={<div>Загрузка...</div>}
       title='Центр молодежной робототехники'
       hasShadowBetween
       background={background_main.src}

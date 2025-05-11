@@ -28,7 +28,7 @@ const NewsScreen: NextPage = () => {
   }, [data, isLoading, isMobile]);
 
   return (
-    <Container hasShadowBetween title='Новости' id='news'>
+    <Container hasShadowBetween title='Новости' id='news' LoadingScreen={<div>Загрузка...</div>}>
       <div className='flex justify-center items-center min-h-[50dvh] lg:min-h-fit h-full max-h-[65dvh]'>
         <Carousel
           itemsPerSlide={itemsCount}
