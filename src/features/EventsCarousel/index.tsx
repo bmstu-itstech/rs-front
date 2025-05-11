@@ -57,7 +57,7 @@ const Carousel: NextPage<Props> = ({
                 }}
               />
             </div>
-            <Event item={item} selected={index === selectedIndex} />
+            <Event item={item} />
           </div>
         ))}
       </div>
