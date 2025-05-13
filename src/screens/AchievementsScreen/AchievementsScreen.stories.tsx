@@ -25,5 +25,8 @@ export const Default: Story = {
         story: "Стандартный экран достижений с предустановленным активным достижением."
       }
     }
+  },
+  args: {
+    setPageToShow: () => {}
   }
 };

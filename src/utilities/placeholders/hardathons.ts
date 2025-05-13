@@ -12,13 +12,14 @@ export const HardathonsPlaceholder: IHardathons = {
       end_date: '2023-10-02T18:00:00Z',
       result_date: '2023-10-05',
       place: 'Университетский кампус',
-      media: 'https://media.example.com',
-      projects: 'https://projects.example.com',
-      images: `https://images.example.com`,
-      documents: 'https://docs.example.com',
+      media: '/',
+      projects: '/',
+      images: `/`,
+      documents: '/',
       partners: 'Партнер 1, Партнер 2',
-      href: "https://href.example.com",
-      background_image: `${process.env.NEXT_PUBLIC_API_URL}media/achievements/background_original.jpeg`
+      href: "/",
+      background_image: `${process.env.NEXT_PUBLIC_API_URL}media/achievements/background_original.jpeg`,
+      quote: "Цитата"
     }
   ],
 };

@@ -12,6 +12,7 @@ interface IData {
   images: string;
   documents: string;
   partners: string;
+  quote: string;
 };
 
 export interface IHardathons {

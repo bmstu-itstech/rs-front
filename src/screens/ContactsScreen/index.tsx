@@ -5,7 +5,6 @@ import {LeaderCard} from '@/features';
 import ContactCard from '@/features/ContactCard';
 import {useIsMobile} from '@/hooks';
 import ContactsCarousel from '@/features/ContactsCarousel';
-import {NextPage} from 'next';
 import React from 'react';
 
 const ContactsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {

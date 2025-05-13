@@ -46,9 +46,9 @@ function HardathonsScreen() {
           />
         )}
         <div className='flex flex-col items-center gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
-          <div className='flex flex-col  lg:gap-10 text-3xl lg:text-5xl h-48r max-sm:w-[90vw] max-sm:h-[50vh] bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
+          <div className='flex flex-col w-full lg:gap-10 text-3xl lg:text-5xl h-48r max-sm:w-[90vw] max-sm:h-[50vh] bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
             <p className='text-wrap text-ellipsis h-full overflow-hidden text-inherit'>
-              Не могу ничего сказать. Мне так и не добавили поле quote.
+              {hardathon.quote}
             </p>
             <div className='flex flex-col font-bold  items-end justify-end mt-auto'>
               <p className='text-end'>— главный организатор хардатона,</p>

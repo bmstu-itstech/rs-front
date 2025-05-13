@@ -1,5 +1,5 @@
 'use client';
-import {useCallback, useDebugValue, useMemo, useState} from 'react';
+import {useCallback, useMemo, useState} from 'react';
 import {Container} from '@/shared';
 import {Achievement} from '@/features';
 import {FC} from 'react';
@@ -70,7 +70,7 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
     } else {
       return (
         <>
-          {data.results.map((v, index) => (
+          {data.results.map((v,) => (
             <Achievement
               compact
               className={`odd:flex-row-reverse snap-start snap-always`}
