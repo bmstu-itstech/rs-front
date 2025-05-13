@@ -8,8 +8,8 @@ import {PageLayout} from '@/layouts/PageLayout';
 import group_of_people from '@/assets/group_of_people.jpeg';
 import {useIsMobile} from '@/hooks';
 import {HardathonDetailMainInfoUsecase} from './HardathonDetailsScreen.usecase';
-import { EventPageSkeleton } from '@/features/EventsCarousel/EventsCarousel.skeleton';
-import { useGetHardathons } from '@/hooks/Hardathons/useGetHardathons';
+import {EventPageSkeleton} from '@/features/EventsCarousel/EventsCarousel.skeleton';
+import {useGetHardathons} from '@/hooks/Hardathons/useGetHardathons';
 
 function HardathonDetailsScreen() {
   const router = useRouter();
@@ -22,7 +22,7 @@ function HardathonDetailsScreen() {
         <EventPageSkeleton /> {/* TODO: replace with HardathonDetailsSkeleton */}
       </PageLayout>
     );
-  };
+  }
 
   const hardathon = data?.results[0];
   if (!hardathon) return null;
@@ -40,14 +40,11 @@ function HardathonDetailsScreen() {
     hardathon.projects,
     hardathon.images,
     hardathon.documents,
-    hardathon.partners
+    hardathon.partners,
   ];
 
   return (
-    <PageLayout
-      title={hardathon.title}
-      background={group_of_people.src}
-      hasOrangeShadow>
+    <PageLayout title={hardathon.title} background={group_of_people.src} hasOrangeShadow>
       <div className='relative flex flex-col lg:flex-row gap-12 lg:gap-0 justify-center lg:justify-between items-stretch w-full'>
         <div className={`absolute -top-48 max-lg:hidden left-0 z-9999 cursor-pointer`}>
           <ArrowButton direction='left' onClick={() => router.back()} />
@@ -59,7 +56,7 @@ function HardathonDetailsScreen() {
           after:z-10 after:absolute after:top-0  after:left-0 after:h-full after:w-full md:after:hidden'>
           {info.map((item, ind) => {
             return (
-              <div className='text-3xl lg:text-5xl z-20' key={ind}>
+              <div className='text-3xl lg:text-5xl z-20 line-clamp-2 w-fit max-w-full' key={ind}>
                 {HardathonDetailMainInfoUsecase[ind].title}: {item}
               </div>
             );

@@ -12,7 +12,7 @@ import speaker from '@/assets/speaker.png';
 function HardathonsScreen() {
   const {data, isLoading} = useGetHardathons();
   const router = useRouter();
-  console.log('Я ОТРЕНДЕРИЛ HARDATHONS');
+
   if (isLoading) {
     return (
       <PageLayout background={bg.src} isDvh>
@@ -50,8 +50,8 @@ function HardathonsScreen() {
               {hardathon.quote}
             </p>
             <div className='flex flex-col font-bold  items-end justify-end mt-auto'>
-              <p className='text-end'>— главный организатор хардатона,</p>
-              <p>Балакало Максим</p>
+              <p className='text-end w-fit max-w-full truncate'>— главный организатор хардатона,</p>
+              <p className='w-fit max-w-full truncate'>Балакало Максим</p>
             </div>
           </div>
           <div className='flex max-sm:flex-col justify-between gap-12 h-28 lg:gap-24  w-full'>
