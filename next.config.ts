@@ -1,10 +1,6 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  webpack: config => {
-    config.output.chunkFilename = '[name].[contenthash].js';
-    return config;
-  },
   images: {
     remotePatterns: [
       {
