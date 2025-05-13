@@ -1,64 +1,61 @@
 'use client';
-
-import './style.css';
-import {type FC} from 'react';
-import {useEffect} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {useIsMobile} from '@/hooks';
 import {PageLayout} from '@/layouts/PageLayout';
-import Props from './Container.props';
+import {Props} from './Container.props';
 
 const Container: FC<Props> = ({
   id,
   title,
-  children,
   className,
+  children,
   titleClassname,
   background,
   hasShadowBetween,
+  onBecomeVisible, // Колбек при появлении экрана
   ...props
 }) => {
   const mobile = useIsMobile();
 
+  const [nextPreloaded, setNextPreloaded] = useState(false);
+
   useEffect(() => {
-    const element = document.getElementById(id) as HTMLElement;
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        if (mobile) document.documentElement.style.overflowY = 'hidden';
-        if (id === 'main') {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!nextPreloaded) {
+            onBecomeVisible(); // Предзагрузка следующего экрана
+            setNextPreloaded(true);
+          }
+
           requestAnimationFrame(() => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-            });
-          });
-        } else {
-          requestAnimationFrame(() => {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-            });
+            if (id === 'main') {
+              window.scrollTo({top: 0, behavior: 'smooth'});
+            } else {
+              element.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
           });
         }
-        setTimeout(
-          () => (document.documentElement.style.overflowY = 'scroll'),
-          700,
-        );
-      });
-    }, {});
+      },
+      {threshold: 0},
+    );
+
     observer.observe(element);
     return () => observer.disconnect();
-  }, [id, mobile]);
+  }, [id, mobile, onBecomeVisible, nextPreloaded]);
 
   return (
     <PageLayout
       id={id}
       title={title}
-      className={`${className}`}
+      className={className}
       hasShadowBetween={hasShadowBetween}
       titleClassname={titleClassname}
       background={background}
-      isDvh={true}
+      isDvh
       {...props}>
       {children}
     </PageLayout>
@@ -66,5 +63,4 @@ const Container: FC<Props> = ({
 };
 
 Container.displayName = 'Container';
-
 export default Container;

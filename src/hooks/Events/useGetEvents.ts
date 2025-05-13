@@ -13,7 +13,6 @@ export const useGetEvents = () => {
   } = useQuery<IEvents>({
     queryKey: ['Events'],
     queryFn: EventsList,
-    // placeholderData: classicEventsPlaceholder,
   });
 
   return {data, isLoading, refetch, error};
