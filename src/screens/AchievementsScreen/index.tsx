@@ -21,7 +21,7 @@ const AchievementsScreen: FC = () => {
     (newId: number) => {
       setActive(newId);
     },
-    [mobile, active],
+    []
   );
 
   const MainItemToShowPC = useCallback(() => {

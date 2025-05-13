@@ -10,7 +10,6 @@ import no_photo from '@/assets/no_photo.jpg';
 import {useRouter} from 'next/navigation';
 
 const Achievement: FC<Props> = ({
-  id,
   title,
   description,
   image,
@@ -29,7 +28,9 @@ const Achievement: FC<Props> = ({
     return (
       <div
         className={`border-2 border-main-orange h-60 max-h-60 rounded-4xl flex overflow-hidden w-full ${className}`}
-        {...props}>
+        {...props}
+        id={String(props.id)}
+      >
         <Image
           width={1416}
           height={945}
@@ -53,6 +54,7 @@ const Achievement: FC<Props> = ({
       <div
         className={`w-full h-full border-5 overflow-hidden border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center md:rounded-[4rem] lg:rounded-[5rem] 2xl:rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
         {...props}
+        id={String(props.id)}
         style={{
           backgroundImage: `url(${curPhoto})`,
         }}
@@ -73,6 +75,7 @@ const Achievement: FC<Props> = ({
         backgroundSize: '55%', // Устанавливаем ширину фона на 50%
       }}
       {...props}
+      id={String(props.id)}
       onClick={onClick}>
       <div className='px-32 flex flex-col justify-around  bg-gradient-to-r from-black to-transparent from-52% h-full'>
         <div className='flex flex-col gap-8 max-w-1/2'>

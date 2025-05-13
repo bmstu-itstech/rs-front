@@ -10,7 +10,7 @@ const Carousel: NextPage<Props> = ({
   items,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [, setSelectedIndex] = useState(0);
   const handleSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -57,7 +57,7 @@ const Carousel: NextPage<Props> = ({
                 }}
               />
             </div>
-            <Event item={item} selected={index === selectedIndex} />
+            <Event item={item} />
           </div>
         ))}
       </div>

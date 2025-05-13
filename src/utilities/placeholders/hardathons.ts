@@ -1,31 +1,24 @@
 import {IHardathons} from '@/domain/entities/hardathons';
 
-//   id: number;
-//   title: string;
-//   photo: string;
-
 export const HardathonsPlaceholder: IHardathons = {
-  count: 5,
-  hardathons: [
+  count: 1,
+  previous: null,
+  next: null,
+  results: [
     {
-      title: 'Упоминания в СМИ',
-      photo: '/',
-    },
-    {
-      title: 'Проекты',
-      photo: '/',
-    },
-    {
-      title: 'Фото',
-      photo: '/',
-    },
-    {
-      title: 'Документы',
-      photo: '/',
-    },
-    {
-      title: 'Партнёры',
-      photo: '/',
-    },
+      title: 'Хакатон',
+      date: '2023-10-01',
+      start_date: '2023-10-01T10:00:00Z',
+      end_date: '2023-10-02T18:00:00Z',
+      result_date: '2023-10-05',
+      place: 'Университетский кампус',
+      media: 'https://media.example.com',
+      projects: 'https://projects.example.com',
+      images: `https://images.example.com`,
+      documents: 'https://docs.example.com',
+      partners: 'Партнер 1, Партнер 2',
+      href: "https://href.example.com",
+      background_image: `${process.env.NEXT_PUBLIC_API_URL}media/achievements/background_original.jpeg`
+    }
   ],
 };

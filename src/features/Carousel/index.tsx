@@ -57,7 +57,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
             </div>
           </div>
         ));
-  }, [isLoading, itemsPerSlide, groupedSlides, items]);
+  }, [isLoading, groupedSlides, items]);
 
   const handleSelect = useCallback(() => {
     if (!emblaApi) return;

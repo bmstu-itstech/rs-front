@@ -8,19 +8,44 @@ import {PageLayout} from '@/layouts/PageLayout';
 import group_of_people from '@/assets/group_of_people.jpeg';
 import {useIsMobile} from '@/hooks';
 import {HardathonDetailMainInfoUsecase} from './HardathonDetailsScreen.usecase';
+import { EventPageSkeleton } from '@/features/EventsCarousel/EventsCarousel.skeleton';
+import { useGetHardathons } from '@/hooks/Hardathons/useGetHardathons';
+
 function HardathonDetailsScreen() {
   const router = useRouter();
   const isMobile = useIsMobile();
+  const {data, isLoading} = useGetHardathons();
+
+  if (isLoading) {
+    return (
+      <PageLayout background={group_of_people.src} isDvh>
+        <EventPageSkeleton /> {/* TODO: replace with HardathonDetailsSkeleton */}
+      </PageLayout>
+    );
+  };
+
+  const hardathon = data?.results[0];
+  if (!hardathon) return null;
+
   const info = [
-    'xx.xx.20xx',
-    'xx.xx.20xx',
-    'xx.xx.20xx',
-    'xx.xx.20xx',
-    'Адрес/Ссылка',
+    hardathon.date,
+    hardathon.start_date,
+    hardathon.end_date,
+    hardathon.result_date,
+    hardathon.place,
   ];
+
+  const links = [
+    hardathon.media,
+    hardathon.projects,
+    hardathon.images,
+    hardathon.documents,
+    hardathon.partners
+  ];
+
   return (
     <PageLayout
-      title='Хардатон 2024'
+      title={hardathon.title}
       background={group_of_people.src}
       hasOrangeShadow>
       <div className='relative flex flex-col lg:flex-row gap-12 lg:gap-0 justify-center lg:justify-between items-stretch w-full'>
@@ -39,22 +64,6 @@ function HardathonDetailsScreen() {
               </div>
             );
           })}
-          {/* <div className='text-3xl lg:text-5xl z-20'>
-            Дата проведения: xx.xx.20xx
-          </div>
-          <div className='text-3xl lg:text-5xl z-20'>
-            Старт приёма заявок: xx.xx.20xx
-          </div>
-          <div className='text-3xl lg:text-5xl z-20'>
-            Окончание регистрации: xx.xx.20xx
-          </div>
-          <div className='text-3xl lg:text-5xl z-20'>
-            Подведение итогов: xx.xx.20xx
-          </div>
-          <div className='flex flex-col gap-2 z-20'>
-            <div className='text-3xl lg:text-5xl'>Место проведения:</div>
-            <div className='text-3xl lg:text-5xl'>Адрес/Ссылка</div>
-          </div> */}
         </div>
         <div className='flex flex-col w-full gap-12 lg:gap-20 lg:ms-32'>
           {HardathonDetailUsecase.map((item, index) => {
@@ -62,7 +71,7 @@ function HardathonDetailsScreen() {
               <CardButton
                 isFilled={!isMobile}
                 key={index}
-                onClick={item.onClick}
+                onClick={() => router.push(links[index])}
                 className='!w-full !py-8'>
                 {item.children}
               </CardButton>

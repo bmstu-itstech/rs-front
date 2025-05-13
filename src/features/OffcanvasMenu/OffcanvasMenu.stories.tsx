@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/react';
-import Props from './OffcanvasMenu.props';
+import { Props } from './OffcanvasMenu.props';
 import {OffcanvasMenu} from '@/features/OffcanvasMenu';
 
 const meta: Meta<Props> = {

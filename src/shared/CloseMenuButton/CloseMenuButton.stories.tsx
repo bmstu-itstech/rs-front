@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/react';
-import Props from './CloseMenuButton.props';
+import { Props } from './CloseMenuButton.props';
 import { CloseMenuButton } from '@/shared/CloseMenuButton';
 
 const meta: Meta<Props> = {
