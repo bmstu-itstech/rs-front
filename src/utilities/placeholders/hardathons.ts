@@ -1,11 +1,12 @@
 import {IHardathons} from '@/domain/entities/hardathons';
-import group_of_people from '@/assets/group_of_people.jpeg'
+import group_of_people from '@/assets/group_of_people.jpeg';
 export const HardathonsPlaceholder: IHardathons = {
   count: 1,
   previous: null,
   next: null,
   results: [
     {
+      id: 0,
       title: 'Хакатон',
       date: '2023-10-01',
       start_date: '2023-10-01T10:00:00Z',
@@ -17,9 +18,9 @@ export const HardathonsPlaceholder: IHardathons = {
       images: `/`,
       documents: '/',
       partners: 'Партнер 1, Партнер 2',
-      href: "/",
+      href: '/',
       background_image: `${group_of_people.src}`,
-      quote: "Цитата"
-    }
+      quote: 'Цитата',
+    },
   ],
 };

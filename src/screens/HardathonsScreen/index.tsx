@@ -1,6 +1,5 @@
 'use client';
 
-import {useIsMobile} from '@/hooks';
 import {PageLayout} from '@/layouts/PageLayout';
 import {PrimaryButton} from '@/shared';
 import {useRouter} from 'next/navigation';
@@ -12,9 +11,8 @@ import speaker from '@/assets/speaker.png';
 
 function HardathonsScreen() {
   const {data, isLoading} = useGetHardathons();
-  const isMobile = useIsMobile();
   const router = useRouter();
-
+  console.log('Я ОТРЕНДЕРИЛ HARDATHONS');
   if (isLoading) {
     return (
       <PageLayout background={bg.src} isDvh>
@@ -37,15 +35,15 @@ function HardathonsScreen() {
   return (
     <PageLayout title={hardathon.title} background={hardathon.background_image} isDvh>
       <div className='flex justify-between items-center w-full h-full'>
-        {!isMobile && (
-          <Image
-            alt='speaker'
-            className='max-w-2/5 hidden lg:block self-end scale-[1.2] origin-bottom-right'
-            src={speaker.src}
-            width={600}
-            height={600}
-          />
-        )}
+        {/*Image только для пк */}
+        <Image
+          alt='speaker'
+          className='max-w-2/5 hidden lg:block self-end scale-[1.2] origin-bottom-right'
+          src={speaker.src}
+          width={600}
+          height={600}
+        />
+
         <div className='flex flex-col items-center gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
           <div className='flex flex-col w-full lg:gap-10 text-3xl lg:text-5xl h-48r max-sm:w-[90vw] max-sm:h-[50vh] bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
             <p className='text-wrap text-ellipsis h-full overflow-hidden text-inherit'>
@@ -60,10 +58,13 @@ function HardathonsScreen() {
             <PrimaryButton
               bgFilled
               className='!w-full'
-              onClick={() => router.push(`${hardathon.href}/details`)}>
+              onClick={() => router.push(`/hardathons/${hardathon.id}/details`)}>
               Подробнее
             </PrimaryButton>
-            <PrimaryButton className='!w-full text-nowrap' bgFilled>
+            <PrimaryButton
+              className='!w-full text-nowrap'
+              onClick={() => router.push(hardathon.href)}
+              bgFilled>
               Подать заявку
             </PrimaryButton>
           </div>

@@ -1,4 +1,5 @@
 interface IData {
+  id: number;
   title: string;
   href: string;
   background_image: string;
@@ -13,7 +14,7 @@ interface IData {
   documents: string;
   partners: string;
   quote: string;
-};
+}
 
 export interface IHardathons {
   count: number;
