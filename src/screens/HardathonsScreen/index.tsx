@@ -6,8 +6,9 @@ import {PrimaryButton} from '@/shared';
 import {useRouter} from 'next/navigation';
 import bg from '@/assets/group_of_people.jpeg';
 import Image from 'next/image';
-import { useGetHardathons } from '@/hooks/Hardathons/useGetHardathons';
-import { EventPageSkeleton } from '@/features/EventsCarousel/EventsCarousel.skeleton';
+import {useGetHardathons} from '@/hooks/Hardathons/useGetHardathons';
+import {EventPageSkeleton} from '@/features/EventsCarousel/EventsCarousel.skeleton';
+import speaker from '@/assets/speaker.png';
 
 function HardathonsScreen() {
   const {data, isLoading} = useGetHardathons();
@@ -19,8 +20,8 @@ function HardathonsScreen() {
       <PageLayout background={bg.src} isDvh>
         <EventPageSkeleton /> {/* TODO: replace with HardathonPageSkeleton */}
       </PageLayout>
-    )
-  };
+    );
+  }
 
   const hardathon = data?.results[0];
   if (!hardathon) {
@@ -30,8 +31,8 @@ function HardathonsScreen() {
           <p className='text-2xl'>Нет хардатонов</p>
         </div>
       </PageLayout>
-    )
-  };
+    );
+  }
 
   return (
     <PageLayout title={hardathon.title} background={hardathon.background_image} isDvh>
@@ -40,7 +41,7 @@ function HardathonsScreen() {
           <Image
             alt='speaker'
             className='max-w-2/5 hidden lg:block self-end scale-[1.2] origin-bottom-right'
-            src={hardathon.images}
+            src={speaker.src}
             width={600}
             height={600}
           />

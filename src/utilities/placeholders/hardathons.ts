@@ -1,5 +1,5 @@
 import {IHardathons} from '@/domain/entities/hardathons';
-
+import group_of_people from '@/assets/group_of_people.jpeg'
 export const HardathonsPlaceholder: IHardathons = {
   count: 1,
   previous: null,
@@ -18,7 +18,7 @@ export const HardathonsPlaceholder: IHardathons = {
       documents: '/',
       partners: 'Партнер 1, Партнер 2',
       href: "/",
-      background_image: `${process.env.NEXT_PUBLIC_API_URL}media/achievements/background_original.jpeg`,
+      background_image: `${group_of_people.src}`,
       quote: "Цитата"
     }
   ],
