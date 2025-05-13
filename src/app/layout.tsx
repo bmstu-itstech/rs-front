@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import type {Metadata} from 'next';
 import './globals.css';
 import {Footer, Navbar} from '@/widgets';
