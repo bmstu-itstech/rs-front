@@ -14,9 +14,10 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
   // useDebugValue('AchievementsScreen render');
   // console.log('я отрисовал achievements');
 
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
   const {data, isLoading} = useGetAchievements();
   const handleActive = useCallback((newId: number) => {
+    console.log('Я УСТАНОВИЛ НОЙ АКТИВ ', newId)
     setActive(newId);
   }, []);
   const MainItemToShowPC = useMemo(() => {
