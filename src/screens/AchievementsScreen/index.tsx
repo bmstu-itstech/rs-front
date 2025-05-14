@@ -17,7 +17,6 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
   const [active, setActive] = useState(1);
   const {data, isLoading} = useGetAchievements();
   const handleActive = useCallback((newId: number) => {
-    console.log('Я УСТАНОВИЛ НОЙ АКТИВ ', newId)
     setActive(newId);
   }, []);
   const MainItemToShowPC = useMemo(() => {
