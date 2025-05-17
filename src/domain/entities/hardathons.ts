@@ -1,4 +1,4 @@
-interface IData {
+export interface IHardathonsBit {
   id: number;
   title: string;
   href: string;
@@ -20,5 +20,5 @@ export interface IHardathons {
   count: number;
   next: string | null;
   previous: string | null;
-  results: IData[];
+  results: IHardathonsBit[];
 }

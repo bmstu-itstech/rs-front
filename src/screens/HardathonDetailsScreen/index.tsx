@@ -2,21 +2,22 @@
 
 import {CardButton} from '@/entities';
 import {ArrowButton} from '@/shared';
-import {useRouter} from 'next/navigation';
+import {useParams, useRouter} from 'next/navigation';
 import {HardathonDetailUsecase} from './HardathonDetailsScreen.usecase';
 import {PageLayout} from '@/layouts/PageLayout';
 import group_of_people from '@/assets/group_of_people.jpeg';
 import {useIsMobile} from '@/hooks';
 import {HardathonDetailMainInfoUsecase} from './HardathonDetailsScreen.usecase';
 import {EventPageSkeleton} from '@/features/EventsCarousel/EventsCarousel.skeleton';
-import {useGetHardathons} from '@/hooks/Hardathons/useGetHardathons';
+import {useGetHardathonsById} from '@/hooks/Hardathons/useGetHardathonsById';
 
 function HardathonDetailsScreen() {
+  const {id} = useParams();
+  const {data, isLoading} = useGetHardathonsById(Number(id));
   const router = useRouter();
   const isMobile = useIsMobile();
-  const {data, isLoading} = useGetHardathons();
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return (
       <PageLayout background={group_of_people.src} isDvh>
         <EventPageSkeleton /> {/* TODO: replace with HardathonDetailsSkeleton */}
@@ -24,27 +25,12 @@ function HardathonDetailsScreen() {
     );
   }
 
-  const hardathon = data?.results[0];
-  if (!hardathon) return null;
+  const info = [data.date, data.start_date, data.end_date, data.result_date, data.place];
 
-  const info = [
-    hardathon.date,
-    hardathon.start_date,
-    hardathon.end_date,
-    hardathon.result_date,
-    hardathon.place,
-  ];
-
-  const links = [
-    hardathon.media,
-    hardathon.projects,
-    hardathon.images,
-    hardathon.documents,
-    hardathon.partners,
-  ];
+  const links = [data.media, data.projects, data.images, data.documents, data.partners];
 
   return (
-    <PageLayout title={hardathon.title} background={group_of_people.src} hasOrangeShadow>
+    <PageLayout title={data.title} background={group_of_people.src} hasOrangeShadow>
       <div className='relative flex flex-col lg:flex-row gap-12 lg:gap-0 justify-center lg:justify-between items-stretch w-full'>
         <div className={`absolute -top-48 max-lg:hidden left-0 z-9999 cursor-pointer`}>
           <ArrowButton direction='left' onClick={() => router.back()} />
