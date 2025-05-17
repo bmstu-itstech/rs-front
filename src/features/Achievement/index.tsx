@@ -30,8 +30,7 @@ const Achievement: FC<Props> = ({
       <div
         className={`border-2 border-main-orange h-60 max-h-60 rounded-4xl flex overflow-hidden w-full ${className}`}
         {...props}
-        id={String(props.id)}
-      >
+        id={String(props.id)}>
         <Image
           width={1416}
           height={945}
@@ -78,14 +77,14 @@ const Achievement: FC<Props> = ({
       {...props}
       id={String(props.id)}
       onClick={onClick}>
-      <div className='px-32 flex flex-col justify-around  bg-gradient-to-r from-black to-transparent from-52% h-full'>
-        <div className='flex flex-col gap-8 max-w-1/2'>
-          <div className='lg:text-6xl md:text-5xl 2xl:text-7xl max-w-full truncate'>{title}</div>
-          <p className='lg:text-3xl md:text-2xl 2xl:text-4xl max-h-40 lg:max-h-40  xl:max-h-60 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
-            {description}
-          </p>
+      <div className='px-32 py-8 flex flex-col justify-around w-full  bg-gradient-to-r from-black to-transparent from-52% h-full'>
+        <div className='lg:text-6xl md:text-5xl 2xl:text-7xl h-fit max-w-full truncate'>
+          {title}
         </div>
-        <div className='flex gap-6 2xl:gap-14'>
+        <p className='lg:text-3xl md:text-2xl max-w-1/2 my-8  2xl:text-4xl flex-1  overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+          {description}
+        </p>
+        <div className='flex h-fit gap-6 2xl:gap-14'>
           <button
             className=' w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-8 lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
             onClick={() => router.push(album_url)}>
