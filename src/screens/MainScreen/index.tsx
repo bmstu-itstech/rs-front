@@ -1,6 +1,7 @@
 'use client';
 
 import {Container, PrimaryButton} from '@/shared';
+import {NextPage} from 'next';
 import background_main from '@/assets/main_background.png';
 import TelegramIcon from '@/shared/TelegramIcon';
 import VKIcon from '@/shared/VKIcon';
@@ -18,7 +19,7 @@ const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
       id='main'
       onBecomeVisible={setPageToShow}>
       <div className='flex  flex-col h-full justify-around gap-12 w-full '>
-        <p className='leading-normal 2xl:max-w-4/5 text-balance xl:text-5xl text-4xl font-normal md:text-left text-center'>
+        <p className='leading-normal lg:max-w-4/5 text-balance xl:text-5xl text-4xl font-normal md:text-left text-center'>
           Центр Молодежной Робототехники - это инновационное пространство, предназначенное для
           обучения и развития молодых талантов в области робототехники, искусственного интеллекта и
           программирования. Наша миссия - предоставить молодежи возможность исследовать и создавать
