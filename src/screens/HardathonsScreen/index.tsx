@@ -6,7 +6,7 @@ import {useRouter} from 'next/navigation';
 import bg from '@/assets/group_of_people.jpeg';
 import Image from 'next/image';
 import {useGetHardathons} from '@/hooks/Hardathons/useGetHardathons';
-import {EventPageSkeleton} from '@/features/EventsCarousel/EventsCarousel.skeleton';
+import { HardathonScreenPageSkeleton } from './HardathonsScreen.skeleton';
 import speaker from '@/assets/speaker.png';
 
 function HardathonsScreen() {
@@ -16,7 +16,7 @@ function HardathonsScreen() {
   if (isLoading) {
     return (
       <PageLayout background={bg.src} isDvh>
-        <EventPageSkeleton />
+        <HardathonScreenPageSkeleton />
       </PageLayout>
     );
   }
