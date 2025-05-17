@@ -16,24 +16,13 @@ function HardathonsScreen() {
   if (isLoading) {
     return (
       <PageLayout background={bg.src} isDvh>
-        <EventPageSkeleton /> {/* TODO: replace with HardathonPageSkeleton */}
-      </PageLayout>
-    );
-  }
-
-  const hardathon = data?.results[0];
-  if (!hardathon) {
-    return (
-      <PageLayout background={bg.src} isDvh>
-        <div className='flex justify-center items-center w-full h-full'>
-          <p className='text-2xl'>Нет хардатонов</p>
-        </div>
+        <EventPageSkeleton />
       </PageLayout>
     );
   }
 
   return (
-    <PageLayout title={hardathon.title} background={hardathon.background_image} isDvh>
+    <PageLayout title={data?.results[0].title} background={data?.results[0].background_image} isDvh>
       <div className='flex justify-between items-center w-full h-full'>
         {/*Image только для пк */}
         <Image
@@ -47,7 +36,7 @@ function HardathonsScreen() {
         <div className='flex flex-col items-center gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
           <div className='flex flex-col w-full lg:gap-10 text-3xl lg:text-5xl h-48r max-sm:w-[90vw] max-sm:h-[50vh] bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
             <p className='text-wrap text-ellipsis h-full overflow-hidden text-inherit'>
-              {hardathon.quote}
+              {data?.results[0].quote}
             </p>
             <div className='flex flex-col font-bold  items-end justify-end mt-auto'>
               <p className='text-end w-fit max-w-full truncate'>— главный организатор хардатона,</p>
@@ -58,12 +47,12 @@ function HardathonsScreen() {
             <PrimaryButton
               bgFilled
               className='!w-full'
-              onClick={() => router.push(`/hardathons/${hardathon.id}/details`)}>
+              onClick={() => router.push(`/hardathons/${data?.results[0].id}/details`)}>
               Подробнее
             </PrimaryButton>
             <PrimaryButton
               className='!w-full text-nowrap'
-              onClick={() => router.push(hardathon.href)}
+              onClick={() => router.push(data?.results[0].href ?? '/')}
               bgFilled>
               Подать заявку
             </PrimaryButton>
