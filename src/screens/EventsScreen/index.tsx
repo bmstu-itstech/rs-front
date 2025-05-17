@@ -10,13 +10,7 @@ const EventsScreen = () => {
   const {data, isLoading} = useGetEvents();
 
   const EventsToShow = useCallback(() => {
-    return isLoading || !data ? (
-      <EventPageSkeleton />
-    ) : (
-      <EventsCarousel
-        items={data.results}
-      />
-    );
+    return isLoading || !data ? <EventPageSkeleton /> : <EventsCarousel items={data.results} />;
   }, [isLoading, data]);
 
   return (
