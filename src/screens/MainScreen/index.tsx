@@ -1,7 +1,6 @@
 'use client';
 
 import {Container, PrimaryButton} from '@/shared';
-import {NextPage} from 'next';
 import background_main from '@/assets/main_background.png';
 import TelegramIcon from '@/shared/TelegramIcon';
 import VKIcon from '@/shared/VKIcon';
