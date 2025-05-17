@@ -33,7 +33,7 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
     );
   }
   return (
-    <div className='border-3 border-main-orange h-full min-h-full rounded-6xl w-[min(45rem,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
+    <div className='border-3 border-main-orange max-h-110 h-full min-h-full rounded-6xl w-[min(45rem,88vw)] bg-white overflow-hidden bg-opacity-90 flex flex-col relative'>
       <Image
         className='w-full brightness-[0.85] h-full max-h-[23rem] object-cover'
         src={curPhoto}
@@ -42,16 +42,15 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
         height={500}
       />
       <div className='py-4 flex bg-main-orange justify-center h-fit'>
-        <p className='text-center uppercase max-w-5/6  text-4xl line-clamp-2'>{title}</p>
-        {/* Line-clamp-1 если надо в 1 строку максимум */}
+        <p className='text-center uppercase max-w-5/6 text-4xl line-clamp-2'>{title}</p>
       </div>
-      <div className='p-6 flex flex-col h-full justify-between'>
-        {/* <div className='flex-1 overflow-hidden h-full'> */}
-        <p className='text-3xl text-black overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+      <div className='min-h-2/5 h-full p-4 flex flex-col'>
+        <p className='text-3xl overflow-y-auto text-black [&::-webkit-scrollbar]:hidden [scrollbar-width:none]'>
           {content}
         </p>
+
         <div
-          className='flex justify-between items-center cursor-pointer'
+          className='flex mt-auto justify-between items-center  cursor-pointer'
           onClick={() => router.push(`${href}`)}>
           <p className='text-3xl text-black truncate max-w-5/6'>{caption}</p>
           <ArrowButton />
