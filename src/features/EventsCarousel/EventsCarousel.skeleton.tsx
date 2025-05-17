@@ -5,8 +5,8 @@ export const EventPageSkeleton = () => {
       className=' lg:pb-12 
        items-center justify-between animate-pulse flex flex-col my-auto  w-full h-full   rounded-3xl'>
       <div className='h-24  bg-gray-300 rounded-full w-1/2  mx-auto'></div>
-      <div className='2xl:!-mt-24 lg:w-[50dvw] w-full gap-12 flex flex-col justify-end ms-auto'>
-        <div className='flex flex-col  justify-start items-center w-full h-48r gap-6'>
+      <div className='2xl:!-mt-24 lg:w-[50dvw] w-full gap-12 flex flex-col justify-end my-auto ms-auto'>
+        <div className='flex flex-col  justify-start items-center w-full h-48r max-sm:w-[90vw] max-sm:h-[50vh] gap-6'>
           <div className='h-12  bg-gray-300 rounded-full w-full'></div>
           <div className='h-12  bg-gray-300 rounded-full w-full'></div>
           <div className='h-12  bg-gray-300 rounded-full w-full'></div>
@@ -15,7 +15,7 @@ export const EventPageSkeleton = () => {
           <div className='h-12  bg-gray-300 rounded-full w-full'></div>
           <div className='h-12  bg-gray-300 rounded-full w-full'></div>
         </div>
-        <div className='mx-end gap-12 h-28 mb-auto lg:gap-24  flex w-full'>
+        <div className='mx-end gap-12 h-50 lg:h-28 mb-auto lg:gap-24 flex-col lg:flex-row flex w-full'>
           <div className='h-full bg-gray-300 rounded-full w-full'></div>
           <div className='h-full  bg-gray-300 rounded-full w-full'></div>
         </div>
