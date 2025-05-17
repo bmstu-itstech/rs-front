@@ -78,20 +78,18 @@ const Achievement: FC<Props> = ({
       id={String(props.id)}
       onClick={onClick}>
       <div className='px-32 py-8 flex flex-col justify-around w-full  bg-gradient-to-r from-black to-transparent from-52% h-full'>
-        <div className='lg:text-6xl md:text-5xl 2xl:text-7xl h-fit max-w-full truncate'>
-          {title}
-        </div>
+        <div className='lg:text-6xl md:text-5xl 2xl:text-7xl h-fit max-w-1/2 truncate'>{title}</div>
         <p className='lg:text-3xl md:text-2xl max-w-1/2 my-8  2xl:text-4xl flex-1  overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
           {description}
         </p>
         <div className='flex h-fit gap-6 2xl:gap-14'>
           <button
-            className=' w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-8 lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
+            className=' w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-7 lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
             onClick={() => router.push(album_url)}>
             ФОТО
           </button>
           <button
-            className='w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-8 lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange hover:bg-white hover:text-main-orange text-white text-3xl flex justify-center items-center cursor-pointer  duration-300'
+            className='w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-7 lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange hover:bg-white hover:text-main-orange text-white text-3xl flex justify-center items-center cursor-pointer  duration-300'
             onClick={() => router.push(media_url)}>
             СМИ
           </button>
