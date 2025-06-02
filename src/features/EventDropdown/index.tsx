@@ -34,8 +34,8 @@ function EventDropdown({event}: Props) {
   ];
   return (
     <div className=' bg-main-orange h-dvh pt-60 w-[50dvw]'>
-      <div className='flex flex-col ps-64 gap-12 justify-center user-select-none w-[40dvw] me-auto'>
-        <div className='uppercase lg:text-8xl text-6xl font-semibold text-center'>Подробнее</div>
+      <div className='flex flex-col lg:ps-64 gap-12 justify-center user-select-none sm:w-[40dvw] me-auto'>
+        <div className='uppercase lg:text-7xl text-6xl font-semibold text-center xl:text-8xl 2xl:text-9xl' >Подробнее</div>
         {data.map((item, index) => {
           return item.onClick ? (
             <CardButton

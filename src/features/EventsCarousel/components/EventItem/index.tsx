@@ -12,16 +12,18 @@ const Event: FC<Props> = ({item, className, ...props}) => {
   const router = useRouter();
   return (
     <div
-      className={`flex flex-col items-center gap-12 min-h-full justify-between lg:w-2/3 px-12 pt-36 lg:pt-12  mx-auto h-full user-select-none ${
+      className={`flex flex-col items-center gap-12 min-h-full justify-between lg:w-2/3 px-12 pt-36 lg:pt-5  mx-auto h-full user-select-none ${
         className ?? ''
       }`} // static
       {...props}>
       <MainTitle>{item.name}</MainTitle>
-      <p className='text-5xl leading-normal   font-normal border-2 w-full lg:h-full h-3/5 flex justify-center items-center border-main-orange px-12 lg:px-0 text-center lg:text-start lg:border-0 rounded-4xl'>
+      <p className='py-10 text-xl leading-normal font-normal md:text-4-5xl sm:text-4xl border-4 w-full lg:h-full
+      flex justify-center items-center border-main-orange px-12 lg:px-0 text-center lg:text-start lg:border-0
+      rounded-4xl xl:text-5xl 3xl:text-6xl'>
         {item.description}
       </p>
 
-      <div className='flex flex-col lg:flex-row justify-between items-center gap-x-40 gap-y-8 w-full'>
+      <div className='flex flex-col lg:flex-col justify-between items-center gap-x-40 gap-y-8 lg:gap-y-5 w-full '>
         <PrimaryButton
           className='!w-full'
           titleClassname='truncate'
