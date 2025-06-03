@@ -14,7 +14,7 @@ const EventsScreen = () => {
   }, [isLoading, data]);
 
   return (
-    <PageLayout hasBg={false} className='!p-0' isDvh>
+    <PageLayout hasBg={false} className='!p-0 2xl:max-w-3000' isDvh>
       <EventsToShow />
     </PageLayout>
   );
