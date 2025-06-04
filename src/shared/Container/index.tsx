@@ -31,13 +31,13 @@ const Container: FC<Props> = ({
             setNextPreloaded(true);
           }
 
-          requestAnimationFrame(() => {
-            if (id === 'main') {
-              window.scrollTo({top: 0, behavior: 'smooth'});
-            } else {
-              element.scrollIntoView({behavior: 'smooth', block: 'center'});
-            }
-          });
+          // requestAnimationFrame(() => {
+          //   if (id === 'main') {
+          //     window.scrollTo({top: 0, behavior: 'smooth'});
+          //   } else {
+          //     element.scrollIntoView({behavior: 'smooth', block: 'center'});
+          //   }
+          // });
         }
       },
       {threshold: 0},
@@ -51,7 +51,7 @@ const Container: FC<Props> = ({
     <PageLayout
       id={id}
       title={title}
-      className={className}
+      className={`${className}`}
       hasShadowBetween={hasShadowBetween}
       titleClassname={titleClassname}
       background={background}

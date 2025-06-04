@@ -16,9 +16,7 @@ const Home: FC = () => {
         newPage = <NewsScreen key='news' setPageToShow={() => addPage(4)} />;
         break;
       case 4:
-        newPage = (
-          <AchievementsScreen  key='achievements' setPageToShow={() => addPage(5)} />
-        );
+        newPage = <AchievementsScreen key='achievements' setPageToShow={() => addPage(5)} />;
         break;
       case 5:
         newPage = <ContactsScreen key='contacts' setPageToShow={() => {}} />;
@@ -31,7 +29,11 @@ const Home: FC = () => {
       setPages(prevPages => [...prevPages, newPage]);
     }
   }, []);
-  return <div className='flex flex-col gap-[6dvh]'>{pages}</div>;
+  return (
+    <div style={{scrollBehavior: 'smooth', overscrollBehavior: 'smooth'}} className='flex flex-col h-dvh snap-y snap-mandatory scroll-smooth overflow-y-auto'>
+      {pages}
+    </div>
+  );
 };
 Home.displayName = 'HomePage';
 export default Home;
