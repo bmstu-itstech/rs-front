@@ -20,8 +20,8 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
     setActive(newId);
   }, []);
   const MainItemToShowPC = useMemo(() => {
-    if (isLoading || !data) {
-      return <MainAchievemtSkeleton className='mb-12' />;
+    if (isLoading || !data || data.count == 0) {
+      return <MainAchievemtSkeleton key={active} id={active.toString()} className='mb-12' />;
     } else {
       const ActiveItem = data.results.find(item => item.id === active);
       return ActiveItem ? (
@@ -32,7 +32,7 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
     }
   }, [isLoading, active, data]);
   const SubItemsToShowPC = useMemo(() => {
-    if (isLoading || !data) {
+    if (isLoading || !data || data.count == 0) {
       return (
         <>
           <SubAchievemtSkeletonPC />
@@ -70,7 +70,7 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
     } else {
       return (
         <>
-          {data.results.map((v,) => (
+          {data.results.map(v => (
             <Achievement
               compact
               className={`odd:flex-row-reverse snap-start snap-always`}

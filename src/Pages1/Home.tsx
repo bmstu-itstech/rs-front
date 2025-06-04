@@ -16,7 +16,9 @@ const Home: FC = () => {
         newPage = <NewsScreen key='news' setPageToShow={() => addPage(4)} />;
         break;
       case 4:
-        newPage = <AchievementsScreen key='achievements' setPageToShow={() => addPage(5)} />;
+        newPage = (
+          <AchievementsScreen  key='achievements' setPageToShow={() => addPage(5)} />
+        );
         break;
       case 5:
         newPage = <ContactsScreen key='contacts' setPageToShow={() => {}} />;
