@@ -6,6 +6,7 @@ import background_main from '@/assets/main_background.png';
 import TelegramIcon from '@/shared/TelegramIcon';
 import VKIcon from '@/shared/VKIcon';
 import React from 'react';
+import Link from 'next/link';
 
 const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
   // console.log('Я загрузил main');
@@ -39,8 +40,12 @@ const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
             Подробнее
           </PrimaryButton>
           <div className='hidden lg:flex'>
-            <TelegramIcon className='me-12 cursor-pointer' />
-            <VKIcon className='cursor-pointer' />
+            <Link href={'https://t.me/robotics_bmstu'}>
+              <TelegramIcon className='me-12 cursor-pointer' />
+            </Link>
+            <Link href={'https://vk.com/robotics_bmstu?from=groups'}>
+              <VKIcon className='cursor-pointer' />
+            </Link>
           </div>
         </div>
       </div>
