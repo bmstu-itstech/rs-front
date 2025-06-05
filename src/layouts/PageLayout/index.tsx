@@ -28,7 +28,7 @@ export const PageLayout: FC<Props> = ({
       ${
         hasOrangeShadow &&
         'after:absolute after:-z-10 after:top-0 after:w-full after:left-0 after:h-full after:bg-linear-to-t after:from-main-orange-50 after:to-60% after:to-transparent '
-      }  min-w-full  select-none 
+      }  min-w-full 
       ${isDvh ? 'h-dvh min-h-full' : 'h-full min-h-dvh'} `}
       {...props}>
       {hasBg && (
