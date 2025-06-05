@@ -52,7 +52,7 @@ const Achievement: FC<Props> = ({
   if (compact) {
     return (
       <div
-        className={`w-full h-full border-5 overflow-hidden border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center md:rounded-[4rem] lg:rounded-[5rem] 2xl:rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
+        className={`w-full h-full relative border-5 overflow-hidden border-main-orange hover:border-white  transition-all duration-300 flex justify-center items-center md:rounded-[4rem] lg:rounded-[5rem] 2xl:rounded-6xl cursor-pointer bg-cover bg-center bg-blend-multiply ${className}`}
         {...props}
         id={String(props.id)}
         style={{
@@ -61,7 +61,8 @@ const Achievement: FC<Props> = ({
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onClick={onClick}>
-        <p className='text-center flex items-center transition-all justify-center text-4xl  lg:text-5xl uppercase bg-gradient-to-b from-[rgba(0,0,0,0.5)] hover:from-main-orange-50 hover:to-main-orange-50 to-transparent from-52%  h-full w-full '>
+        <div className='bg-gradient-to-b from-[rgba(0,0,0,0.5)] hover:from-main-orange-50 hover:to-main-orange-50 to-transparent from-52% h-full w-full absolute'></div>
+        <p className='text-center z-10  line-clamp-2 transition-all align-middle  text-4xl  lg:text-5xl uppercase  '>
           {hovered ? 'Подробнее' : title}
         </p>
       </div>
@@ -79,7 +80,7 @@ const Achievement: FC<Props> = ({
       onClick={onClick}>
       <div className='px-32 py-8 flex flex-col justify-around w-full  bg-gradient-to-r from-black to-transparent from-52% h-full'>
         <div className='lg:text-6xl md:text-5xl 2xl:text-7xl h-fit max-w-1/2 truncate'>{title}</div>
-        <p className='lg:text-3xl md:text-2xl max-w-1/2 my-8  2xl:text-4xl flex-1  overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+        <p className='lg:text-3xl whitespace-pre-wrap md:text-2xl max-w-1/2 my-8  2xl:text-4xl flex-1  overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
           {description}
         </p>
         <div className='flex h-fit gap-6 2xl:gap-14'>
