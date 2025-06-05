@@ -23,20 +23,27 @@ function HardathonsScreen() {
   }
 
   return (
-    <PageLayout background={data?.results[0].background_image} isDvh>
+    <PageLayout isShadowedBack background={data?.results[0].background_image} isDvh>
       <div className='flex justify-between items-center w-full h-full'>
         {/*Image только для пк */}
         <Image
           alt='speaker'
-          className='max-w-2/5 hidden xl:block self-end scale-[1.2] origin-bottom-right'
+          className='max-w-2/5 hidden lg:block self-end scale-[1.2] origin-bottom-right'
           src={speaker.src}
           width={600}
           height={600}
         />
-
-        <div className='flex flex-col items-center justify-center lg:gap-7 gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
+        <Image
+          alt='speaker'
+          className='h-full object-cover brightness-25 -translate-x-1/3  block lg:hidden bottom-0 left-0  origin-bottom-left absolute'
+          src={speaker.src}
+          width={600}
+          height={600}
+        />
+        <div></div>
+        <div className='flex flex-col z-10 items-center justify-center lg:gap-7 gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
           <p
-            className={`lg:text-7xl 2xl:text-9xl font-bold text-7xl sm:text-8xl md:text-8xl leading-normal text-center select-none uppercase `}>
+            className={`lg:text-7xl line-clamp-2 2xl:text-9xl font-bold text-7xl sm:text-8xl md:text-8xl leading-normal text-center select-none uppercase `}>
             {data?.results[0].title}
           </p>
           <div
@@ -52,7 +59,7 @@ function HardathonsScreen() {
               <p className='w-fit max-w-full truncate md:text-4xl'>Балакало Максим</p>
             </div>
           </div>
-          <div className='flex max-2xl:flex-col justify-between lg:gap-5 gap-12 h-28 w-full'>
+          <div className='flex lg:flex-row flex-col  justify-between lg:gap-5 gap-12 h-28 w-full'>
             <PrimaryButton
               bgFilled={!isMobile}
               className='!w-full md:text-5xl'
