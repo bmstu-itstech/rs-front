@@ -45,7 +45,7 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
         <p className='text-center uppercase max-w-5/6 text-4xl line-clamp-2'>{title}</p>
       </div>
       <div className='min-h-2/5 h-full p-4 flex flex-col'>
-        <p className='text-3xl overflow-y-auto text-black [&::-webkit-scrollbar]:hidden [scrollbar-width:none]'>
+        <p className='text-3xl overflow-y-auto whitespace-pre-wrap text-black [&::-webkit-scrollbar]:hidden [scrollbar-width:none]'>
           {content}
         </p>
 
