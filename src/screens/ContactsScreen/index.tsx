@@ -14,6 +14,7 @@ const ContactsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
     <Container
       // hasShadowBetween
       title='Контакты'
+      objectFit='fill'
       id='contacts'
       onBecomeVisible={setPageToShow}>
       {mobile ? (

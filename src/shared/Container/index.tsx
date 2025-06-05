@@ -11,6 +11,7 @@ const Container: FC<Props> = ({
   children,
   titleClassname,
   background,
+  objectFit,
   hasShadowBetween,
   onBecomeVisible, // Колбек при появлении экрана
   ...props
@@ -55,6 +56,7 @@ const Container: FC<Props> = ({
       hasShadowBetween={hasShadowBetween}
       titleClassname={titleClassname}
       background={background}
+      objectFit={objectFit}
       isDvh
       {...props}>
       {children}

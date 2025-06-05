@@ -13,6 +13,7 @@ export const PageLayout: FC<Props> = ({
   hasShadowBetween = false,
   hasOrangeShadow = false,
   hasBg = true,
+  objectFit = 'cover',
   className,
   isDvh = false,
   ...props
@@ -39,7 +40,7 @@ export const PageLayout: FC<Props> = ({
           alt='bg'
           className={` ${
             isShadowedBack && 'brightness-25'
-          } w-full h-full object-fill object-center -z-10 absolute top-0 left-0  min-h-full min-w-full`}
+          } w-full h-full object-${objectFit} object-center -z-10 absolute top-0 left-0  min-h-full min-w-full`}
         />
       )}
 

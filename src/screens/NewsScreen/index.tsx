@@ -34,6 +34,7 @@ const NewsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
   return (
     <Container
       background={bg_origin_3.src}
+      objectFit='fill'
       // hasShadowBetween
       title='Новости'
       id='news'

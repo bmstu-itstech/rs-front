@@ -106,6 +106,7 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
     <Container
       background={bg_origin_2.src}
       // hasShadowBetween
+      objectFit='fill'
       title='Достижения'
       id='achievements'
       onBecomeVisible={setPageToShow}>
