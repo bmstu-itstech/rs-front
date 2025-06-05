@@ -10,6 +10,8 @@ import {
   CompactAchievemtSkeleton,
 } from '@/features/Achievement/Achievement.skeleton';
 import React from 'react';
+import bg_origin_2 from '@/assets/background_origin_2.jpg';
+
 const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) => {
   // useDebugValue('AchievementsScreen render');
   // console.log('я отрисовал achievements');
@@ -102,7 +104,8 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
   }, [CompactItemsToShow]);
   return (
     <Container
-      hasShadowBetween
+      background={bg_origin_2.src}
+      // hasShadowBetween
       title='Достижения'
       id='achievements'
       onBecomeVisible={setPageToShow}>

@@ -3,8 +3,9 @@ import {useEffect, useMemo, useState} from 'react';
 import {Container} from '@/shared';
 import {Carousel} from '@/features';
 import {useGetNews} from '@/hooks/News/useGetNews';
-
 import React from 'react';
+import bg_origin_3 from '@/assets/background_origin_3.jpg'
+
 const NewsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
   // console.log('Я загрузил news');
   const {data, isLoading} = useGetNews();
@@ -31,7 +32,12 @@ const NewsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
     [isLoading, itemsCount, data],
   );
   return (
-    <Container hasShadowBetween title='Новости' id='news' onBecomeVisible={setPageToShow}>
+    <Container
+      background={bg_origin_3.src}
+      // hasShadowBetween
+      title='Новости'
+      id='news'
+      onBecomeVisible={setPageToShow}>
       {Content}
     </Container>
   );

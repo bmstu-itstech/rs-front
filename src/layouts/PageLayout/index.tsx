@@ -23,7 +23,7 @@ export const PageLayout: FC<Props> = ({
       className={`relative w-full snap-start
       ${
         hasShadowBetween &&
-        'after:absolute after:z-10 after:top-full after:w-full after:left-0 after:h-[3dvh] not-last:after:bg-linear-to-b after:from-[rgba(0,0,0,0.6)] after:via-50% after:via-black after:to-[rgba(0,0,0,0.6)] after:to-100%'
+        'after:absolute after:z-0 after:top-full after:w-full after:left-0 after:h-[16dvh] not-last:after:bg-linear-to-b after:from-[rgba(0,0,0,1)] after:to-[rgba(0,0,0,0)] after:to-80%'
       } 
       ${
         hasOrangeShadow &&
@@ -39,7 +39,7 @@ export const PageLayout: FC<Props> = ({
           alt='bg'
           className={` ${
             isShadowedBack && 'brightness-25'
-          } w-full h-full object-cover object-center -z-10 absolute top-0 left-0  min-h-full min-w-full`}
+          } w-full h-full object-fill object-center -z-10 absolute top-0 left-0  min-h-full min-w-full`}
         />
       )}
 

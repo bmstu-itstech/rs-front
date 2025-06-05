@@ -11,7 +11,11 @@ const ContactsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
   // console.log('Я загрузил contacts');
   const mobile = useIsMobile();
   return (
-    <Container hasShadowBetween title='Контакты' id='contacts' onBecomeVisible={setPageToShow}>
+    <Container
+      // hasShadowBetween
+      title='Контакты'
+      id='contacts'
+      onBecomeVisible={setPageToShow}>
       {mobile ? (
         <ContactsCarousel />
       ) : (
