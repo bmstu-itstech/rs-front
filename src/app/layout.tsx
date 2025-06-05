@@ -4,6 +4,12 @@ import {Footer, Navbar} from '@/widgets';
 import {ReactNode} from 'react';
 import {Providers} from './providers';
 
+import dynamic from 'next/dynamic';
+
+const DynamicFooter = dynamic(() => import('../widgets/Footer'), {
+  loading: () => <p>Loading...</p>,
+});
+
 export const metadata: Metadata = {
   title: 'Центр молодёжной робототехники\n',
   description:
@@ -16,13 +22,13 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang='ru'>
-      <body>
-        <Providers>
+    <html lang='ru' className='h-full'>
+      <body className='h-full'>
+        <div className='h-dvh snap-y snap-mandatory scroll-smooth overflow-y-auto'>
           <Navbar />
-          {children}
-          <Footer />
-        </Providers>
+          <Providers>{children}</Providers>
+          <DynamicFooter />
+        </div>
       </body>
     </html>
   );

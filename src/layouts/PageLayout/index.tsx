@@ -20,10 +20,10 @@ export const PageLayout: FC<Props> = ({
   return (
     <div
       id={id}
-      className={`relative w-full snap-start scroll-smooth
+      className={`relative w-full snap-start
       ${
         hasShadowBetween &&
-        'after:absolute after:-z-10 after:top-full after:w-full after:left-0 after:h-[6dvh] not-last:after:bg-linear-to-b after:from-[rgba(0,0,0,0.6)] after:via-50% after:via-black after:to-[rgba(0,0,0,0.6)] after:to-100%'
+        'after:absolute after:z-10 after:top-full after:w-full after:left-0 after:h-[3dvh] not-last:after:bg-linear-to-b after:from-[rgba(0,0,0,0.6)] after:via-50% after:via-black after:to-[rgba(0,0,0,0.6)] after:to-100%'
       } 
       ${
         hasOrangeShadow &&

@@ -29,11 +29,7 @@ const Home: FC = () => {
       setPages(prevPages => [...prevPages, newPage]);
     }
   }, []);
-  return (
-    <div style={{scrollBehavior: 'smooth', overscrollBehavior: 'smooth'}} className='flex flex-col h-dvh snap-y snap-mandatory scroll-smooth overflow-y-auto'>
-      {pages}
-    </div>
-  );
+  return <>{pages}</>;
 };
 Home.displayName = 'HomePage';
 export default Home;
