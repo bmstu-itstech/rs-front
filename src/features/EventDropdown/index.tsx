@@ -1,6 +1,8 @@
 import {CardButton} from '@/entities';
 import {useRouter} from 'next/navigation';
 import {Props, ICardButton} from './EventDropdown.props';
+import {CloseMenuButton} from '@/shared/CloseMenuButton';
+
 function EventDropdown({event}: Props) {
   const router = useRouter();
   const data: ICardButton[] = [
@@ -33,9 +35,11 @@ function EventDropdown({event}: Props) {
     },
   ];
   return (
-    <div className=' bg-main-orange h-dvh pt-60 w-[50dvw]'>
-      <div className='flex flex-col lg:ps-64 gap-12 justify-center user-select-none sm:w-[40dvw] me-auto'>
-        <div className='uppercase lg:text-7xl text-6xl font-semibold text-center xl:text-8xl 2xl:text-9xl white' >Подробнее</div>
+    <div className=' bg-main-orange h-dvh pt-60 w-full lg:w-[50dvw] relative'>
+      <div className='flex flex-col lg:ps-64 gap-12 justify-center user-select-none w-3/4 mx-auto lg:w-[40dvw] me-auto'>
+        <p className='uppercase lg:text-7xl text-6xl font-semibold text-center xl:text-8xl 2xl:text-9xl white'>
+          Подробнее
+        </p>
         {data.map((item, index) => {
           return item.onClick ? (
             <CardButton
@@ -53,16 +57,7 @@ function EventDropdown({event}: Props) {
             </p>
           );
         })}
-
-        {/* <div className='relative'>
-          <Image
-            src='/icons/close.svg'
-            alt='close'
-            width={100}
-            height={100}
-            className='absolute top-10 right-10 cursor-pointer'
-          />
-        </div> */}
+        <CloseMenuButton className='absolute top-10 size-20 right-10 cursor-pointer' />
       </div>
     </div>
   );
