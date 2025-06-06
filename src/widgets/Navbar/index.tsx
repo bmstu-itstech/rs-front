@@ -16,9 +16,9 @@ const Navbar: FC<Props> = ({className, ...props}) => {
   }, []);
 
   return (
-    <header className={`${className ?? ''} w-full pt-12 fixed z-100 top-0 left-0`} {...props}>
+    <header className={`${className ?? ''} w-full pt-12 fixed z-10 top-0 left-0`} {...props}>
       <div
-        className='transition-opacity snap-start duration-300 flex justify-between max-w-800 w-full mx-auto px-12 lg:px-60'
+        className='transition-opacity duration-300 flex justify-between max-w-800 w-full mx-auto px-12 lg:px-60'
         style={{opacity}}>
         <LogoList />
         <OffcanvasMenu className='ml-auto' />
