@@ -1,26 +1,29 @@
 'use client';
 import type {FC} from 'react';
 import Props from './Offcanvas.props';
-import React, {useState, useRef, useEffect, useCallback} from 'react';
-// import {Divider} from '@/features/Achievement/components/Divider';
+import React, {useRef, useEffect, useCallback} from 'react';
+import {createPortal} from 'react-dom';
+import {OffcanvasProvider, useOffcanvas} from './OffcanvasContext';
 
-export const Offcanvas: FC<Props> = ({
-  isOpenedObject,
+const OffcanvasData: FC<Props> = ({
+  icon,
   hasOverlayShadowing = false,
-  isClosedObject,
   className,
+  hideIconOnOpen = false,
   children,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-  const handleClickOutside = (event: MouseEvent) => {
+  const {isOpen, setIsOpen} = useOffcanvas();
+
+  const openMenu = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const handleClickOutside = useCallback((event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
-  };
+  }, []);
   useEffect(() => {
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
@@ -32,31 +35,38 @@ export const Offcanvas: FC<Props> = ({
     };
   }, [isOpen]);
 
-  const SwitchableIcon = useCallback(
-    ({isOpen}: {isOpen: boolean}) => {
-      return isOpen ? isOpenedObject : isClosedObject;
-    },
-    [isClosedObject, isOpenedObject],
-  );
-
   return (
     <>
-      <button onClick={toggleMenu} className={`${className}`}>
-        {isClosedObject && isOpenedObject ? <SwitchableIcon isOpen={isOpen} /> : isClosedObject}
+      <button onClick={openMenu} className={`${isOpen && hideIconOnOpen && 'hidden'} ${className}`}>
+        {icon}
       </button>
-      {hasOverlayShadowing && isOpen && (
-        <div className='absolute top-0 left-0 h-dvh w-full inset-0 bg-black/50  z-0 transition-opacity duration-300' />
-      )}
-      <div
-        ref={menuRef}
-        className={` absolute top-0 right-0 ${
-          isOpen ? 'animate-appear' : ' animate-disappear invisible'
-        } transition-all  w-dvw lg:min-w-[50rem]  lg:w-auto justify-end
+      {isOpen &&
+        createPortal(
+          <>
+            {hasOverlayShadowing && (
+              <div className='absolute top-0 left-0 h-dvh w-full inset-0 bg-black/50  z-10 transition-opacity duration-300' />
+            )}
+            <div
+              ref={menuRef}
+              className={` absolute top-0 right-0 ${
+                isOpen ? 'animate-appear' : ' animate-disappear invisible'
+              } transition-all  w-dvw lg:min-w-[50rem]  lg:w-auto justify-end
          max-h-dvh h-dvh flex items-center lg:items-stretch
-            bg-main-orange lg:bg-transparent 
+            bg-main-orange lg:bg-transparent z-10
               `}>
-        {children}
-      </div>
+              {children}
+            </div>
+          </>,
+          document.body,
+        )}
     </>
+  );
+};
+
+export const Offcanvas: FC<Props> = ({children, ...props}) => {
+  return (
+    <OffcanvasProvider>
+      <OffcanvasData {...props}>{children}</OffcanvasData>
+    </OffcanvasProvider>
   );
 };

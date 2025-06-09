@@ -1,20 +1,22 @@
 'use client';
-import {memo, type FC} from 'react';
+import {memo, type FC, useCallback, useRef} from 'react';
 import MainTitle from '@/entities/MainTitle';
 import {PrimaryButton} from '@/shared';
 import EventDropdown from '../../../EventDropdown';
 import Props from './EventItem.props';
 import {useIsMobile} from '@/hooks';
 import {useRouter} from 'next/navigation';
-import {Offcanvas} from '@/layouts/OffcanvasLayout';
+import {EventOffCanvas} from '../../EventOffcanvas';
+
 const Event: FC<Props> = ({item, className, ...props}) => {
   const isMobile = useIsMobile();
   const router = useRouter();
+
   return (
     <div
       className={`flex flex-col items-center gap-12 min-h-full justify-between lg:w-2/3 px-12 pt-36 lg:pt-5  mx-auto h-full user-select-none ${
         className ?? ''
-      }`} // static
+      }`}
       {...props}>
       <MainTitle>{item.name}</MainTitle>
       <p
@@ -32,16 +34,7 @@ const Event: FC<Props> = ({item, className, ...props}) => {
           onClick={() => router.push(item.registration_url)}>
           Зарегистрироваться
         </PrimaryButton>
-        <Offcanvas
-          hasOverlayShadowing
-          className='select-none uppercase
-        lg:bg-main-orange  lg:hover:bg-white lg:hover:border-white
-          hover:text-main-orange py-5 lg:py-8 lg:px-34 rounded-6xl
-          bg-transparent hover:bg-main-orange border-2 border-main-orange
-           w-full lg:w-full cursor-pointer transition-all duration-300 text-3xl lg:text-5xl'
-          isClosedObject={<>Подробнее</>}>
-          <EventDropdown event={item} />
-        </Offcanvas>
+        <EventOffCanvas item={item} />
       </div>
     </div>
   );

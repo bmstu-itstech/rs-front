@@ -57,7 +57,6 @@ function EventDropdown({event}: Props) {
             </p>
           );
         })}
-        <CloseMenuButton className='absolute top-10 size-20 right-10 cursor-pointer' />
       </div>
     </div>
   );
