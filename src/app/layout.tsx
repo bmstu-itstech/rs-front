@@ -25,7 +25,6 @@ export default function RootLayout({
     <html lang='ru' className='h-full'>
       <body className='h-full overflow-x-hidden'>
         <div className='h-dvh snap-y snap-mandatory scroll-smooth overflow-y-auto'>
-          {/* <div id='modalsContainer'></div> */}
           <Navbar />
           <Providers>{children}</Providers>
           <DynamicFooter />
