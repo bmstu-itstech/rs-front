@@ -87,7 +87,7 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
   }, [isLoading, data, handleActive]);
   const PCAchivements = useMemo(() => {
     return (
-      <div className='hidden lg:flex flex-col mx-auto w-full justify-center md:px-10 lg:px-10 xl:px-40 min-h-160 aspect-[2/1] max-h-250'>
+      <div className='hidden lg:flex flex-col mx-auto w-full justify-center md:px-10 lg:px-10 xl:px-30 min-h-240 aspect-[2/1] max-h-280 2xl:max-h-300'>
         {MainItemToShowPC}
         <div className='flex-row auto-rows-[0px] overflow-hidden h-full flex-1 min-h-1/3 lg:grid grid-cols-3 grid-rows-1 items-start justify-center gap-x-12 lg:gap-y-0'>
           {SubItemsToShowPC}

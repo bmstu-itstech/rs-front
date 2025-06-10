@@ -62,7 +62,7 @@ const Achievement: FC<Props> = ({
         onMouseLeave={() => setHovered(false)}
         onClick={onClick}>
         <div className='bg-gradient-to-b from-[rgba(0,0,0,0.5)] hover:from-main-orange-50 hover:to-main-orange-50 to-transparent from-52% h-full w-full absolute'></div>
-        <p className='text-center z-10  line-clamp-2 transition-all align-middle  text-4xl  lg:text-5xl uppercase  '>
+        <p className='text-center max-w-9/10 z-10 text-pretty line-clamp-2 transition-all align-middle  text-4xl  lg:text-5xl uppercase  '>
           {hovered ? 'Подробнее' : title}
         </p>
       </div>
@@ -78,19 +78,24 @@ const Achievement: FC<Props> = ({
       {...props}
       id={String(props.id)}
       onClick={onClick}>
-      <div className='px-32 py-8 flex flex-col justify-around w-full  bg-gradient-to-r from-black to-transparent from-52% h-full'>
-        <div className='lg:text-6xl md:text-5xl 2xl:text-7xl h-fit max-w-1/2 truncate'>{title}</div>
-        <p className='lg:text-3xl whitespace-pre-wrap md:text-2xl max-w-1/2 my-8  2xl:text-4xl flex-1  overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+      <div className='px-32 py-16 flex flex-col justify-around w-full  bg-gradient-to-r from-black to-transparent from-52% h-full'>
+        <p className='lg:text-6xl md:text-6xl 2xl:text-7xl h-fit max-w-1/2 truncate'>{title}</p>
+        <p className='lg:text-4xl whitespace-pre-wrap md:text-2xl max-w-1/2 my-8  2xl:text-4xl flex-1  overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
           {description}
         </p>
         <div className='flex h-fit gap-6 2xl:gap-14'>
           <button
-            className=' w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-7 lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange text-3xl  hover:bg-white hover:text-main-orange flex justify-center items-center cursor-pointer  duration-300 '
+            className=' w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-7 lg:rounded-[3rem] 
+            2xl:rounded-6xl bg-main-orange  hover:bg-white hover:text-main-orange
+             flex justify-center items-center cursor-pointer text-4xl  duration-300 '
             onClick={() => router.push(album_url)}>
             ФОТО
           </button>
           <button
-            className='w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-7 lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange hover:bg-white hover:text-main-orange text-white text-3xl flex justify-center items-center cursor-pointer  duration-300'
+            className='w-40 lg:w-60 2xl:w-72 py-5 lg:py-6 xl:py-7 
+            lg:rounded-[3rem] 2xl:rounded-6xl bg-main-orange hover:bg-white 
+            hover:text-main-orange text-white text-4xl flex justify-center items-center
+             cursor-pointer  duration-300'
             onClick={() => router.push(media_url)}>
             СМИ
           </button>
