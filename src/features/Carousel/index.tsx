@@ -36,7 +36,6 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
   }, [items, itemsPerSlide]);
 
   const ItemsToShow = useCallback(() => {
-    console.log(isLoading, !items, items?.length === 0, groupedSlides);
     return isLoading || !items || items?.length === 0
       ? [1, 2].map((_, index) => {
           return (

@@ -22,9 +22,9 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
             backgroundImage: `url(${curPhoto})`,
           }}>
           <div className='h-full w-full bg-gradient-to-t from-main-orange-50 to-transparent from-10%' />
-          <div className='text-3xl absolute bottom-8 left-1/2 -translate-x-1/2 text-nowrap max-w-5/6 truncate'>
+          <p className='text-6xl absolute text-pretty text-center bottom-8 left-1/2 -translate-x-1/2 max-w-5/6 line-clamp-3'>
             {title}
-          </div>
+          </p>
         </div>
         <PrimaryButton className='w-full' onClick={() => router.push(`${href}`)}>
           Подробнее
