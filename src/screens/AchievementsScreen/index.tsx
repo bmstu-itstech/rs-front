@@ -97,7 +97,7 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
   }, [MainItemToShowPC, SubItemsToShowPC]);
   const MobileAchievements = useMemo(() => {
     return (
-      <div className='flex-col max-h-2/3 snap-start snap-mandatory overflow-y-auto flex lg:hidden items-center justify-start gap-y-12 '>
+      <div className='flex-col max-h-2/3  overflow-y-auto flex lg:hidden items-center justify-start gap-y-12 '>
         {CompactItemsToShow}
       </div>
     );
