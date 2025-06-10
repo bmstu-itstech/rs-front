@@ -15,12 +15,12 @@ const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
       title='Центр молодежной робототехники'
       hasShadowBetween
       background={background_main.src}
-      titleClassname='text-balance !text-7xl lg:!text-9xl font-bold lg:font-normal w-full  lg:max-w-3/5 lg:text-left'
+      titleClassname='text-balance !text-8xl lg:!text-9xl font-bold lg:font-normal w-full  lg:max-w-3/5 lg:text-left'
       className=' lg:font-normal lg:text-left  pt-[25%] lg:pt-[10%] text-balance lg:pb-12 '
       id='main'
       onBecomeVisible={setPageToShow}>
       <div className='flex  flex-col h-full justify-around gap-12 w-full '>
-        <p className='leading-normal lg:max-w-4/5 text-balance xl:text-5xl text-4xl font-normal md:text-left text-center'>
+        <p className='leading-normal lg:max-w-4/5 text-pretty xl:text-5xl text-5xl font-normal md:text-left text-center'>
           Центр Молодежной Робототехники - это инновационное пространство, предназначенное для
           обучения и развития молодых талантов в области робототехники, искусственного интеллекта и
           программирования. Наша миссия - предоставить молодежи возможность исследовать и создавать
@@ -29,7 +29,7 @@ const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
         </p>
         <div className='flex w-full justify-between items-center'>
           <PrimaryButton
-            className='w-full'
+            className='w-full text-5xl lg:text-base'
             onClick={() => {
               const element = document.getElementById('news');
               element?.scrollIntoView({
