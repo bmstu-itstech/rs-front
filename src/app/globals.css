@@ -104,20 +104,18 @@ a {
 }
 
 html {
-  font-size: 67.5%;
+  font-size: clamp(0.2rem, 0.4vw + 0.1rem, 0.6rem);
 }
-
-@media only screen and (min-resolution: 1.5dppx) {
+@media (max-width: 40rem) {
   html {
-    font-size: 45%;
+    font-size: clamp(0.2rem, 1.2vw + 0.1rem, 0.6rem);
   }
 }
-@media only screen and (min-resolution: 2dppx) {
+@media (min-width: 200rem) {
   html {
-    font-size: 33.75%;
+    font-size: clamp(0.2rem, 1.2vw + 0.1rem, 1.2rem);
   }
 }
-
 .navbar-outer {
   display: grid;
   align-items: center;
