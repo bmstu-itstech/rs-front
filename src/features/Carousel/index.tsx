@@ -36,7 +36,8 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
   }, [items, itemsPerSlide]);
 
   const ItemsToShow = useCallback(() => {
-    return isLoading || !items || items.length == 0
+    console.log(isLoading, !items, items?.length === 0, groupedSlides);
+    return isLoading || !items || items?.length === 0
       ? [1, 2].map((_, index) => {
           return (
             <div className='embla__slide h-full' key={index}>
@@ -88,7 +89,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
         </div>
       </div>
       <div className='carousel__dots'>
-        {emblaApi?.scrollSnapList().map((_, index) => {
+        {groupedSlides.map((_, index) => {
           return (
             <button
               className={`carousel__dot ${
