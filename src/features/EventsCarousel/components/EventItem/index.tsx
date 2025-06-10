@@ -14,14 +14,15 @@ const Event: FC<Props> = ({item, className, ...props}) => {
 
   return (
     <div
-      className={`flex flex-col items-center gap-12 min-h-full justify-between lg:w-2/3 px-12 pt-36 lg:pt-5  mx-auto h-full user-select-none ${
+      className={`flex flex-col items-center gap-12 min-h-full justify-between lg:w-2/3 px-12 pt-36 pb-20 lg:pt-5  mx-auto h-full user-select-none ${
         className ?? ''
       }`}
       {...props}>
       <MainTitle>{item.name}</MainTitle>
       <p
-        className='py-10 text-3xl whitespace-pre-wrap shrink-0 overflow-ellipsis max-h-1/2 overflow-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:none]  align-top  leading-normal font-normal md:text-4-5xl sm:text-4xl border-4 w-full lg:h-full
-      flex justify-center border-main-orange px-12 lg:px-0 text-center lg:text-start lg:border-0
+        className='py-10 text-5xl whitespace-pre-wrap shrink-0 overflow-ellipsis max-h-1/2 overflow-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:none]
+          align-top  leading-normal font-normal  border-4 w-full lg:h-full
+      flex justify-center border-main-orange px-4 text-pretty lg:px-0 text-center lg:text-start lg:border-0
       rounded-4xl xl:text-5xl 2xl:text-5xl'>
         {item.description}
       </p>

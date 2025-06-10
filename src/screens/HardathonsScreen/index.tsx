@@ -23,43 +23,43 @@ function HardathonsScreen() {
   }
 
   return (
-    <PageLayout isShadowedBack background={data?.results[0].background_image} isDvh>
+    <PageLayout
+      isShadowedBack
+      background={data?.results[0].background_image}
+      isDvh
+      title={data?.results[0].title}
+      titleClassname='!text-7xl lg:!text-8xl mt-36 lg:mt-0'>
       <div className='flex justify-between items-center w-full h-full'>
         {/*Image только для пк */}
         <Image
           alt='speaker'
-          className='max-w-2/5 hidden lg:block self-end scale-[1.2] origin-bottom-right'
+          className='w-6xl 2xl:w-7xl hidden lg:block self-end scale-[1.2] origin-bottom-right'
           src={speaker.src}
           width={600}
           height={600}
         />
         <Image
           alt='speaker'
-          className='h-full object-cover brightness-25 -translate-x-1/3  block lg:hidden bottom-0 left-0  origin-bottom-left absolute'
+          className='h-full -z-10 object-cover brightness-25 -translate-x-1/3  block lg:hidden bottom-0 left-0  origin-bottom-left absolute'
           src={speaker.src}
           width={600}
           height={600}
         />
-        <div></div>
-        <div className='flex flex-col z-10 items-center justify-center lg:gap-7 gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
-          <p
-            className={`lg:text-7xl line-clamp-2 2xl:text-9xl font-bold text-7xl sm:text-8xl md:text-8xl leading-normal text-center select-none uppercase `}>
-            {data?.results[0].title}
-          </p>
+        <div className='flex flex-col z-10 h-full items-center justify-start lg:justify-end lg:gap-20 lg:pb-20 gap-12 2xl:!-mt-24 lg:w-[50dvw]'>
           <div
-            className='flex flex-col w-full lg:gap-10 text-3xl lg:text-5xl h-48r max-sm:w-[90vw]
-                        max-sm:h-[50vh] bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
-            <p className='text-wrap text-ellipsis h-full overflow-hidden text-inherit md:text-4xl'>
+            className='flex flex-col w-full lg:gap-10 text-3xl lg:text-5xl h-200 
+                         bg-linear-to-b from-transparent to-main-orange rounded-6xl border-2 border-main-orange p-12'>
+            <p className='text-wrap text-ellipsis h-full overflow-hidden text-inherit text-4xl lg:text-5xl'>
               {data?.results[0].quote}
             </p>
             <div className='flex flex-col font-bold  items-end justify-end mt-auto'>
-              <p className='text-end w-fit max-w-full truncate md:text-4xl'>
+              <p className='text-end w-fit max-w-full truncate text-4xl lg:text-5xl'>
                 — главный организатор хардатона,
               </p>
-              <p className='w-fit max-w-full truncate md:text-4xl'>Балакало Максим</p>
+              <p className='w-fit max-w-full truncate text-4xl lg:text-5xl'>Балакало Максим</p>
             </div>
           </div>
-          <div className='flex lg:flex-row flex-col  justify-between lg:gap-5 gap-12 h-28 w-full'>
+          <div className='flex lg:flex-row flex-col  justify-between lg:gap-16 gap-12 h-28 w-full'>
             <PrimaryButton
               bgFilled={!isMobile}
               className='!w-full md:text-5xl'

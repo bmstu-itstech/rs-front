@@ -24,7 +24,7 @@ export const EventOffCanvas = ({item}: {item: IEventsBit}) => {
         lg:bg-main-orange  lg:hover:bg-white lg:hover:border-white
           hover:text-main-orange py-5 lg:py-8 lg:px-34 rounded-6xl
           bg-transparent hover:bg-main-orange border-2 border-main-orange
-           w-full lg:w-full cursor-pointer transition-all duration-300 text-3xl lg:text-5xl'
+           w-full lg:w-full cursor-pointer transition-all duration-300 text-5xl lg:text-5xl'
       icon={<>Подробнее</>}>
       <Content />
     </Offcanvas>

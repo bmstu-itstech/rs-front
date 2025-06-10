@@ -8,11 +8,12 @@ import React from 'react';
 import {MenuUsecase} from './OffcanvasMenu.usecase';
 import {Offcanvas} from '@/layouts/OffcanvasLayout';
 import {useOffcanvas} from '@/layouts/OffcanvasLayout/OffcanvasContext';
+import Link from 'next/link';
 export const OffcanvasMenu: FC<Props> = ({className}) => {
   const Content = () => {
     const {setIsOpen} = useOffcanvas();
     return (
-      <nav className='flex h-[max(80dvh,65rem)] relative !pr-12 lg:!pr-48 lg:pt-52'>
+      <nav className='flex h-[min(90dvh,90rem)] relative !pr-12 lg:!pr-48 lg:pt-52'>
         <CloseMenuButton
           className='absolute top-0 lg:top-16 size-20 right-10 lg:right-40 cursor-pointer z-10'
           onClick={() => setIsOpen(prev => !prev)}
@@ -21,11 +22,12 @@ export const OffcanvasMenu: FC<Props> = ({className}) => {
           {MenuUsecase.map(item => {
             return (
               <li key={item.id} className='w-full justify-end items-center text-right flex menu-el'>
-                <a
+                <Link
                   href={item.href}
-                  className='text-white text-5xl lg:text-7xl align-super transition-transform duration-300'>
+                  onClick={() => setIsOpen(prev => !prev)}
+                  className='text-white text-7xl lg:text-8xl align-super transition-transform duration-300'>
                   {item.title}
-                </a>
+                </Link>
                 <div className='w-[clamp(2rem,10vw,5rem)] bg-transparent ' />
                 <div className='flex items-center w-fit relative'>
                   <div className='rounded-full w-10 aspect-square bg-white opacity-0 absolute left-0 -translate-x-1/2 duration-300 dot' />
