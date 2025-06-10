@@ -29,7 +29,7 @@ const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
         </p>
         <div className='flex w-full justify-between items-center'>
           <PrimaryButton
-            className='w-full text-5xl lg:text-base'
+            className='w-full text-5xl'
             onClick={() => {
               const element = document.getElementById('news');
               element?.scrollIntoView({
