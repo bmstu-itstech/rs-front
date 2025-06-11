@@ -15,13 +15,14 @@ const OffcanvasData: FC<Props> = ({
   const {isOpen, setIsOpen} = useOffcanvas();
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
-    setIsMounted(true); 
+    setIsMounted(true);
   }, []);
   const openMenu = useCallback(() => {
     setIsOpen(true);
   }, [setIsOpen]);
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
+      if (event.defaultPrevented) return;
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
@@ -38,6 +39,9 @@ const OffcanvasData: FC<Props> = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, handleClickOutside]);
+  useEffect(() => {
+    console.log(isOpen);
+  }, [isOpen]);
   return (
     <>
       <button
@@ -54,7 +58,7 @@ const OffcanvasData: FC<Props> = ({
             <div
               ref={menuRef}
               className={`absolute top-0 right-0 ${
-                isOpen ? 'animate-appear' : 'animate-disappear invisible'
+                isOpen ? 'animate-appear ' : 'animate-disappear invisible '
               } transition-all w-dvw lg:min-w-[50rem] lg:w-auto justify-end
             max-h-dvh h-dvh flex items-center lg:items-stretch
             bg-main-orange lg:bg-transparent z-30

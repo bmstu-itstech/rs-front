@@ -11,7 +11,7 @@ export const EventOffCanvas = ({item}: {item: IEventsBit}) => {
       <>
         <CloseMenuButton
           className='absolute top-16 lg:top-10 size-20 right-32 lg:right-10 cursor-pointer z-10'
-          onClick={() => setIsOpen(prev => !prev)}
+          onClick={() => setIsOpen(false)}
         />
         <EventDropdown event={item} />
       </>

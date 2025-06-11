@@ -17,25 +17,29 @@
 
   --leading-normal: 1.2;
 
-  --animate-appear: appear 0.2s ease-in;
-  --animate-disappear: disappear 0.3s ease-in;
+  --animate-appear: appear 0.2s ease-in forwards;
+  --animate-disappear: disappear 0.3s ease-in forwards;
 }
 
 @keyframes appear {
   0% {
     transform: translateX(100%);
+    opacity: 0;
   }
   100% {
     transform: translateX(0%);
+    opacity: 1
   }
 }
 
 @keyframes disappear {
   0% {
     transform: translateX(0%);
+    opacity: 1;
   }
   100% {
     transform: translateX(150%);
+    opacity: 0;
   }
 }
 
