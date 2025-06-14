@@ -29,6 +29,21 @@ const OffcanvasData: FC<Props> = ({
     },
     [setIsOpen],
   );
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      if (!isOpen) {
+        menuRef.current?.classList.add('hidden');
+      } else {
+        menuRef.current?.classList.remove('hidden');
+      }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+  useEffect(() => {
+    menuRef.current?.classList.add(' hidden ');
+  }, []);
+
   useEffect(() => {
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
@@ -39,9 +54,7 @@ const OffcanvasData: FC<Props> = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, handleClickOutside]);
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
+
   return (
     <>
       <button

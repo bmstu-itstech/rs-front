@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang='ru' className='h-full'>
       <body className='h-full overflow-x-hidden relative'>
-        <div className='h-dvh snap-y snap-mandatory scroll-smooth overflow-y-auto'>
+        <div className='h-dvh w-dvw snap-y snap-mandatory scroll-smooth overflow-y-auto'>
           <Navbar />
           <Providers>{children}</Providers>
           <DynamicFooter />
