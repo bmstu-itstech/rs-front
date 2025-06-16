@@ -36,7 +36,7 @@ const ContactsCarousel: FC = () => {
   };
 
   return (
-    <div className='carousel'>
+    <div className='carousel relative'>
       <div className='embla w-full' ref={emblaRef}>
         <div className='embla__container w-full h-[65dvh] lg:h-[min(63rem,60dvh)] mt-5'>
           {items.map((item, index) => {
@@ -48,7 +48,7 @@ const ContactsCarousel: FC = () => {
           })}
         </div>
       </div>
-      <div className='carousel__dots !-bottom-8'>
+      <div className='carousel__dots'>
         {emblaApi?.scrollSnapList().map((_, index) => {
           return (
             <button
