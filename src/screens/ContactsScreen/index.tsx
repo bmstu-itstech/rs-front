@@ -7,7 +7,7 @@ import {useIsMobile} from '@/hooks';
 import ContactsCarousel from '@/features/ContactsCarousel';
 import React from 'react';
 
-const ContactsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
+const ContactsScreen = () => {
   // console.log('Я загрузил contacts');
   const mobile = useIsMobile();
   return (
@@ -15,8 +15,7 @@ const ContactsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
       // hasShadowBetween
       title='Контакты'
       objectFit='fill'
-      id='contacts'
-      onBecomeVisible={setPageToShow}>
+      id='contacts'>
       {mobile ? (
         <ContactsCarousel />
       ) : (

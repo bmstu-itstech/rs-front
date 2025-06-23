@@ -6,7 +6,7 @@ import {useGetNews} from '@/hooks/News/useGetNews';
 import React from 'react';
 import bg_origin_3 from '@/assets/background_origin_3.jpg';
 
-const NewsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
+const NewsScreen = () => {
   // console.log('Я загрузил news');
   const {data, isLoading} = useGetNews();
 
@@ -35,10 +35,9 @@ const NewsScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
     <Container
       background={bg_origin_3.src}
       objectFit='fill'
-      // hasShadowBetween
       title='Новости'
       id='news'
-      onBecomeVisible={setPageToShow}>
+      >
       {Content}
     </Container>
   );

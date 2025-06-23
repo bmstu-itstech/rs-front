@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import './globals.css';
-import {Footer, Navbar} from '@/widgets';
+import {Navbar} from '@/widgets';
 import {ReactNode} from 'react';
 import {Providers} from './providers';
 

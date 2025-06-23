@@ -1,26 +1,25 @@
 'use client';
 
 import {Container, PrimaryButton} from '@/shared';
-import {NextPage} from 'next';
 import background_main from '@/assets/main_background.png';
 import TelegramIcon from '@/shared/TelegramIcon';
 import VKIcon from '@/shared/VKIcon';
 import React from 'react';
 import Link from 'next/link';
 
-const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
+const MainScreen = () => {
   // console.log('Я загрузил main');
   return (
     <Container
       title='Центр молодежной робототехники'
       hasShadowBetween
       background={background_main.src}
-      titleClassname='text-balance !text-8xl lg:!text-9xl font-bold lg:font-normal w-full  lg:max-w-3/5 lg:text-left'
+      titleClassname='text-balance !text-8xl lg:!text-9xl font-bold lg:font-normal w-full md:!text-9rxl  lg:max-w-3/5 lg:text-left'
       className=' lg:font-normal lg:text-left  pt-[25%] lg:pt-[10%] text-balance lg:pb-12 '
       id='main'
-      onBecomeVisible={setPageToShow}>
+      >
       <div className='flex  flex-col h-full justify-around gap-12 w-full '>
-        <p className='leading-normal lg:max-w-4/5 text-pretty xl:text-5xl text-5xl font-normal md:text-left text-center'>
+        <p className='leading-normal lg:max-w-4/5 text-pretty lg:text-5xl text-5xl md:text-7xl font-normal md:text-left text-center'>
           Центр Молодежной Робототехники - это инновационное пространство, предназначенное для
           обучения и развития молодых талантов в области робототехники, искусственного интеллекта и
           программирования. Наша миссия - предоставить молодежи возможность исследовать и создавать
@@ -29,7 +28,7 @@ const MainScreen = ({setPageToShow}: {setPageToShow: () => void}) => {
         </p>
         <div className='flex w-full justify-between items-center'>
           <PrimaryButton
-            className='w-full text-5xl'
+            className='w-full text-5xl md:text-7xl md:py-12'
             onClick={() => {
               const element = document.getElementById('news');
               element?.scrollIntoView({

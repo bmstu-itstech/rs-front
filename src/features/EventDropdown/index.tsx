@@ -1,7 +1,6 @@
 import {CardButton} from '@/entities';
 import {useRouter} from 'next/navigation';
 import {Props, ICardButton} from './EventDropdown.props';
-import {CloseMenuButton} from '@/shared/CloseMenuButton';
 
 function EventDropdown({event}: Props) {
   const router = useRouter();

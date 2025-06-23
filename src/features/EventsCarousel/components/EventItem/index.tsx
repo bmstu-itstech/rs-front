@@ -1,8 +1,7 @@
 'use client';
-import {memo, type FC, useCallback, useRef} from 'react';
+import {memo, type FC} from 'react';
 import MainTitle from '@/entities/MainTitle';
 import {PrimaryButton} from '@/shared';
-import EventDropdown from '../../../EventDropdown';
 import Props from './EventItem.props';
 import {useIsMobile} from '@/hooks';
 import {useRouter} from 'next/navigation';

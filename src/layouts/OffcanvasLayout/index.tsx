@@ -31,7 +31,7 @@ const OffcanvasData: FC<Props> = ({
   );
 
   useEffect(() => {
-    let timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       if (!isOpen) {
         menuRef.current?.classList.add('hidden');
       } else {

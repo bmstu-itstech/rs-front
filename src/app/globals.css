@@ -115,6 +115,11 @@ html {
     font-size: clamp(0.2rem, 1.2vw + 0.1rem, 0.6rem);
   }
 }
+@media (max-width: 48rem) {
+  html {
+    font-size: clamp(0.2rem, 1.2vw + 0.1rem, 0.6rem);
+  }
+}
 @media (min-width: 200rem) {
   html {
     font-size: clamp(0.2rem, 1.2vw + 0.1rem, 1.2rem);

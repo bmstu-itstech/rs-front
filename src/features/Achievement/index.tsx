@@ -1,5 +1,5 @@
 'use client';
-import {useState, FC, forwardRef, Ref} from 'react';
+import {useState, forwardRef, Ref} from 'react';
 import {useIsMobile} from '@/hooks';
 import LinkField from '@/shared/LinkField';
 import Image from 'next/image';

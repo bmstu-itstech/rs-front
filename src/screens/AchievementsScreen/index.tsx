@@ -1,5 +1,5 @@
 'use client';
-import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {useCallback, useMemo, useRef, useState} from 'react';
 import {Container} from '@/shared';
 import {Achievement} from '@/features';
 import {FC} from 'react';
@@ -13,7 +13,7 @@ import React from 'react';
 import bg_origin_2 from '@/assets/background_origin_2.jpg';
 import ArrowButton from '@/shared/ArrowButton';
 
-const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) => {
+const AchievementsScreen: FC = () => {
   const {data, isLoading} = useGetAchievements();
   const [activeId, setActiveId] = useState<number>(data?.results[0]?.id ?? 1);
   const itemRefs = useRef<Map<number, HTMLDivElement>>(new Map());
@@ -151,8 +151,7 @@ const AchievementsScreen: FC<{setPageToShow: () => void}> = ({setPageToShow}) =>
       background={bg_origin_2.src}
       objectFit='fill'
       title='Достижения'
-      id='achievements'
-      onBecomeVisible={setPageToShow}>
+      id='achievements'>
       {MobileAchievements}
       {PCAchivements}
     </Container>

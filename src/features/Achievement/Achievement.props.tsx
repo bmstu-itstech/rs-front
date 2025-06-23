@@ -1,4 +1,4 @@
-import type {HTMLAttributes, RefObject} from 'react';
+import type {HTMLAttributes} from 'react';
 import {IAchievementsBit} from '@/domain/entities/achievements';
 export default interface Props
   extends IAchievementsBit,
