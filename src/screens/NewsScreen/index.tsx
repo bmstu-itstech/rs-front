@@ -1,28 +1,16 @@
 'use client';
-import {useEffect, useMemo, useState} from 'react';
+import {useMemo} from 'react';
 import {Container} from '@/shared';
 import {Carousel} from '@/features';
 import {useGetNews} from '@/hooks/News/useGetNews';
 import React from 'react';
 import bg_origin_3 from '@/assets/background_origin_3.jpg';
+import {useCountNewsItems} from '@/hooks/countNewsItems';
 
 const NewsScreen = () => {
-  // console.log('Я загрузил news');
   const {data, isLoading} = useGetNews();
+  const itemsCount = useCountNewsItems();
 
-  const [itemsCount, setItemsCount] = useState<number>(1);
-  const computeCount = () => {
-    const availableWidth = window.innerWidth * 0.6;
-    return Math.max(1, Math.min(Math.floor(availableWidth / 354), 3));
-  };
-  useEffect(() => {
-    const handleResize = () => {
-      setItemsCount(computeCount());
-    };
-    setItemsCount(computeCount());
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
   const Content = useMemo(
     () => (
       <div className='flex justify-center items-center min-h-[50dvh] lg:min-h-fit h-full lg:max-h-[min(65dvh,60rem)] max-h-[min(75dvh,100rem)]'>
@@ -32,12 +20,7 @@ const NewsScreen = () => {
     [isLoading, itemsCount, data],
   );
   return (
-    <Container
-      background={bg_origin_3.src}
-      objectFit='fill'
-      title='Новости'
-      id='news'
-      >
+    <Container background={bg_origin_3.src} objectFit='fill' title='Новости' id='news'>
       {Content}
     </Container>
   );
