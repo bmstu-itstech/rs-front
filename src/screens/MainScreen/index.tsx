@@ -20,11 +20,11 @@ const MainScreen = () => {
       title='Центр молодежной робототехники'
       hasShadowBetween
       background={background_main.src}
-      titleClassname='text-balance !text-8xl lg:!text-9xl font-bold lg:font-normal w-full md:!text-9rxl  lg:max-w-3/5 lg:text-left'
-      className=' lg:font-normal lg:text-left  pt-[25%] lg:pt-[10%] text-balance lg:pb-12 '
+      titleClassname='text-balance !text-8xl lg:!text-9xl font-bold lg:font-normal w-full md:!text-8xl md:text-center  md:max-w-4/5 md:mx-auto lg:mx-0 lg:text-start lg:text-left'
+      className=' lg:font-normal lg:text-left md:pt-12 lg:pt-[10%] text-balance lg:pb-12 '
       id='main'>
       <div className='flex  flex-col h-full justify-around gap-12 w-full '>
-        <p className='leading-normal lg:max-w-4/5 text-pretty lg:text-5xl text-5xl md:text-7xl font-normal md:text-left text-center'>
+        <p className='leading-normal lg:max-w-4/5 text-pretty lg:text-5xl text-5xl md:text-6xl font-normal md:text-left text-center'>
           Центр Молодежной Робототехники - это инновационное пространство, предназначенное для
           обучения и развития молодых талантов в области робототехники, искусственного интеллекта и
           программирования. Наша миссия - предоставить молодежи возможность исследовать и создавать
@@ -32,7 +32,7 @@ const MainScreen = () => {
           себя мир будущего уже сегодня!
         </p>
         <div className='flex w-full justify-between items-center'>
-          <PrimaryButton className='w-full text-5xl md:text-7xl md:py-12' onClick={onClick}>
+          <PrimaryButton className='w-full text-5xl md:text-6xl md:py-6 ' onClick={onClick}>
             Подробнее
           </PrimaryButton>
           <div className='hidden lg:flex'>

@@ -6,8 +6,9 @@ export const useCountNewsItems = () => {
 
   const computeCount = useCallback(() => {
     if (typeof window === 'undefined') return 1;
-    const availableWidth = window.innerWidth;
-    return Math.max(1, Math.min(Math.floor(availableWidth / 354), 3));
+    const availableWidth = window.innerWidth - 100;
+    console.log(availableWidth);
+    return Math.max(1, Math.min(Math.floor(availableWidth / 370), 3));
   }, []);
 
   useEffect(() => {
