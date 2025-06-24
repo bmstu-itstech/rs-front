@@ -8,7 +8,6 @@ import ContactsCarousel from '@/features/ContactsCarousel';
 import React from 'react';
 
 const ContactsScreen = () => {
-  // console.log('Я загрузил contacts');
   const mobile = useIsMobile();
   return (
     <Container
