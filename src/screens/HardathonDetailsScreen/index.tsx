@@ -37,7 +37,7 @@ function HardathonDetailsScreen() {
       titleClassname='lg:!text-8xl !text-7xl mt-20 lg:mt-0'
       hasOrangeShadow>
       <div
-        className={`absolute lg:px-60  items-center lg:flex left-12 -translate-y-1/3 md:left-28 z-9999 cursor-pointer`}>
+        className={`absolute lg:left-60  items-center lg:flex left-12 top-12 w-fit md:left-28 z-9999 cursor-pointer`}>
         <ArrowButton direction='left' onClick={() => router.back()} />
       </div>
       <div className='relative flex flex-col lg:mt-20 lg:h-260 2xl:h-300 lg:flex-row gap-12 lg:gap-0 justify-center lg:justify-between items-stretch w-full'>
