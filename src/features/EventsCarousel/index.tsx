@@ -1,43 +1,30 @@
 'use client';
-import {useState, useCallback, useEffect, memo} from 'react';
+import {memo} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Event from './components/EventItem';
 import {ArrowButton} from '@/shared';
 import {NextPage} from 'next';
 import Props from './EventsCarousel.props';
+import { useDotButton } from '@/hooks/useDotButtons';
 
 const Carousel: NextPage<Props> = ({items}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
-  const [, setSelectedIndex] = useState(0);
-  const handleSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-  useEffect(() => {
-    if (!emblaApi) return;
-    handleSelect();
-    emblaApi.on('select', handleSelect);
-    emblaApi.on('pointerUp', handleSelect);
-    return () => {
-      emblaApi.off('select', handleSelect);
-      emblaApi.off('pointerUp', handleSelect);
-    };
-  }, [emblaApi, handleSelect]);
+  const {emblaDots} = useDotButton(emblaApi);
 
   return (
     <div className='embla h-full relative' ref={emblaRef}>
       <div className='embla__container h-full'>
-        {items.map((item, index) => (
+        {items.map((item) => (
           <div
             className='embla__slide max-w-[calc(100dvw-30rem)] min-h-[51vh] lg:!py-12 w-full h-full z-10  overflow-hidden'
-            key={index}
+            key={item.id}
             style={{
               backgroundImage: `url(${item.background_img})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>
             <div className='absolute -z-10 top-0 left-0 h-full w-full bg-black opacity-75' />
-            <div className='absolute top-1/2  left-0 hidden lg:block px-12 lg:px-60 '>
+            <div className='absolute top-1/2  left-0 hidden lg:block px-12 lg:px-20 cursor-pointer'>
               <ArrowButton
                 direction='left'
                 className='translate-x-1/2 cursor-pointer'
@@ -46,7 +33,7 @@ const Carousel: NextPage<Props> = ({items}) => {
                 }}
               />
             </div>
-            <div className='absolute top-1/2  right-0 hidden lg:block px-12 lg:px-60'>
+            <div className='absolute top-1/2  right-0 hidden lg:block px-12 lg:px-20 cursor-pointer'>
               <ArrowButton
                 direction='right'
                 className='-translate-x-1/2 cursor-pointer'

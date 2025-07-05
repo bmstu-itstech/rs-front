@@ -8,4 +8,5 @@ export default interface Props extends HTMLAttributes<HTMLDivElement> {
   hasOrangeShadow?: boolean;
   hasBg?: boolean;
   isDvh?: boolean;
+  objectFit?: 'cover' | 'fill';
 }

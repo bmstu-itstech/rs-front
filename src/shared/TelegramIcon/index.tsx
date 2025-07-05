@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Props } from './TelegramIcon.props';
 import src from '@/assets/icons/telegram.svg';
 
-const TelegramIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {
+const TelegramIcon: FC<Props> = ({className, ...props}) => {
   return (
     <Image
       src={src}
@@ -12,7 +12,6 @@ const TelegramIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {
       alt='TelegramIcon'
       width={29}
       height={30}
-      onClick={onClick}
     />
   );
 };

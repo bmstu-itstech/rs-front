@@ -17,7 +17,7 @@ const PrimaryButton: FC<Props> = ({
         bgFilled
           ? 'bg-main-orange hover:bg-white  hover:text-main-orange'
           : 'bg-transparent hover:bg-main-orange border-2 border-main-orange'
-      } py-5  lg:py-8 lg:px-34 rounded-6xl w-auto lg:w-fit cursor-pointer transition-colors duration-300 text-3xl lg:text-5xl  ${className}`}
+      } py-5  lg:py-8 lg:px-34 rounded-6xl w-auto lg:w-fit cursor-pointer transition-colors duration-300 text-5xl lg:text-5xl  ${className}`}
       {...props}
       onClick={onClick}>
       <p

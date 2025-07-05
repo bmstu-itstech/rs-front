@@ -8,5 +8,5 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   titleClassname?: string;
   background?: string;
   title: string;
-  onBecomeVisible: () => void;
+  objectFit?: 'cover' | 'fill';
 }

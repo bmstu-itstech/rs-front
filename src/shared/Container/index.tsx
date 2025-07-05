@@ -1,6 +1,5 @@
 'use client';
-import {FC, useEffect, useState} from 'react';
-import {useIsMobile} from '@/hooks';
+import {FC} from 'react';
 import {PageLayout} from '@/layouts/PageLayout';
 import {Props} from './Container.props';
 
@@ -11,50 +10,48 @@ const Container: FC<Props> = ({
   children,
   titleClassname,
   background,
+  objectFit,
   hasShadowBetween,
-  onBecomeVisible, // Колбек при появлении экрана
   ...props
 }) => {
-  const mobile = useIsMobile();
+  // const mobile = useIsMobile();
 
-  const [nextPreloaded, setNextPreloaded] = useState(false);
+  // const [nextPreloaded, setNextPreloaded] = useState(false);
 
-  useEffect(() => {
-    const element = document.getElementById(id);
-    if (!element) return;
+  // useEffect(() => {
+  //   const element = document.getElementById(id);
+  //   if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (!nextPreloaded) {
-            onBecomeVisible(); // Предзагрузка следующего экрана
-            setNextPreloaded(true);
-          }
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+          
 
-          requestAnimationFrame(() => {
-            if (id === 'main') {
-              window.scrollTo({top: 0, behavior: 'smooth'});
-            } else {
-              element.scrollIntoView({behavior: 'smooth', block: 'center'});
-            }
-          });
-        }
-      },
-      {threshold: 0},
-    );
+  //         // requestAnimationFrame(() => {
+  //         //   if (id === 'main') {
+  //         //     window.scrollTo({top: 0, behavior: 'smooth'});
+  //         //   } else {
+  //         //     element.scrollIntoView({behavior: 'smooth', block: 'center'});
+  //         //   }
+  //         // });
+  //       }
+  //     },
+  //     {threshold: 0},
+  //   );
 
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [id, mobile, onBecomeVisible, nextPreloaded]);
+  //   observer.observe(element);
+  //   return () => observer.disconnect();
+  // }, [id, mobile, onBecomeVisible, nextPreloaded]);
 
   return (
     <PageLayout
       id={id}
       title={title}
-      className={className}
+      className={`${className}`}
       hasShadowBetween={hasShadowBetween}
       titleClassname={titleClassname}
       background={background}
+      objectFit={objectFit}
       isDvh
       {...props}>
       {children}

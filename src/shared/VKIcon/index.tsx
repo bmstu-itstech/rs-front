@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Props } from './VKIcon.props';
 import src from '@/assets/icons/vk.svg';
 
-const VKIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {
+const VKIcon: FC<Props> = ({className, ...props}) => {
   return (
     <Image
       src={src}
@@ -12,7 +12,6 @@ const VKIcon: FC<Props> = ({onClick = () => {}, className, ...props}) => {
       alt='VKIcon'
       width={29}
       height={30}
-      onClick={onClick}
     />
   );
 };
