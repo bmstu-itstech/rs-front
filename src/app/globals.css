@@ -144,3 +144,19 @@ html {
 .navbar-outer .logo-outer {
   transition: opacity 0.3s;
 }
+
+@layer components {
+  .scrollbar {
+    scrollbar-width: thin;
+  }
+  .scrollbar::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 255, 0); /* Цвет бегунка */
+    border-radius: 0.5rem;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    background: rgb(255, 0, 0); /* Цвет трека */
+  }
+}

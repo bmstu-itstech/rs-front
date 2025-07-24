@@ -43,7 +43,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
             </div>
           </div>
         ));
-  }, [isLoading, items]);
+  }, [isLoading, groupedSlides, items]);
 
   return (
     <div className='w-full overflow-hidden pb-8 relative  h-full  carousel'>

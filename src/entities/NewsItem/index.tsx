@@ -22,7 +22,7 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
             backgroundImage: `url(${curPhoto})`,
           }}>
           <div className='h-full w-full bg-gradient-to-t from-main-orange-50 to-transparent from-10%' />
-          <p className='text-6xl absolute text-pretty text-center bottom-8 left-1/2 -translate-x-1/2 max-w-5/6 line-clamp-3'>
+          <p className='text-6xl absolute text-pretty text-center bottom-8 left-1/2 -translate-x-1/2 max-w-11/12 line-clamp-3'>
             {title}
           </p>
         </div>
@@ -42,10 +42,10 @@ const NewsItem: FC<Props> = ({title, content, href, image, caption}) => {
         height={500}
       />
       <div className='py-4 flex bg-main-orange justify-center h-fit'>
-        <p className='text-center uppercase max-w-5/6 text-4xl line-clamp-2'>{title}</p>
+        <p className='text-center uppercase max-w-11/12 text-4xl line-clamp-3'>{title}</p>
       </div>
       <div className='min-h-2/5 h-full p-4 flex flex-col'>
-        <p className='text-3xl overflow-y-auto whitespace-pre-wrap text-black [&::-webkit-scrollbar]:hidden [scrollbar-width:none]'>
+        <p className='text-3xl overflow-y-auto whitespace-pre-wrap text-black scrollbar'>
           {content}
         </p>
 
