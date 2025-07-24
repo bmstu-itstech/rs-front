@@ -22,7 +22,7 @@ const Event: FC<Props> = ({item, className, ...props}) => {
         className='py-10 text-5xl whitespace-pre-wrap shrink-0 overflow-ellipsis h-[min(60%,70rem)] lg:max-h-1/2 overflow-auto
           align-top  leading-normal font-normal  border-4 w-full lg:h-full
       flex justify-center border-main-orange px-4 text-pretty lg:px-0 text-center lg:text-start lg:border-0
-      rounded-4xl xl:text-5xl 2xl:text-5xl'>
+      rounded-4xl xl:text-5xl 2xl:text-5xl scrollbar'>
         {item.description}
       </p>
 

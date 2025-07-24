@@ -86,7 +86,7 @@ const Achievement = forwardRef<HTMLDivElement, Props>(
           <p className='lg:text-6xl md:text-6xl 2xl:text-7xl h-fit max-w-1/2 line-clamp-2'>
             {title}
           </p>
-          <p className='lg:text-4xl whitespace-pre-wrap md:text-2xl max-w-1/2 my-8 2xl:text-4xl flex-1 overflow-y-auto [scrollbar-width:0.2rem] '>
+          <p className='lg:text-4xl whitespace-pre-wrap md:text-2xl max-w-1/2 my-8 2xl:text-4xl flex-1 overflow-y-auto scrollbar '>
             {description}
           </p>
           <div className='flex h-fit gap-6 2xl:gap-14'>

@@ -11,7 +11,7 @@ const MainTitle: FC<Props> = ({children, className, ...props}) => {
       }`}
       {...props}>
       <p
-        className=' text-uppercase text-balance max-w-full font-bold text-7xl line-clamp-2 text-center
+        className=' text-uppercase text-balance max-w-full font-bold text-7xl line-clamp-3 text-center
       w-fit ms-auto lg:text-9xl 2xl:text-8xl lg:font-medium'>
         {children}
       </p>
