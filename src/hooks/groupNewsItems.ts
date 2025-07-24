@@ -1,7 +1,7 @@
 import type { INewsBit } from '@/domain/entities/news';
 import {useCallback, useState, useEffect} from 'react';
 
-export const useGroupNewsItems = (items: INewsBit[], itemsPerSlide: number) => {
+export const useGroupNewsItems = (items: INewsBit[] | undefined, itemsPerSlide: number) => {
   const [groupedItems, setGroupedItems] = useState<INewsBit[][]>([]);
 
   const createGroup = useCallback(<T>(arr: T[], count: number): T[][] => {

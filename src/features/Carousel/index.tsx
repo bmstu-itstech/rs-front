@@ -1,7 +1,7 @@
 'use client';
 
 import './style.css';
-import { memo, FC, useMemo} from 'react';
+import {memo, FC, useMemo} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import {INewsBit} from '@/domain/entities/news';
 import {NewsItem} from '@/entities';
@@ -18,7 +18,7 @@ interface CarouselProps {
 
 const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, align: 'center'});
-  const groupedSlides = useGroupNewsItems(items ?? [], itemsPerSlide);
+  const groupedSlides = useGroupNewsItems(items, itemsPerSlide);
   const {emblaDots} = useDotButton(emblaApi);
 
   const ItemsToShow = useMemo(() => {
@@ -43,7 +43,7 @@ const Carousel: FC<CarouselProps> = ({items, itemsPerSlide = 3, isLoading}) => {
             </div>
           </div>
         ));
-  }, [isLoading, groupedSlides, items]);
+  }, [isLoading, items]);
 
   return (
     <div className='w-full overflow-hidden pb-8 relative  h-full  carousel'>
