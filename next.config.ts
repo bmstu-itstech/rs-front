@@ -1,8 +1,20 @@
-import type {NextConfig} from 'next';
+const isDev = process.env.NODE_ENV === 'development';
 
-const nextConfig: NextConfig = {
+module.exports = {
   images: {
     remotePatterns: [
+      ...(isDev
+        ? [
+            {
+              protocol: 'http',
+              hostname: '127.0.0.1',
+            },
+            {
+              protocol: 'http',
+              hostname: 'localhost',
+            },
+          ]
+        : []),
       {
         protocol: 'http',
         hostname: '91.135.156.15',
@@ -34,8 +46,5 @@ const nextConfig: NextConfig = {
         pathname: '/api/v0/**',
       },
     ],
-    unoptimized: false,
   },
 };
-
-export default nextConfig;
