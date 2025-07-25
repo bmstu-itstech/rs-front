@@ -37,7 +37,7 @@ export const OffcanvasMenu: FC<Props> = ({className}) => {
             );
           })}
         </ul>
-        <div className='h-[calc(75%+0.5rem)] self-center max-h-full w-2 bg-white rounded-l-none rounded-2xl grow'></div>
+        <div className='h-[calc(66.6%+0.5rem)] self-center max-h-full w-2 bg-white rounded-l-none rounded-2xl grow'></div>
       </nav>
     );
   };

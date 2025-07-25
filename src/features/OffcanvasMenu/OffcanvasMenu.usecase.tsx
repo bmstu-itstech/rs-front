@@ -9,13 +9,13 @@ export const MenuUsecase = [
     title: 'Мероприятия',
     href: '/events',
   },
+  // {
+  //   id: '3',
+  //   title: 'Хардатон',
+  //   href: '/hardathons',
+  // },
   {
     id: '3',
-    title: 'Хардатон',
-    href: '/hardathons',
-  },
-  {
-    id: '4',
     title: 'Партнёры',
     href: '/partners',
   },
