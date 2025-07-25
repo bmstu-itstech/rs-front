@@ -5,26 +5,37 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 'localhost',
+        hostname: '91.135.156.15',
         port: '',
-        pathname: '/**',
+        pathname: '/media/**',
       },
-{
-        protocol: 'http',
-        hostname: '127.0.0.1',
-        port: '',
-        pathname: '/**',
-      },
-{
+      {
         protocol: 'http',
         hostname: '91.135.156.15',
         port: '',
-        pathname: '/**',
+        pathname: '/mock/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '91.135.156.15',
+        port: '',
+        pathname: '/icons/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '91.135.156.15',
+        port: '',
+        pathname: '/logo/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '91.135.156.15',
+        port: '',
+        pathname: '/api/v0/**',
       },
     ],
-    unoptimized: true,
+    unoptimized: false,
   },
 };
 
 export default nextConfig;
-
