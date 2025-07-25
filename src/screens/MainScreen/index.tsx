@@ -15,7 +15,7 @@ const MainScreen = () => {
       // titleClassname='text-balance !text-8xl lg:!text-9xl font-bold lg:font-normal w-full md:!text-8xl md:text-center  md:max-w-4/5 md:mx-auto lg:mx-0 lg:text-start lg:text-left'
       className=' lg:font-normal lg:text-left md:pt-12 lg:pt-[10%] text-balance lg:pb-12 '
       id='main'>
-      <div className='flex flex-col  h-full justify-center lg:ustify-between items-center w-full '>
+      <div className='flex flex-col  h-full justify-center lg:justify-between items-center w-full '>
         <h1 className='w-fit  flex flex-col text-center'>
           <span
             style={{animationDelay: '0s'}}
