@@ -23,6 +23,7 @@
   --leading-normal: 1.2;
 
   --animate-appear: appear 0.2s ease-in forwards;
+  --animate-appearUp: 1.5s appearUp ease-in both;
   --animate-disappear: disappear 0.3s ease-in forwards;
   --animate-text-coloring: 2s textColoring var(--anim-delay) ease-in-out forwards;
   --animate-text-coloring-highlighted: 2s textColoringHighlighted var(--anim-delay) ease-in-out
@@ -36,6 +37,17 @@
   }
   100% {
     transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes appearUp {
+  0% {
+    transform: translateY(-300%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
     opacity: 1;
   }
 }
