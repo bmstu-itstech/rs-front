@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 @theme {
+  --color-logo-orange: #f0560f;
   --color-main-orange: #c13100;
-  --color-main-orange-50: rgba(193, 49, 0, 0.5);
+  --color-main-orange-50: #c1310050;
 
   --radius-6xl: 6rem;
   --radius-3rxl: 3rem;
@@ -13,12 +14,19 @@
   --height-22r: 22rem;
 
   --text-9rxl: 9rem;
+  --text-8rxl: 8rem;
+  --text-5rxl: 5rem;
   --text-4-5xl: 2.6rem;
+
+  --anim-delay: 0.5s;
 
   --leading-normal: 1.2;
 
   --animate-appear: appear 0.2s ease-in forwards;
   --animate-disappear: disappear 0.3s ease-in forwards;
+  --animate-text-coloring: 2s textColoring var(--anim-delay) ease-in-out forwards;
+  --animate-text-coloring-highlighted: 2s textColoringHighlighted var(--anim-delay) ease-in-out
+    forwards;
 }
 
 @keyframes appear {
@@ -40,6 +48,32 @@
   100% {
     transform: translateX(150%);
     opacity: 0;
+  }
+}
+
+@keyframes textColoring {
+  0% {
+    color: rgb(255, 255, 255);
+  }
+  50% {
+    color: var(--color-logo-orange);
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+
+@keyframes textColoringHighlighted {
+  0% {
+    color: rgb(255, 255, 255);
+  }
+  50% {
+    color: var(--color-logo-orange);
+  }
+
+  100% {
+    color: var(--color-logo-orange);
   }
 }
 

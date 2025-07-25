@@ -7,6 +7,6 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   hasShadowBetween?: boolean;
   titleClassname?: string;
   background?: string;
-  title: string;
+  title?: string;
   objectFit?: 'cover' | 'fill';
 }
