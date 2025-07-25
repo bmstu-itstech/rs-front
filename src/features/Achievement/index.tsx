@@ -66,7 +66,7 @@ const Achievement = forwardRef<HTMLDivElement, Props>(
           onMouseLeave={() => setHovered(false)}
           onClick={onClick}>
           <div className='bg-gradient-to-b from-[rgba(0,0,0,0.5)] hover:from-main-orange-50 hover:to-main-orange-50 to-transparent from-52% h-full w-full absolute'></div>
-          <p className='text-center max-w-9/10 z-10 text-pretty line-clamp-3 transition-all align-middle text-4xl lg:text-5xl uppercase'>
+          <p className='text-center pointer-events-none max-w-9/10 z-10 text-pretty line-clamp-3 transition-all align-middle text-4xl lg:text-5xl uppercase'>
             {hovered ? 'Подробнее' : title}
           </p>
         </div>
