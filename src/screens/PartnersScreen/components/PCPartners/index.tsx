@@ -26,6 +26,8 @@ export const PCPartners: FC<IPCPartners> = ({data, isLoading, router}) => {
           <PCPartnersSkeleton />
           <PCPartnersSkeleton />
           <PCPartnersSkeleton />
+          <PCPartnersSkeleton />
+          <PCPartnersSkeleton />
         </>
       ) : (
         data.results.map(item => (

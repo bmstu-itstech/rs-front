@@ -2,7 +2,7 @@ export const PCPartnersSkeleton = () => {
   return (
     <div
       role='status'
-      className='space-y-7 lg:min-w-1/4 min-w-1/2  lg:min-h-1/2 aspect-square w-full rounded-3rxl lg:h-full h-96   max-w-1/4 max-h-1/2   items-center justify-center animate-pulse flex bg-gray-200'>
+      className='space-y-7 aspect-square md:size-78 size-96 xl:size-96 rounded-2xl  items-center justify-center animate-pulse flex bg-gray-200'>
       <svg
         className='w-full max-w-1/2 lg:max-w-full aspect-square h-1/2 text-gray-300'
         aria-hidden='true'

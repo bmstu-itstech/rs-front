@@ -17,7 +17,7 @@ const PartnersScreen: FC<Props> = () => {
 
   return (
     <PageLayout title='Партнёры'>
-      {data ? <PCPartners data={data} router={router} isLoading={isLoading} /> : <></>}
+      <PCPartners data={data} router={router} isLoading={isLoading} />
     </PageLayout>
   );
 };

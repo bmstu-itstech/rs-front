@@ -5,7 +5,7 @@ import type { HTMLAttributes } from 'react';
 export type Props = HTMLAttributes<HTMLDivElement>;
 
 export interface IPCPartners {
-  data: IPartners;
+  data: IPartners | undefined;
   router: AppRouterInstance;
   isLoading: boolean;
 }
