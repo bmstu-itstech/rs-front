@@ -33,7 +33,7 @@ export const PCPartners: FC<IPCPartners> = ({data, isLoading, router}) => {
         data.results.map(item => (
           <div className='' key={item.id}>
             <Image
-              className='rounded-3rxl w-full h-full  mx-auto aspect-square object-cover object-center cursor-pointer '
+              className='rounded-3rxl w-full h-full mx-auto aspect-square object-contain object-center cursor-pointer '
               src={item.logo ?? no_photo.src}
               onClick={() => onClick(item)}
               width={1200}
