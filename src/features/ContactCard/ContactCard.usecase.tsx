@@ -11,7 +11,7 @@ export const data: Idata[][] = [
   [
     {
       title: 'Телефон',
-      value: '+7 (800) 555-35-35',
+      value: '+7 (906) 568-96-73',
     },
     {
       title: 'Email',

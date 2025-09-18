@@ -22,11 +22,6 @@ export const data: LogoListBit[] = [
   },
   {
     href: '/',
-    src: '/logo/crown.svg',
-    alt: 'logo of company',
-  },
-  {
-    href: '/',
     src: '/logo/rs.svg',
     alt: 'logo of robotics center',
   },
