@@ -20,6 +20,10 @@ function createGroup<T>(arr: T[], count: number): T[][] {
     return result;
 }
 
+const isEvent = (item: IEvent | INews): item is IEvent => {
+    return 'mentions' in item;
+};
+
 interface CarouselProps {
     items: IEvent[] | INews[],
     itemsPerSlide: number;
@@ -31,7 +35,7 @@ const Carousel: NextPage<CarouselProps> = ({items, itemsPerSlide = 3}) => {
     const mobile = useIsMobile();
 
     const groupedSlides = useMemo(() => {
-        return createGroup(items, itemsPerSlide);
+        return createGroup(items as (IEvent | INews)[], itemsPerSlide);
     }, [items, itemsPerSlide]);
 
 
@@ -57,6 +61,10 @@ const Carousel: NextPage<CarouselProps> = ({items, itemsPerSlide = 3}) => {
         emblaApi.scrollTo(index);
     }
 
+    const isEventsType = useMemo(() => {
+        return items.length > 0 && isEvent(items[0]);
+    }, [items]);
+
     if (!items.length) return null;
     return (
         <div className="carousel events-carousel">
@@ -65,14 +73,16 @@ const Carousel: NextPage<CarouselProps> = ({items, itemsPerSlide = 3}) => {
                     {groupedSlides.map((slideGroup, index) => (
                         <div className="embla__slide" key={index}>
                             <div className="embla__slide-container" style={{width: "75vw"}}>
-                                {"mentions" in slideGroup[0] ?
-                                    slideGroup.map((slide) => (
+                                {isEventsType ?
+                                    (slideGroup as IEvent[]).map((slide) => (
                                         <div className="event-container" key={slide.id}>
                                             <Event {...slide} />
                                         </div>
                                     ))
                                     :
-                                    slideGroup.map((slide, idx) => <NewsItem {...slide} key={idx}/>)
+                                    (slideGroup as INews[]).map((slide) => (
+                                        <NewsItem {...slide} key={slide.id} />
+                                    ))
                                 }
                             </div>
                         </div>
