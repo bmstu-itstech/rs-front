@@ -1,23 +1,25 @@
-FROM node:18-alpine AS builder
+FROM node:22.16-alpine AS dependencies
 
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+
+COPY package*.json ./
+
+RUN npm install
+
+FROM node:22.16-alpine AS builder
+WORKDIR /app
 COPY . .
-RUN npm run build --production
+COPY --from=dependencies /app/node_modules ./node_modules
+RUN npx next build
 
-FROM node:18-alpine AS runner
+FROM node:22.16-alpine AS runner
 WORKDIR /app
-
 ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
 
-COPY --from=builder /app/package.json .
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/next.config.ts .
-COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
-CMD ["npm", "run", "start"]
-
+CMD ["npx", "next", "start"]
