@@ -1,15 +1,20 @@
 FROM node:22.16-alpine AS dependencies
-
 WORKDIR /app
-
 COPY package*.json ./
-
 RUN npm install
 
 FROM node:22.16-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
+
+
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_CAN_SEND_MESSAGES=true
+ENV CORS_ORIGIN_ALLOW_ALL=true
+
+
 RUN npx next build
 
 FROM node:22.16-alpine AS runner
