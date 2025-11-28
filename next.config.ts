@@ -1,11 +1,6 @@
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-    env: {
-        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-        NEXT_PUBLIC_CAN_SEND_MESSAGES: process.env.NEXT_PUBLIC_CAN_SEND_MESSAGES,
-        CORS_ORIGIN_ALLOW_ALL: process.env.CORS_ORIGIN_ALLOW_ALL,
-    },
     images: {
         remotePatterns: [
             ...(isDev
